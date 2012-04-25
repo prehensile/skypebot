@@ -1,0 +1,20 @@
+A proof-of-concept Skype chatbot.
+
+REQUIRES: Skype4Py Python module: 'easy_install skype4py'
+	  Skype desktop application from
+
+Tested on Ubuntu 10.04.
+
+TO RUN:
+Since Skype4Py requires a running instance of the dektop client, you'll need to
+be running an X session of some sort.
+
+1) Start up Skype & login to an account. This will be the bot's voice.
+2) Open a console window and run 'python skypebot.py'
+
+Volia!  
+
+	
+
+
+
