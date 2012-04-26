@@ -6,13 +6,20 @@ class DrinkCommand(object):
 	def __init__(self):
 		
 		self.templates = [ 	Template("begrudgingly serves $name $drink."),
-					Template("ostentatiously prepares $name $drink and pockets the change."),
-					Template("fills up $drink for $name from the drips tray.") ]
+							Template("ostentatiously prepares $name $drink and pockets the change."),
+							Template("eyeballs $name for a moment, then shoves $drink across the bar."),
+							Template("fills up $drink for $name from the drips tray."),
+							Template("waves his hands and $drink appears in front of $name in a puff of sulphurous smoke."),
+							Template("extrudes a pseudopod in the direction of $name, bearing $drink."),
+							Template("clamly explains to $name that $drink was always there, and vanishes.")
+							]
 		
 		self.pre_modifiers = [ "half a",
 				   "a stingy",
 				   "a watery",
-				   "a cloudy" ]				
+				   "a cloudy",
+				   "a glitchy",
+				   "the opposite of a" ]				
 		
 		self.drinks = [ "Beer",
 			"Ale",

@@ -1,19 +1,20 @@
 import Skype4Py
 import time
 import commands
+import datetime
 
 class ChatHandler(object):
 	
 	def __init__( self, Chat ):
 		self.chat = Chat
-		self.last_timestamp = None
+		self.last_timestamp = datetime.datetime.now()
 
 	def update( self ):
 		new_messages = []
 		messages = self.chat.RecentMessages
 		for message in messages:
 			dt = message.Datetime
-			if (self.last_timestamp is None) or (dt>self.last_timestamp):
+			if dt > self.last_timestamp:
 				new_messages.append( message )
 				self.last_timestamp = dt
 		return new_messages
