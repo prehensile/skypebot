@@ -11,7 +11,7 @@ class DrinkCommand(object):
 							Template("fills up $drink for $name from the drips tray."),
 							Template("waves his hands and $drink appears in front of $name in a puff of sulphurous smoke."),
 							Template("extrudes a pseudopod in the direction of $name, bearing $drink."),
-							Template("clamly explains to $name that $drink was always there, and vanishes.")
+							Template("calmly explains to $name that $drink was always there, and vanishes.")
 							]
 		
 		self.pre_modifiers = [ "half a",
