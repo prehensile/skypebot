@@ -10,6 +10,7 @@ class ChatHandler(object):
 		self.last_timestamp = datetime.datetime.now()
 
 	def update( self ):
+		ts = datetime.datetime.now()
 		new_messages = []
 		messages = self.chat.RecentMessages
 		for message in messages:
