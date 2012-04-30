@@ -28,7 +28,7 @@ def main():
 
 	command_mappings = {}
 	command_mappings[ "drink" ] = drinkcommand.DrinkCommand()
-	command_mappings[ "wet" ] = wetcommand.WetCommand()
+	command_mappings[ "w3t" ] = wetcommand.WetCommand()
 
 	while 1:
 		# maintain list of chats
@@ -36,6 +36,7 @@ def main():
 		for chat in chats:
 			chat_name = chat.Name
 			if chat_name not in chat_handlers:
+				print "New handler for chat: %s" % chat.FriendlyName
 				chat_handlers[chat_name] = ChatHandler(chat)
 		# TODO: clear defunct chats
 		
@@ -43,22 +44,19 @@ def main():
 		for chat_name in chat_handlers:
 			chat_handler = chat_handlers[ chat_name ]
 			new_messages = chat_handler.update()
+			if len(new_messages)> 0:
+				print "New messages in chat: %s" % chat_handler.chat.FriendlyName
 			for message in new_messages:
 				body = message.Body
 				print body
-				if body.startswith("!"):
-					idx = 0
-					try:
-						idx = body.index(" ")
-					except ValueError,e:
-						idx = len(body)
-					commandstring = body[1:idx]
-					if commandstring in command_mappings:
+				for commandstring in command_mappings:
+					if "!" + commandstring in body.lower():
 						command = command_mappings[ commandstring ]
 						message_out = command.execute( message )
 						if message_out is not None:
 							chat_handler.chat.SendMessage( message_out )
 					
 		time.sleep( 1 )
+
 
 main()
