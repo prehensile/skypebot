@@ -1,6 +1,6 @@
 import Skype4Py
 import time
-import commands
+from commands import drinkcommand, wetcommand
 import datetime
 
 class ChatHandler(object):
@@ -27,7 +27,8 @@ def main():
 	chat_handlers = {}
 
 	command_mappings = {}
-	command_mappings[ "drink" ] = commands.DrinkCommand()
+	command_mappings[ "drink" ] = drinkcommand.DrinkCommand()
+	command_mappings[ "wet" ] = wetcommand.WetCommand()
 
 	while 1:
 		# maintain list of chats
@@ -44,6 +45,7 @@ def main():
 			new_messages = chat_handler.update()
 			for message in new_messages:
 				body = message.Body
+				print body
 				if body.startswith("!"):
 					idx = 0
 					try:
