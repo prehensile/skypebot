@@ -31,6 +31,7 @@ def main():
 	command_mappings[ "drink" ] = drinkcommand.DrinkCommand()
 	command_mappings[ "w3t" ] = wetcommand.WetCommand()
 	command_mappings[ "bacon" ] = baconcommand.BaconCommand()
+	command_mappings[ "snack" ] = snackcommand.SnackCommand()
 
 	while 1:
 		# maintain list of chats
