@@ -7,8 +7,7 @@ class SnackCommand(object):
 
 		self.templates = [ 	Template("begrudgingly serves $name $snack."),
 							Template("ostentatiously prepares $name $snack and pockets the change."),
-							Template("eyeballs $name for a moment, then shoves $snack across the bar."),
-														]
+							Template("eyeballs $name for a moment, then shoves $snack across the bar.") ]
 
 		self.pre_modifiers = [ "a perfect",
 				   "a stingy",
@@ -17,7 +16,7 @@ class SnackCommand(object):
 				   "a glitchy",
 				   "a cheap" ]				
 
-		self.drinks = [ "Bacon Roll",
+		self.snacks = [ "Bacon Roll",
 			"Packet of Crisps",
 			"Bag of Nuts",
 			"Mars Bar",
@@ -26,16 +25,14 @@ class SnackCommand(object):
 			"Milky Way",
 			"Sausage Cob with Brown Sauce",
 			"Pretzel",
-			"Bowl of Wasabi Nuts ]
+			"Bowl of Wasabi Nuts" ]
 
 	def execute( self, message ):
-		drink = random.choice( self.drinks )
+		snack = random.choice( self.snacks )
 		pre_modifier = random.choice( self.pre_modifiers )
-		if(pre_modifier[-1].lower() == 'a') and (drink[:1].lower()=='a'):
-			pre_modifier += "n"
-		drink = "%s %s" % (pre_modifier, drink)
+		snack = "%s %s" % (pre_modifier, snack)
 		name = message.FromDisplayName
 		template = random.choice( self.templates )
-		message_out = template.substitute(name=name, drink=drink)
+		message_out = template.substitute(name=name, snack=snack)
 		return "/me %s" % message_out
 

@@ -1,6 +1,6 @@
 import Skype4Py
 import time
-from commands import drinkcommand, wetcommand, baconcommand
+from commands import drinkcommand, wetcommand, baconcommand, snackcommand
 import datetime
 
 class ChatHandler(object):
