@@ -1,6 +1,6 @@
 import Skype4Py
 import time
-from commands import drinkcommand, wetcommand
+from commands import drinkcommand, wetcommand, baconcommand
 import datetime
 
 class ChatHandler(object):
@@ -30,6 +30,7 @@ def main():
 	command_mappings = {}
 	command_mappings[ "drink" ] = drinkcommand.DrinkCommand()
 	command_mappings[ "w3t" ] = wetcommand.WetCommand()
+	command_mappings[ "bacon" ] = baconcommand.BaconCommand()
 
 	while 1:
 		# maintain list of chats
