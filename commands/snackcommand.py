@@ -10,18 +10,23 @@ class SnackCommand(object):
 							Template("eyeballs $name for a moment, then shoves $snack across the bar."),
 														]
 
-		self.pre_modifiers = [ "a big bag of",
+		self.pre_modifiers = [ "a perfect",
 				   "a stingy",
-				   "old",
-				   "fresh",
+				   "an old",
+				   "a fresh",
 				   "a glitchy",
-				   "cheap" ]				
+				   "a cheap" ]				
 
 		self.drinks = [ "Bacon Roll",
-			"Crisps",
-			"Nuts",
-			"Pretzels",
-			"Wasabi Nuts ]
+			"Packet of Crisps",
+			"Bag of Nuts",
+			"Mars Bar",
+			"Snickers",
+			"Marathan",
+			"Milky Way",
+			"Sausage Cob with Brown Sauce",
+			"Pretzel",
+			"Bowl of Wasabi Nuts ]
 
 	def execute( self, message ):
 		drink = random.choice( self.drinks )
