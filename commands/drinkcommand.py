@@ -25,7 +25,7 @@ class DrinkCommand(object):
 			"Ale",
 			"Barleywine",
 			"Bloody Mary",
-			"Delerium Tremens",
+			"Delirium Tremens",
 			"Bitter ale",
 			"Mild ale",
 			"Pale ale",
