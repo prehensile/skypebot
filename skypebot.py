@@ -1,6 +1,7 @@
 import Skype4Py
 import time
-from commands import drinkcommand, wetcommand, baconcommand, snackcommand
+from commands import drinkcommand, wetcommand, baconcommand, snackcommand, \
+cheesecommand
 import datetime
 
 class ChatHandler(object):
@@ -10,7 +11,6 @@ class ChatHandler(object):
 		self.last_timestamp = datetime.datetime.now()
 
 	def update( self ):
-		ts = datetime.datetime.now()
 		new_messages = []
 		messages = self.chat.RecentMessages
 		for message in messages:
@@ -32,6 +32,7 @@ def main():
 	command_mappings[ "w3t" ] = wetcommand.WetCommand()
 	command_mappings[ "bacon" ] = baconcommand.BaconCommand()
 	command_mappings[ "snack" ] = snackcommand.SnackCommand()
+	command_mappings[ "cheese" ] = cheesecommand.CheeseCommand()
 
 	while 1:
 		# maintain list of chats
