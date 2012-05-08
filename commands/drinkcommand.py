@@ -24,6 +24,8 @@ class DrinkCommand(object):
 		self.drinks = [ "Beer",
 			"Ale",
 			"Barleywine",
+			"Bloody Mary",
+			"Delirium Tremens",
 			"Bitter ale",
 			"Mild ale",
 			"Pale ale",
