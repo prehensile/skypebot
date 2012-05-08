@@ -1,3 +1,5 @@
+# coding=UTF-8
+
 from string import Template
 import random
 
@@ -5,7 +7,7 @@ class CheeseCommand(object):
 
 	def __init__(self):
 
-		self.templates = [ 	Template("begrudgingly serves $name $snack."),
+		self.templates = [ 	Template("begrudgingly serves $name $cheese."),
 							Template("slices up some $cheese with the wrong end of the knife. Punts it to $name."),
 							Template("fists a pile of $cheese and smears it on a napkin. Teases $name with it."),
 							Template("breaks out a new packet of $cheese. Thinks it's too good for $name, puts it away."),
@@ -20,7 +22,7 @@ class CheeseCommand(object):
 							Template("empties his pockets, and a musty lump of $cheese falls out. $name snaffles it up."),
 							Template("peels back the wax paper from the $cheese. Powers it across the bar to $name.") ]
 
-		self.snacks = [ "Bath Blue",
+		self.cheeses = [ "Bath Blue",
 			"Barkham Blue",
 			"Blue Monday",
 			"Buxton Blue",
@@ -140,7 +142,7 @@ class CheeseCommand(object):
 			"Y Fenni", ]
 
 	def execute( self, message ):
-		cheese = random.choice( self.cheese )
+		cheese = random.choice( self.cheeses )
 		name = message.FromDisplayName
 		template = random.choice( self.templates )
 		message_out = template.substitute(name=name, cheese=cheese)
