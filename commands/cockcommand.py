@@ -7,7 +7,7 @@ class CockCommand(object):
 
 	def __init__(self):
 
-		self.templates = [ 	Template("magnificently glicthes $name $drink all over Gregory Povey who now looks peeved. #time #cock"),
+		self.templates = [ 	Template("magnificently glitches $name $drink all over Gregory Povey who now looks peeved. #time #cock"),
 							Template("admirably reminds $name that Jon Ronson has passed away and tips $drink over Marcus Brown's head. #time #cock"),
 							Template("tickles $name under the chin before making a rude joke about David Bausola. He then gives everyone in the bar $drink. #time #cock"),
 							Template("fills up $drink for $name from the drips tray."),
