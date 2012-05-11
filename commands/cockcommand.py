@@ -10,7 +10,7 @@ class CockCommand(object):
 		self.templates = [ 	Template("magnificently glitches $name $drink all over Gregory Povey who now looks peeved. #time #cock"),
 							Template("admirably reminds $name that Jon Ronson has passed away and tips $drink over Marcus Brown's head. #time #cock"),
 							Template("tickles $name under the chin before making a rude joke about David Bausola. He then gives everyone in the bar $drink. #time #cock"),
-							Template("fills up $drink for $name from the drips tray."),
+							Template("weeps."),
 							]
 
 		self.pre_modifiers = [ "half a",
@@ -23,7 +23,7 @@ class CockCommand(object):
 		self.drinks = [ "Jon_Ronson",
 			"Jon R0n50n",
 			"j0n r0n5on",
-			"Nothing" ]
+			"nothing" ]
 
 	def execute( self, message ):
 		drink = random.choice( self.drinks )
