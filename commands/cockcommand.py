@@ -1,3 +1,5 @@
+# coding=UTF-8
+
 from string import Template
 import random
 
@@ -20,7 +22,7 @@ class CockCommand(object):
 
 		self.drinks = [ "Jon_Ronson",
 			"Jon R0n50n",
-			"j0n r0n§on",
+			"j0n r0n5on",
 			"Nothing" ]
 
 	def execute( self, message ):
