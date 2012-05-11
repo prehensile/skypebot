@@ -17,15 +17,17 @@ class SnackCommand(object):
 				   "a cheap" ]				
 
 		self.snacks = [ "Bacon Roll",
-			"Packet of Crisps",
-			"Bag of Nuts",
+			"packet of Crisps",
+			"bag of Nuts",
 			"Mars Bar",
 			"Snickers",
 			"Marathan",
 			"Milky Way",
 			"Sausage Cob with Brown Sauce",
 			"Pretzel",
-			"Bowl of Wasabi Nuts" ]
+			"packet of Scampi Fries",
+			"Bowl of Wasabi Nuts",
+			"Curly Wurly"]
 
 	def execute( self, message ):
 		snack = random.choice( self.snacks )
