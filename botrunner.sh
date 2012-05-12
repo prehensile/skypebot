@@ -8,7 +8,7 @@ do
 	then
 		echo Updating...	
 		git pull
-		sleep 10
+		sleep 15
 	else
 		echo Exit.
 		break

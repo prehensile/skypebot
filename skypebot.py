@@ -64,7 +64,6 @@ class BotRunner( object ):
 			skype.Attach()
 		
 		_run = True
-		first_run = True
 		while _run:
 			try:
 				if RUN_SKYPE:
@@ -75,12 +74,14 @@ class BotRunner( object ):
 						if chat_name not in self.chat_handlers:
 							print "New handler for chat: %s" % chat.FriendlyName
 							self.chat_handlers[chat_name] = ChatHandler(chat)
-							if first_run is True:
+							try:
 								chat.SendMessage("/me appears a split nanosecond after his ratty carpet slippers do.")
+							except Exception, e:
+								logging.info( e )
+								print e
+
 					# TODO: clear defunct chats
 					
-					first_run = False
-
 					# update chats
 					for chat_name in self.chat_handlers:
 						chat_handler = self.chat_handlers[ chat_name ]
