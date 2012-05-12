@@ -1,7 +1,7 @@
 import Skype4Py
 import time
 from commands import drinkcommand, wetcommand, baconcommand, snackcommand, \
-cheesecommand, cockcommand
+cheesecommand, cockcommand, smokecommand, chooncommand, tvcommand
 import datetime
 import json
 import Queue
@@ -46,7 +46,7 @@ class BotRunner( object ):
 		command_mappings[ "cheese" ] = cheesecommand.CheeseCommand()
 		command_mappings[ "cock" ] = cockcommand.CockCommand()
 		command_mappings[ "choon" ] = chooncommand.ChoonCommand()
-		command_mappings[ "smoke" ] = chooncommand.SmokeCommand()
+		command_mappings[ "smoke" ] = smokecommand.SmokeCommand()
 		command_mappings[ "tv" ] = tvcommand.TVCommand()
 
 		if RUN_SKYPE:
