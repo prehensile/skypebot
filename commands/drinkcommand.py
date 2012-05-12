@@ -46,6 +46,7 @@ class DrinkCommand(object):
 			"Witbier White Beer",
 			"Hefeweizen",
 			"Cauim",
+			"Four Roses Bourbon"
 			"Chicha",
 			"Cider",
 			"Huangjiu",
@@ -95,6 +96,8 @@ class DrinkCommand(object):
 			"Rakia",
 			"Slivovitz",
 			"Rum",
+			"hot chocolate"
+			"PG Tips"
 			"Soju",
 			"Tequila",
 			"Vodka",
