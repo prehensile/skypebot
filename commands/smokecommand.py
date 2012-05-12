@@ -14,6 +14,7 @@ class SmokeCommand(object):
 							Template("walks into the humador andbrings out $smoke"),
 							Template("reaches under the counter and brings out $smoke"),
 							Template("reaches over to $name and lights"),
+							Template("(smoking)"),					
 							Template("eyeballs $name for a moment, then gingerly hands $smoke across the bar.") ]
 
 		self.pre_modifiers = [ "an ancient",
@@ -22,9 +23,11 @@ class SmokeCommand(object):
 				   "a fresh",
 				   "a glitchy",
 				   "a smoldering",
-				   "a cheap" ]				
+				   "an exquisite",
+				   "a hand rolled",
+				   "a cheap"]				
 
-		self.smoke = [ "pack of Marlboros",
+		self.smoke = [ "pack of Marlboros (smoking)",
 			"Tesco value cigar",
 			"pipe full of herbal voodoo",
 			"bong packed with oddly smelling green tabacco",

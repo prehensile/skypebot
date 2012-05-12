@@ -35,7 +35,7 @@ def main():
 	command_mappings[ "cheese" ] = cheesecommand.CheeseCommand()
 	command_mappings[ "cock" ] = cockcommand.CockCommand()
 	command_mappings[ "choon" ] = chooncommand.ChoonCommand()
-	command_mappings[ "smoke" ] = chooncommand.ChoonCommand()
+	command_mappings[ "smoke" ] = chooncommand.SmokeCommand()
 
 
 	while 1:
