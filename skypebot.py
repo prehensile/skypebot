@@ -7,6 +7,7 @@ import json
 import Queue
 from hookserver import HookServerMessage, HookServerThread
 import sys
+import logging
 
 class ChatHandler(object):
 	
@@ -24,9 +25,18 @@ class ChatHandler(object):
 				self.last_timestamp = dt
 		return new_messages
 
-RUN_SKYPE=False
+RUN_SKYPE=True
 class BotRunner( object ):
 	
+	def message_all( self, message ):
+	# send message to all connected chats	
+		for chat_name in self.chat_handlers:
+			chat_handler = self.chat_handlers[ chat_name ]
+			try:
+				chat_handler.chat.SendMessage( message )
+			except Exception, e:
+				logging.info( e )
+
 	def run( self ):
 
 		return_code = 0
@@ -37,7 +47,7 @@ class BotRunner( object ):
 		hook_server.queue = queue
 		hook_server.start()
 
-		chat_handlers = {}
+		self.chat_handlers = {}
 		command_mappings = {}
 		command_mappings[ "drink" ] = drinkcommand.DrinkCommand()
 		command_mappings[ "w3t" ] = wetcommand.WetCommand()
@@ -52,57 +62,77 @@ class BotRunner( object ):
 		if RUN_SKYPE:
 			skype = Skype4Py.Skype(Transport='x11')
 			skype.Attach()
-		try:
-			_run = True
-			while _run:
+		
+		_run = True
+		first_run = True
+		while _run:
+			try:
 				if RUN_SKYPE:
 					# maintain list of chats
 					chats = skype.Chats
 					for chat in chats:
 						chat_name = chat.Name
-						if chat_name not in chat_handlers:
+						if chat_name not in self.chat_handlers:
 							print "New handler for chat: %s" % chat.FriendlyName
-							chat_handlers[chat_name] = ChatHandler(chat)
+							self.chat_handlers[chat_name] = ChatHandler(chat)
+							if first_run is True:
+								chat.SendMessage("/me appears a split nanosecond after his ratty carpet slippers do.")
 					# TODO: clear defunct chats
 					
+					first_run = False
+
 					# update chats
-					for chat_name in chat_handlers:
-						chat_handler = chat_handlers[ chat_name ]
+					for chat_name in self.chat_handlers:
+						chat_handler = self.chat_handlers[ chat_name ]
 						new_messages = chat_handler.update()
 						if len(new_messages)> 0:
 							print "New messages in chat: %s" % chat_handler.chat.FriendlyName
-						for message in new_messages:
-							body = message.Body
+						for new_message in new_messages:
+							body = new_message.Body
 							print body
-							for commandstring in command_mappings:
-								if "!" + commandstring in body.lower():
-									command = command_mappings[ commandstring ]
-									message_out = command.execute( message )
-									if message_out is not None:
-										chat_handler.chat.SendMessage( message_out )
+							try:
+								for commandstring in command_mappings:
+									if "!" + commandstring in body.lower():
+										command = command_mappings[ commandstring ]
+										message_out = command.execute( new_message )
+										if message_out is not None:
+											chat_handler.chat.SendMessage( message_out )
+							except Exception, e:
+								logging.info( e )
+								print e
 				
 				# check for updates from the HTTP server thread
-				message = None
+				hook_message = None
 				try:
-					message = queue.get( False )
+					hook_message = queue.get( False )
 				except Queue.Empty:
 					pass
 
-				if message is not None:
-					if message.code == HookServerMessage.RECIEVED_PUSH:
-						commits = message.payload[ 'commits' ]
+				if hook_message is not None:
+					if hook_message.code == HookServerMessage.RECIEVED_PUSH:
+						commits = hook_message.payload[ 'commits' ]
 						commit_author = commits[0]['author']['name']
 						message_out = "/me goes glassy eyed for a moment as an update is recieved. If he doesn't come back it's %s's fault." % commit_author
+						self.message_all( message_out )
 						_run = False
 						return_code = 3
-
-				if _run:
+				else: 
 					time.sleep( 1 )
-		
-		except KeyboardInterrupt:
-			pass
+
+			except KeyboardInterrupt:
+				_run = False
+
+			if _run is False:
+				for chat_name in self.chat_handlers:
+					chat_handler = self.chat_handlers[ chat_name ]
+					try:
+						chat_handler.chat.Leave()
+					except Exception, e:
+						logging.info( e )
+				break
 
 		hook_server.stop()
+		return return_code
 	
 
 runner = BotRunner()

@@ -21,7 +21,7 @@ class HookRequestHandler( BaseHTTPRequestHandler ):
 					 'CONTENT_TYPE':self.headers['Content-Type'],
 					})
 
-		payload_in = fields['payload']
+		payload_in = fields['payload'].value
 		print payload_in
 		payload = None
 		try:
@@ -79,7 +79,6 @@ class HookServerThread( threading.Thread ):
 				logging.info( e )
 				pass
 
-			print ( "httpd.payload=%s" % httpd.payload )	
 			if httpd.payload is not None:
-				message = HookServerMessage( HookServerMessage.RECIEVED_PUSH, self.httpd.payload )
+				message = HookServerMessage( HookServerMessage.RECIEVED_PUSH, httpd.payload )
 				self.queue.put( message )
