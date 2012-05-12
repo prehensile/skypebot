@@ -18,6 +18,7 @@ class DrinkCommand(object):
 		self.pre_modifiers = [ "half a",
 				   "a stingy",
 				   "a watery",
+				   "a pitcher of",
 				   "a cloudy",
 				   "a glitchy",
 				   "the opposite of a" ]				
