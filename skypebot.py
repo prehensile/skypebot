@@ -123,12 +123,12 @@ class BotRunner( object ):
 				_run = False
 
 			if _run is False:
-				for chat_name in self.chat_handlers:
-					chat_handler = self.chat_handlers[ chat_name ]
-					try:
-						chat_handler.chat.Leave()
-					except Exception, e:
-						logging.info( e )
+				# for chat_name in self.chat_handlers:
+				# 	chat_handler = self.chat_handlers[ chat_name ]
+				# 	try:
+				# 		chat_handler.chat.Leave()
+				# 	except Exception, e:
+				# 		logging.info( e )
 				break
 
 		hook_server.stop()
