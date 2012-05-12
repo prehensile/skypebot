@@ -37,19 +37,21 @@ class BotRunner( object ):
 		hook_server.queue = queue
 		hook_server.start()
 
+		chat_handlers = {}
+		command_mappings = {}
+		command_mappings[ "drink" ] = drinkcommand.DrinkCommand()
+		command_mappings[ "w3t" ] = wetcommand.WetCommand()
+		command_mappings[ "bacon" ] = baconcommand.BaconCommand()
+		command_mappings[ "snack" ] = snackcommand.SnackCommand()
+		command_mappings[ "cheese" ] = cheesecommand.CheeseCommand()
+		command_mappings[ "cock" ] = cockcommand.CockCommand()
+		command_mappings[ "choon" ] = chooncommand.ChoonCommand()
+		command_mappings[ "smoke" ] = chooncommand.SmokeCommand()
+		command_mappings[ "tv" ] = tvcommand.TVCommand()
+
 		if RUN_SKYPE:
 			skype = Skype4Py.Skype(Transport='x11')
 			skype.Attach()
-
-			chat_handlers = {}
-
-			command_mappings = {}
-			command_mappings[ "drink" ] = drinkcommand.DrinkCommand()
-			command_mappings[ "w3t" ] = wetcommand.WetCommand()
-			command_mappings[ "bacon" ] = baconcommand.BaconCommand()
-			command_mappings[ "snack" ] = snackcommand.SnackCommand()
-			command_mappings[ "cheese" ] = cheesecommand.CheeseCommand()
-			command_mappings[ "cock" ] = cockcommand.CockCommand()
 		try:
 			_run = True
 			while _run:

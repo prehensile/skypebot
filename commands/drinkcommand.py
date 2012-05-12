@@ -11,12 +11,14 @@ class DrinkCommand(object):
 							Template("fills up $drink for $name from the drips tray."),
 							Template("waves his hands and $drink appears in front of $name in a puff of sulphurous smoke."),
 							Template("extrudes a pseudopod in the direction of $name, bearing $drink."),
+							Template("points out that $name has had enough already (drunk))"),
 							Template("calmly explains to $name that $drink was always there, and vanishes.")
 							]
 		
 		self.pre_modifiers = [ "half a",
 				   "a stingy",
 				   "a watery",
+				   "a pitcher of",
 				   "a cloudy",
 				   "a glitchy",
 				   "the opposite of a" ]				
@@ -46,6 +48,7 @@ class DrinkCommand(object):
 			"Witbier White Beer",
 			"Hefeweizen",
 			"Cauim",
+			"Four Roses Bourbon"
 			"Chicha",
 			"Cider",
 			"Huangjiu",
@@ -95,6 +98,8 @@ class DrinkCommand(object):
 			"Rakia",
 			"Slivovitz",
 			"Rum",
+			"hot chocolate"
+			"PG Tips"
 			"Soju",
 			"Tequila",
 			"Vodka",
