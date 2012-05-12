@@ -5,8 +5,6 @@ import cgi
 import json
 import logging
 
-last_payload = ""
-
 class HookRequestHandler( BaseHTTPRequestHandler ):
 	
 	def do_GET(self):
@@ -23,7 +21,7 @@ class HookRequestHandler( BaseHTTPRequestHandler ):
 					 'CONTENT_TYPE':self.headers['Content-Type'],
 					})
 
-		print self.rfile.read()
+		print fields
 
 		payload = None
 		try:
@@ -78,7 +76,7 @@ class HookServerThread( threading.Thread ):
 			try:
 				httpd.handle_request()
 			except Exception, e:
-				logging.warning( e )
+				logging.info( e )
 				pass
 			if httpd.payload is not None:
 				message = HookServerMessage( HookServerMessage.RECIEVED_PUSH, self.httpd.payload )
