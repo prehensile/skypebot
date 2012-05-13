@@ -190,6 +190,9 @@ class ChoonCommand(object):
 			"some Justice http://www.youtube.com/watch?v=sERA_cpf3_w",
 			"some wonky techno http://www.youtube.com/watch?v=dtglQxHYtQY",
 			"the best TV theme tunes http://www.youtube.com/watch?v=AepyGm9Me6w&list=PLDFAD20C832EC7384&feature=plpp_play_all",
+			"the Norwegen National Anthem http://open.spotify.com/track/6z0fJaRa5DhKtaTIRXKZbc",
+			"Her Majesty's theme tune http://open.spotify.com/track/0vI7yiTtzP8Lj78lO3dqLc",
+			"The Vatican National Anthem http://open.spotify.com/track/2sejH68Hm6t8M9tG0dlYLu",
 			"something like a cheap Kylie http://www.last.fm/music/Kylie+Minogue/+similar"]
 
 	def execute( self, message ):
