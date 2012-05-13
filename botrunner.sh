@@ -4,7 +4,7 @@ do
 	python skypebot.py
 	rc=$? 
 	echo $rc
-	if [[ $rc != 100 ]]
+	if [[ $rc == 3 ]]
 	then
 		echo Updating...	
 		git pull
