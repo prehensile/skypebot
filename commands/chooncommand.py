@@ -147,7 +147,7 @@ class ChoonCommand(object):
 			"some classic Floyd http://www.last.fm/music/Pink+Floyd/_/Comfortably+Numb",
 			"sarf lundin grime http://www.last.fm/tag/grime/tracks",
 			"bollywood bests http://www.last.fm/tag/bollywood/tracks",
-			"some electro grumbling http://soundcloud.com/bluegrass",
+			"some hillbilly genius http://soundcloud.com/bluegrass",
 			"a couple of bleepy 8bit happy joys http://soundcloud.com/search?q%5Bfulltext%5D=8bit",
 			"the latest goth rap. For realz. http://soundcloud.com/search?q%5Bfulltext%5D=goth+rap",
 			"some chap rap http://www.youtube.com/results?search_query=chap+rap",
