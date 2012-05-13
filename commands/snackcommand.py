@@ -7,7 +7,7 @@ class SnackCommand(object):
 
 		self.templates = [ 	Template("begrudgingly serves $name $snack."),
 							Template("ostentatiously prepares $name $snack and pockets the change."),
-							Template("(cake)"),
+							Template("surprises everyone again with (cake)"),
 							Template("eyeballs $name for a moment, then shoves $snack across the bar.") ]
 
 		self.pre_modifiers = [ "a perfect",
