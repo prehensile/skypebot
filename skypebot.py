@@ -43,7 +43,21 @@ class BotRunner( object ):
 
 		# set up http server to listen for github pushes
 		queue = Queue.Queue()
-		hook_server = HookServerThread()
+		retries = 3
+		hook_server = None
+		while retries > 0:	
+			try:
+				hook_server = HookServerThread()
+			except Exception:
+				pass
+			retries -=1
+			if hook_server is None:
+				wait( 10 )
+			else:
+				break
+		if hook_server is None:
+			sys.exit(0)
+
 		hook_server.queue = queue
 		hook_server.start()
 
