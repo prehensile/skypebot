@@ -22,8 +22,8 @@ class TVCommand(object):
 			"Blue Jam http://www.youtube.com/watch?v=krsj2bcnRlM&list=PL1945AC59A3707A38&feature=plpp_play_all"]
 
 	def execute( self, message ):
-		choon = random.choice( self.tvshows )
+		tvshow = random.choice( self.tvshows )
 		name = message.FromDisplayName
 		template = random.choice( self.templates )
-		message_out = template.substitute(name=name, tv=tv)
+		message_out = template.substitute(name=name, tvshow=tvshow)
 		return "/me %s" % message_out
