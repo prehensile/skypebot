@@ -9,6 +9,7 @@ class CockCommand(object):
 
 		self.templates = [ 	Template("magnificently glitches $name $drink all over Gregory Povey who now looks peeved. #time #cock"),
 							Template("admirably reminds $name that Jon Ronson has passed away and tips $drink over Marcus Brown's head. #time #cock"),
+							Template("bends $name over and performs the jon_ronson finishing move on them. Requests a wasabi-based !snack."),
 							Template("tickles $name under the chin before making a rude joke about David Bausola. He then gives everyone in the bar $drink. #time #cock"),
 							Template("weeps."),
 							]
