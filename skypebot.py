@@ -130,7 +130,7 @@ class BotRunner( object ):
 					if hook_message.code == HookServerMessage.RECIEVED_PUSH:
 						commits = hook_message.payload[ 'commits' ]
 						commit_author = commits[0]['author']['name']
-						message_out = housekeeping.commit_message_for_name( commit_author )
+						message_out = housekeeping.update_message_for_name( commit_author )
 						self.message_all( message_out )
 						_run = False
 						return_code = 3
@@ -160,7 +160,10 @@ logging.basicConfig( filename="skypebot.log" )
 logging.captureWarnings( True )
 
 runner = BotRunner()
-retcode = runner.run()
+try:
+	retcode = runner.run()
+catch Exception, e:
+	logging.info( e )
 
 logging.shutdown()
 
