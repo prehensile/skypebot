@@ -157,7 +157,7 @@ class BotRunner( object ):
 ###	
 
 logging.basicConfig( filename="skypebot.log" )
-logging.captureWarnings( True )
+#logging.captureWarnings( True )
 
 runner = BotRunner()
 retcode = runner.run()
