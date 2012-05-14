@@ -1,3 +1,5 @@
+# coding=UTF-8
+
 from string import Template
 import random
 

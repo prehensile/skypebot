@@ -8,6 +8,8 @@ import Queue
 from hookserver import HookServerMessage, HookServerThread
 import sys
 import logging
+from messages import housekeeping
+
 
 class ChatHandler(object):
 	
@@ -71,7 +73,7 @@ class BotRunner( object ):
 		command_mappings[ "cock" ] = cockcommand.CockCommand()
 		command_mappings[ "choon" ] = chooncommand.ChoonCommand()
 		command_mappings[ "smoke" ] = smokecommand.SmokeCommand()
-		command_mappings[ "tv" ] = tvcommand.TVCommand()
+		command_mappings[ "telly" ] = tvcommand.TVCommand()
 
 		if RUN_SKYPE:
 			skype = Skype4Py.Skype(Transport='x11')
@@ -86,10 +88,11 @@ class BotRunner( object ):
 					for chat in chats:
 						chat_name = chat.Name
 						if chat_name not in self.chat_handlers:
-							print "New handler for chat: %s" % chat.FriendlyName
+							logging.info( "New handler for chat: %s" % chat.FriendlyName )
 							self.chat_handlers[chat_name] = ChatHandler(chat)
+							message = housekeeping.new_chat_message()
 							try:
-								chat.SendMessage("/me appears a split nanosecond after his ratty carpet slippers do.")
+								chat.SendMessage( message )
 							except Exception, e:
 								logging.info( e )
 								print e
@@ -127,7 +130,7 @@ class BotRunner( object ):
 					if hook_message.code == HookServerMessage.RECIEVED_PUSH:
 						commits = hook_message.payload[ 'commits' ]
 						commit_author = commits[0]['author']['name']
-						message_out = "/me goes glassy eyed for a moment as an update is recieved. If he doesn't come back it's %s's fault." % commit_author
+						message_out = housekeeping.commit_message_for_name( commit_author )
 						self.message_all( message_out )
 						_run = False
 						return_code = 3
@@ -148,9 +151,18 @@ class BotRunner( object ):
 
 		hook_server.stop()
 		return return_code
-	
+
+###
+# MAIN RUN
+###	
+
+logging.basicConfig( filename="skypebot.log" )
+logging.captureWarnings( True )
 
 runner = BotRunner()
 retcode = runner.run()
+
+logging.shutdown()
+
 sys.exit( retcode )
 
