@@ -83,7 +83,7 @@ class ChoonCommand(object):
 							Template("!snack"),	
 							Template("(drunk)"),  
 							Template("(poolparty)(poolparty) $choon (poolparty)(poolparty)"),  
-							Template(""),  
+							Template("slips on $choon and lands on his arse"),  
 							Template("ignores $name and asks Pambot the time."),
 							Template("reminds himself he hasn't played $choon for ages."),
 							Template("buys $name a drink and plays loudly $choon"),
