@@ -160,9 +160,10 @@ logging.basicConfig( filename="skypebot.log" )
 #logging.captureWarnings( True )
 
 runner = BotRunner()
+retcode = 0
 try:
     retcode = runner.run()
-catch Exception, e:
+except Exception, e:
     logging.info( e )
 
 logging.shutdown()
