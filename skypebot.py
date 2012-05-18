@@ -28,7 +28,7 @@ class ChatHandler(object):
                 self.last_timestamp = dt
         return new_messages
 
-RUN_SKYPE=False
+RUN_SKYPE=True
 class BotRunner( object ):
     
     def message_all( self, message ):
@@ -156,6 +156,7 @@ class BotRunner( object ):
                         self.message_all( message_out )
                         _run = False
                         return_code = 3
+                        print "MESSAGE: Update recieved"
                 else: 
                     time.sleep( 1 )
 
