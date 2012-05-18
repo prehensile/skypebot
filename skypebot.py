@@ -1,7 +1,8 @@
 import Skype4Py
 import time
 from commands import drinkcommand, wetcommand, baconcommand, snackcommand, \
-cheesecommand, cockcommand, smokecommand, chooncommand, tvcommand
+cheesecommand, cockcommand, smokecommand, chooncommand, tvcommand, \
+birthdaycommand
 import datetime
 import json
 import Queue
@@ -27,7 +28,7 @@ class ChatHandler(object):
                 self.last_timestamp = dt
         return new_messages
 
-RUN_SKYPE=True
+RUN_SKYPE=False
 class BotRunner( object ):
     
     def message_all( self, message ):
@@ -74,6 +75,7 @@ class BotRunner( object ):
         command_mappings[ "choon" ] = chooncommand.ChoonCommand()
         command_mappings[ "smoke" ] = smokecommand.SmokeCommand()
         command_mappings[ "telly" ] = tvcommand.TVCommand()
+        command_mappings[ "birthday" ] = birthdaycommand.BirthdayCommand()
 
         if RUN_SKYPE:
             skype = Skype4Py.Skype(Transport='x11')
@@ -110,11 +112,31 @@ class BotRunner( object ):
                             print body
                             try:
                                 for commandstring in command_mappings:
-                                    if "!" + commandstring in body.lower():
-                                        command = command_mappings[ commandstring ]
+                                    commandbang = "!" + commandstring
+                                    bl = body.lower()
+                                    command = command_mappings[ commandstring ]
+                                    message_out = None
+                                    
+                                    # if command is giftable
+                                    if hasattr( command, 'gift' ):
+                                        giftstring = "%s for " % commandbang
+                                        if giftstring in bl:
+                                            loc = body.find(giftstring) + len(giftstring)
+                                            spc = body.find( " ", loc )
+                                            recicpient = body[ loc : spc ]
+                                            members = chat_handler.chat.Members
+                                            for member in members:
+                                                dn = member.DisplayName
+                                                if recicpient.lower() in dn.lower():
+                                                    message_out = command.gift( dn )
+                                                    break
+
+                                    if message_out is None and commandbang in bl:
                                         message_out = command.execute( new_message )
-                                        if message_out is not None:
-                                            chat_handler.chat.SendMessage( message_out )
+
+                                    if message_out is not None:
+                                        chat_handler.chat.SendMessage( message_out )
+
                             except Exception, e:
                                 logging.info( e )
                                 print e
