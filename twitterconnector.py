@@ -9,7 +9,7 @@ class TwitterConnector( object ):
 		consumer_key, consumer_secret = fh.read().split(",")
 		fh.close()
 
-		fh = open( os.path.join( 'access_token' ), 'r' )
+		fh = open( os.path.join( creds_path, 'access_token' ), 'r' )
 		key, secret = fh.read().split(",")
 		fh.close()
 
