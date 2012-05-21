@@ -12,7 +12,7 @@ new_chat_messages = [
 ]
 
 def update_message_for_name( name ):
-    template = random.choice( commit_messages )
+    template = random.choice( update_messages )
     return template.substitute( name=name )
 
 def new_chat_message():
