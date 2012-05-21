@@ -45,6 +45,7 @@ class BotRunner( object ):
         return_code = 0
 
         # set up http server to listen for github pushes
+        logging.info( "Staring up github HookServer..." )
         queue = Queue.Queue()
         retries = 3
         hook_server = None
@@ -65,6 +66,7 @@ class BotRunner( object ):
         hook_server.start()
 
         # twitter connection
+        logging.info( "Starting up Twitter connector..." )
         tw = twitterconnector.TwitterConnector( "twitter_creds" )
 
         # set up command handlers
@@ -82,9 +84,11 @@ class BotRunner( object ):
         command_mappings[ "birthday" ] = birthdaycommand.BirthdayCommand()
 
         if RUN_SKYPE:
+            logging.info( "Attaching to Skype..." )
             skype = Skype4Py.Skype(Transport='x11')
             skype.Attach()
         
+        logging.info( "Entering main run loop..." )
         _run = True
         while _run:
             try:
@@ -184,8 +188,15 @@ class BotRunner( object ):
 # MAIN RUN
 ### 
 
-logging.basicConfig( filename="skypebot.log" )
+logging.basicConfig( filename="skypebot.log", level=logging.DEBUG, filemode='w' )
 #logging.captureWarnings( True )
+
+# define a Handler which writes INFO messages or higher to the sys.stderr
+console = logging.StreamHandler()
+console.setLevel(logging.INFO)
+# add the handler to the root logger
+logging.getLogger('').addHandler(console)
+
 
 runner = BotRunner()
 retcode = 0
