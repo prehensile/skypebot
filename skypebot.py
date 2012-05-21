@@ -64,6 +64,10 @@ class BotRunner( object ):
         hook_server.queue = queue
         hook_server.start()
 
+        # twitter connection
+        tw = twitterconnector.TwitterConnector( "twitter_creds" )
+
+        # set up command handlers
         self.chat_handlers = {}
         command_mappings = {}
         command_mappings[ "drink" ] = drinkcommand.DrinkCommand()
@@ -136,6 +140,7 @@ class BotRunner( object ):
 
                                     if message_out is not None:
                                         chat_handler.chat.SendMessage( message_out )
+                                        tw.tweet( message_out )
 
                             except Exception, e:
                                 logging.info( e )
