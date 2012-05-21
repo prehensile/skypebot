@@ -10,7 +10,7 @@ from hookserver import HookServerMessage, HookServerThread
 import sys
 import logging
 from messages import housekeeping
-
+import twitterconnector
 
 class ChatHandler(object):
     
