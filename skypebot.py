@@ -188,7 +188,7 @@ class BotRunner( object ):
 # MAIN RUN
 ### 
 
-logging.basicConfig( filename="skypebot.log", level=logging.DEBUG, filemode='w' )
+logging.basicConfig( filename="skypebot.log", level=logging.INFO, filemode='w' )
 #logging.captureWarnings( True )
 
 # define a Handler which writes INFO messages or higher to the sys.stderr
