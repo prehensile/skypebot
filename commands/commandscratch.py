@@ -3,7 +3,7 @@
 from string import Template
 import random
 
-class eurovision(object):
+class EurovisionCommand(object):
 
 	def __init__(self):
 			self.templates = [ 	Template("gives $name 2 points."),
