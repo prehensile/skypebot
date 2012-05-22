@@ -6,7 +6,7 @@ import random
 class EurovisionCommand(object):
 
 	def __init__(self):
-			self.templates = [ 	Template("gives $name 2 points."),
+			self.templates = [ 	Template("gives $name $points points."),
 							Template("sides with $name's rival. Everyone agrees it's bloc politics."),
 							Template("mutes the channel as $name's country performs."),
 							Template("loses the results."),
@@ -28,6 +28,7 @@ class EurovisionCommand(object):
 		
 	def execute( self, message ):
 		name = message.FromDisplayName
+		points = "%d" % random.randint( 0, 12 )
 		template = random.choice( self.templates )
-		message_out = template.substitute(name=name)
+		message_out = template.substitute( name=name, points=points )
 		return "/me %s" % message_out
