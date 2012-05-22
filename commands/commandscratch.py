@@ -24,6 +24,11 @@ class EurovisionCommand(object):
 							Template("is shocked by $name. Awards them nil points."),
 							Template("loves the national dress that $name is wearing."),
 							Template("breaks out in laughter as $name's backing dancers move out of sync."),
+							Template("turns his cap backwards, does a rap."),
+							Template("sings a heart-warming song about the struggles during the civil war. Goes Europop."),
+							Template("is wearing leather."),
+							Template("raids the liquor cabinet for some !drink to take the pain away from $name's awful singing."),
+							Template("is all smiles as $name awards his country $points."),
 							]
 		
 	def execute( self, message ):
