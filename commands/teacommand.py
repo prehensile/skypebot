@@ -7,16 +7,16 @@ class TeaCommand(object):
 
 	def __init__(self):
 
-		self.templates = [ 	Template("pours $name $snack."),
-							Template("stares glassy eyed at $name, then slides $snack across the bar."),
-							Template("looks longingly at the optics, sighs and hands $name $snack")]
+		self.templates = [ 	Template("pours $name $tea."),
+							Template("stares glassy eyed at $name, then slides $tea across the bar."),
+							Template("looks longingly at the optics, sighs and hands $name $tea")]
 
 		self.pre_modifiers = [ "a massive mug of",
 				   "some stewed",
 				   "a fine blend of",
 				   "a freshly brewed" ]				
 
-		self.snacks = [ "Assam",
+		self.teas = [ "Assam",
 			"Darjeeling First Flush",
 			"Builders",
 			"Earl Grey",
@@ -25,11 +25,11 @@ class TeaCommand(object):
 			"Lapsang Souchong"]
 
 	def execute( self, message ):
-		snack = random.choice( self.snacks )
+		tea = random.choice( self.teas )
 		pre_modifier = random.choice( self.pre_modifiers )
-		snack = "%s %s" % (pre_modifier, snack)
+		tea = "%s %s" % (pre_modifier, tea)
 		name = message.FromDisplayName
 		template = random.choice( self.templates )
-		message_out = template.substitute(name=name, snack=snack)
+		message_out = template.substitute(name=name, tea=tea)
 		return "/me %s" % message_out
 
