@@ -66,6 +66,7 @@ class HookServerThread( threading.Thread ):
 	
 	def stop( self ):
 		self._abortflag = True
+		httpd.timeout = 1
 
 	def run( self ):
 		self._abortflag = False
@@ -82,3 +83,5 @@ class HookServerThread( threading.Thread ):
 			if httpd.payload is not None:
 				message = HookServerMessage( HookServerMessage.RECIEVED_PUSH, httpd.payload )
 				self.queue.put( message )
+		
+		httpd.socket.close()
