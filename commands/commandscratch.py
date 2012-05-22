@@ -84,7 +84,7 @@ class EurovisionCommand(object):
 			"Switzerland",
 			"Turkey",
 			"Ukraine",	
-			"United Kingdom",]
+			"United Kingdom" ]
 		
 	def execute( self, message ):
 		name = message.FromDisplayName
