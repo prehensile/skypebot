@@ -13,7 +13,13 @@ class DrinkCommand(object):
 							Template("fills up $drink for $name from the drips tray."),
 							Template("waves his hands and $drink appears in front of $name in a puff of sulphurous smoke."),
 							Template("extrudes a pseudopod in the direction of $name, bearing $drink."),
-							Template("points out that $name has had enough already (drunk))"),
+							Template("points out that $name has had enough already (drunk)"),
+							Template("does his best Tom Cruise impression and mixes a $drink into a tall glass for $name."),
+							Template("stops watching the sports for a minute. Long enough to top up a $drink for $name."),
+							Template("suggests that $name can go somewhere else if they want a $dirnk. Disgusting drink."),
+							Template("longs for closing time."),
+							Template("calls the law. $name was caught doing lewd acts in the toilets."),
+							Template("shakes a fresh $drink all over $name's nice new face."),
 							Template("calmly explains to $name that $drink was always there, and vanishes.")
 							]
 		
@@ -23,10 +29,17 @@ class DrinkCommand(object):
 				   "a pitcher of",
 				   "a cloudy",
 				   "a glitchy",
+				   "an horrific",
+				   "a most erotic",
+				   "a quart of",
+				   "a fur-lined",
+				   "a luminous",
+				   "an acid-laced",
 				   "the opposite of a" ]				
 		
 		self.drinks = [ "Beer",
 			"Ale",
+			"Bongwater",
 			"Barleywine",
 			"Bloody Mary",
 			"Delirium Tremens",
