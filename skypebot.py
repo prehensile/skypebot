@@ -2,7 +2,7 @@ import Skype4Py
 import time
 from commands import drinkcommand, wetcommand, baconcommand, snackcommand, \
 cheesecommand, cockcommand, smokecommand, chooncommand, tvcommand, \
-birthdaycommand, commandscratch, eurovisioncommand
+birthdaycommand, commandscratch, eurovisioncommand, teacommand
 import datetime
 import json
 import Queue
@@ -83,6 +83,7 @@ class BotRunner( object ):
         command_mappings[ "telly" ] = tvcommand.TVCommand()
         command_mappings[ "birthday" ] = birthdaycommand.BirthdayCommand()
         command_mappings[ "eurovision" ] = eurovisioncommand.EurovisionCommand()
+        command_mappings[ "tea" ] = teacommand.TeaCommand()
 
         if RUN_SKYPE:
             logging.info( "Attaching to Skype..." )
