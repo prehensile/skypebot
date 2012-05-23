@@ -26,8 +26,9 @@ class ChoonCommand(object):
 							Template("claps his hands"),
 							Template("(music) $choon"),
 							Template("(music) $choon"),
+							Template("shouts !drink in a Scottish accent"),
 							Template("taps out the Great Escape on the bar"),
-							Template("switches on the dusty 1210s and grabs %$choon"),
+							Template("switches on the dusty 1210s and grabs $choon"),
 							Template("plays $choon and turns it up to 11"),
 							Template("raises the ghost of John Peel and plays $choon to him"),
 							Template("turns off all the lights and leaves you all with $choon."),
@@ -108,7 +109,7 @@ class ChoonCommand(object):
 							Template("pretends not to hear $name and puts on $choon"),
 							Template("drops $choon and returns to the cellar"),
 							Template("downloads $choon and finishes stocking the fruit juices"),
-							Template("plays $choon and swaggers of to the pantry"),
+							Template("plays $choon and swaggers off to the pantry"),
 							Template("suggest $choon and mutters something about the !cheese delivery"),
 							Template("drops $choon and slowly sways into a trance with $name"),
 							Template("drops $choon and immediately passes out"),
@@ -150,7 +151,7 @@ class ChoonCommand(object):
 			"vaguely Dave Clarke sounding techno http://www.last.fm/music/Dave+Clarke/+similar",
 			"a bunch of properly wanged-up glitchcore http://www.last.fm/music/V%2FVm/+similar",
 			"a little ska http://www.last.fm/tag/ska/tracks.",
-			"some old time fun http://open.spotify.com/user/zeuclas/playlist/102eZ3tiE87QOpOdnh0vax"
+			"some old time fun http://open.spotify.com/user/zeuclas/playlist/102eZ3tiE87QOpOdnh0vax",
 			"some dope beats http://www.last.fm/music/Basic+Channel/+tracks.",
 			"real Jamican dancehall videos. http://www.last.fm/tag/dancehall/videos.",
 			"riddims from Banton http://www.last.fm/music/Buju+Banton/+tracks",
@@ -160,6 +161,7 @@ class ChoonCommand(object):
 			"a bit of Swedish delight http://www.last.fm/tag/swedish",
 			"some classic Floyd http://www.last.fm/music/Pink+Floyd/_/Comfortably+Numb",
 			"sarf lundin grime http://www.last.fm/tag/grime/tracks",
+			"some glowing Sun Electric http://open.spotify.com/album/5WbeQHkkzc1ujONrZbrBs1",
 			"bollywood bests http://www.last.fm/tag/bollywood/tracks",
 			"some hillbilly genius http://soundcloud.com/bluegrass",
 			"a couple of bleepy 8bit happy joys http://soundcloud.com/search?q%5Bfulltext%5D=8bit",
@@ -198,7 +200,7 @@ class ChoonCommand(object):
 			"some dark radio http://open.spotify.com/artist/432R46LaYsJZV2Gmc4jUV5",
 			"Pretty Vacant http://open.spotify.com/track/2jfy5umLwAO22PIaXjJWPu",
 			"a beach song http://open.spotify.com/track/5DWYNAL7IFCKrWW7RfhIG4",
-			"(d) The Rat Pack http://open.spotify.com/artist/1Mxqyy3pSjf8kZZL4QVxS0",
+			"The Rat Pack http://open.spotify.com/artist/1Mxqyy3pSjf8kZZL4QVxS0",
 			"(swear) (swear) (swear) (swear) http://open.spotify.com/artist/0dmPX6ovclgOy8WWJaFEUU",
 			"Sidney, doing it his way http://open.spotify.com/track/3Lx7TcHWXlXdwxkxxZMETj",
 			"some Justice http://www.youtube.com/watch?v=sERA_cpf3_w",
@@ -208,6 +210,7 @@ class ChoonCommand(object):
 			"Her Majesty's theme tune http://open.spotify.com/track/0vI7yiTtzP8Lj78lO3dqLc",
 			"The Vatican National Anthem http://open.spotify.com/track/2sejH68Hm6t8M9tG0dlYLu",
 			"some quirky melodies http://www.last.fm/tag/quirky/tracks",
+			"all the UK No 1 Hits http://open.spotify.com/user/sjhunt/playlist/5q5IHvVcnBYP1Dr1nIwBPN",
 			"something like a cheap Kylie http://www.last.fm/music/Kylie+Minogue/+similar"]
 
 	def execute( self, message ):
