@@ -16,7 +16,6 @@ class SmokeCommand(object):
 							Template("walks into the humador and brings out $smoke"),
 							Template("reaches under the counter and brings out $smoke"),
 							Template("reaches over to $name and lights up a $smoke"),
-							Template("(smoking)"),					
 							Template("eyeballs $name for a moment, then gingerly hands $smoke across the bar.") ]
 
 		self.pre_modifiers = [ "an ancient",
