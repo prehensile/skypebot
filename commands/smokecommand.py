@@ -13,9 +13,9 @@ class SmokeCommand(object):
 							Template("slides a fresh ashtray down the bar, followed by $smoke"),
 							Template("coughs and passes $name $smoke"),
 							Template("suggests a !snack might be heathier"),
-							Template("walks into the humador andbrings out $smoke"),
+							Template("walks into the humador and brings out $smoke"),
 							Template("reaches under the counter and brings out $smoke"),
-							Template("reaches over to $name and lights"),
+							Template("reaches over to $name and lights up a $smoke"),
 							Template("(smoking)"),					
 							Template("eyeballs $name for a moment, then gingerly hands $smoke across the bar.") ]
 
@@ -29,14 +29,14 @@ class SmokeCommand(object):
 				   "a hand rolled",
 				   "a cheap"]				
 
-		self.smoke = [ "pack of Marlboros (smoking)",
+		self.smokes = [ "pack of Marlboros (smoking)",
 			"Tesco value cigar",
 			"pipe full of herbal voodoo",
 			"bong packed with oddly smelling green tabacco",
 			"Rothschild",
 			"Robusto",
 			"Robusto",
-			"Petit Corona",
+			"a Petit Corona",
 			"Carlota",
 			"Corona",
 			"Corona Gorda",
@@ -53,9 +53,9 @@ class SmokeCommand(object):
 			"Hookah with Apple tobacco to share with everyone"]
 
 	def execute( self, message ):
-		smoke = random.choice( self.smoke )
+		smoke = random.choice( self.smokes )
 		pre_modifier = random.choice( self.pre_modifiers )
-		snack = "%s %s" % (pre_modifier, smoke)
+		smoke = "%s %s" % (pre_modifier, smoke)
 		name = message.FromDisplayName
 		template = random.choice( self.templates )
 		message_out = template.substitute(name=name, smoke=smoke)
