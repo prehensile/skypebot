@@ -84,7 +84,7 @@ class BotRunner( object ):
         command_mappings[ "birthday" ] = birthdaycommand.BirthdayCommand()
         command_mappings[ "eurovision" ] = eurovisioncommand.EurovisionCommand()
         command_mappings[ "tea" ] = teacommand.TeaCommand()
-        command_mappings[ "tv" ] = teacommand.TeaCommand()
+        command_mappings[ "tv" ] = tvcommand.TVCommand()
 
         if RUN_SKYPE:
             logging.info( "Attaching to Skype..." )
