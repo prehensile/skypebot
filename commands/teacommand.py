@@ -10,7 +10,6 @@ class TeaCommand(object):
 		self.templates = [ 	Template("pours $name $tea."),
 							Template("stares glassy eyed at $name, then slides $tea across the bar."),
 							Template("plays mother to $name, pours $tea."),
-							Template("washes the leaves patiently, serves $name %tea."),
 							Template("washes the leaves patiently, serves $name $tea."),
 							Template("gets confused, pours $tea all over his knackers."),
 							Template("looks longingly at the optics, sighs and hands $name $tea")]
