@@ -22,7 +22,8 @@ class TeaCommand(object):
 			"Earl Grey",
 			"single estate Ceylon",
 			"100 year old handrolled Oolong",
-			"Lapsang Souchong"]
+			"Lapsang Souchong",
+			"Matcha"]
 
 	def execute( self, message ):
 		tea = random.choice( self.teas )
