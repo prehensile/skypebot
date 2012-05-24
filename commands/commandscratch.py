@@ -23,7 +23,7 @@ class SatanCommand(object):
 							Template("wears a nice hat."),
 							Template("cooks up a nice batch of wasabi dumplings."),
 							Template("shuffles to some botstep."),
-							Template("rolls up."),]
+							Template("rolls up.") ]
 							
 	def execute( self, message ):
 		name = message.FromDisplayName
