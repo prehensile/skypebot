@@ -2,7 +2,7 @@ import Skype4Py
 import time
 from commands import drinkcommand, wetcommand, baconcommand, snackcommand, \
 cheesecommand, cockcommand, smokecommand, chooncommand, tvcommand, \
-birthdaycommand, commandscratch, eurovisioncommand, teacommand
+birthdaycommand, commandscratch, eurovisioncommand, teacommand, coffeecommand
 import datetime
 import json
 import Queue
