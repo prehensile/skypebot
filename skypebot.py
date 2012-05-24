@@ -86,6 +86,7 @@ class BotRunner( object ):
         command_mappings[ "tea" ] = teacommand.TeaCommand()
         command_mappings[ "tv" ] = tvcommand.TVCommand()
         command_mappings[ "coffee" ] = coffeecommand.CoffeeCommand()
+        command_mappings[ "satan" ] = commandscratch.SatanCommand()
 
         if RUN_SKYPE:
             logging.info( "Attaching to Skype..." )
