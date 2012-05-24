@@ -14,7 +14,9 @@ class ExampleCommand(object):
 		template = random.choice( self.templates )
 		message_out = template.substitute(name=name)
 		return "/me %s" % message_out
-		
+
+## !satan command below here - GP
+
 class SatanCommand(object):
 
 	def __init__(self):
