@@ -8,14 +8,18 @@ class CoffeeCommand(object):
 		self.templates = [ 	Template("stares at $name, disregards the order and serves an home-roasted espresso ristretto."),
 		 					Template("rolls his eyes, grabs the Aeropress and pours $name $coffee"),
 							Template("looks at $name disgusted and mumbles something about this being a bar and no fucking Starbucks."),
-							Template("smiles, pours $name $coffee and makes it Irish.")]
+							Template("smiles, pours $name $coffee and makes it Irish."),
+							Template("sticks a needle in the vein of $name and starts pouring $coffee into the IV."),
+							Template("opens the chminey door and roasts the beans before brewing $name $coffee."),
+							Template("grabs the V60 and falls into a trance while pouring $coffee for $name in slow, circular motions.")]
 		
 		self.pre_modifiers = [ "a steaming cup of",
 				   "some slowly dripped",
 				   "a fine blend of",
 				   "a freshly brewed mug of",
 				   "a shot of",
-				   "a lukewarm mug of preheated"]				
+				   "a lukewarm mug of preheated",
+				   "an iced glass of"]				
 
 		self.coffees = [ "Espresso",
 					"Nepal Mount Everest Supreme",
