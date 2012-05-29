@@ -11,7 +11,8 @@ update_messages = [
 
 new_chat_messages = [
     "/me re-appears a split nanosecond after his ratty carpet slippers do.",
-    "/me rides in on a tiny tricyle."
+    "/me rides in on a tiny tricyle.",
+    "/me tells Gregory Povey it’s okay to post now."
 ]
 
 def update_message_for_name( name ):
