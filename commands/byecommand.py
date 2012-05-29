@@ -9,7 +9,9 @@ class ByeCommand(object):
 		
 		self.templates = [ 	Template("waves goodbye to $name."),
 							Template("throws his hands up as $name finally leaves the bar."),
-							Template("hardly notices that $name leaves.")
+							Template("hardly notices that $name leaves."),
+							Template("comes running after $name as they try to dodge the bill, again."),
+							Template("tries to get $name to have one more drink.")
 							]
 							
 	def execute( self, message ):
