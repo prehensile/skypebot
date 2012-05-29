@@ -9,6 +9,9 @@ class MarcusCommand(object):
 							Template("makes it transmedia."),
 							Template("ponders the tinyweb."),
 							Template("gets a larger pair of glasses"),
+							Template("puts on a wig."),
+							Template("paints his face white."),
+							Template("stalks $name."),
 							Template("broadcasts from the toliet.")
 							]
 							
