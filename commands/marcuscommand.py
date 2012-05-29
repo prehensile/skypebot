@@ -7,7 +7,9 @@ class MarcusCommand(object):
 	def __init__(self):
 		self.templates = [ 	Template("tells a story."),
 							Template("makes it transmedia."),
-							Template("ponders the tinyweb.")
+							Template("ponders the tinyweb."),
+							Template("gets a larger pair of glasses"),
+							Template("broadcasts from the toliet.")
 							]
 							
 	def execute( self, message ):
