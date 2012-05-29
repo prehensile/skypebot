@@ -8,8 +8,11 @@ class SatanCommand(object):
 		self.templates = [ 	Template("considers the infomorph aesthetic."),
 							Template("draws a martini."),
 							Template("wears a nice hat."),
+							Template("exhales a thick fug."),
 							Template("cooks up a nice batch of wasabi dumplings."),
 							Template("shuffles to some botstep."),
+							Template("is listening to the director's commentary on Blade Runner."),
+							Template("is in Act 2, Stage IV: atonement with the father."),
 							Template("rolls up.") ]
 							
 	def execute( self, message ):
