@@ -16,6 +16,18 @@ class MarcusCommand(object):
 							Template("paints his face white."),
 							Template("stalks $name."),
 							Template("broadcasts from the toliet."),
+							Template("retires a version of himself"),
+							Template("smacks a unicorn"),
+							Template("flies of on a tangent"),
+							Template("considers the drillability of it all"),
+							Template("uses a nasty hashtag"),
+							Template("makes a spelling mistake"),
+							Template("says something in German"),
+							Template("clones himself"),
+							Template("forgets to commit the changes"),
+							Template("eats some sausage"),
+							Template("books a table at the Schwarzer Hahn"),
+							Template("takes a photograph of !satan"),
 							Template("sells $name some used web.")
 							]
 							
