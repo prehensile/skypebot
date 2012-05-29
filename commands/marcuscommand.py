@@ -12,7 +12,8 @@ class MarcusCommand(object):
 							Template("puts on a wig."),
 							Template("paints his face white."),
 							Template("stalks $name."),
-							Template("broadcasts from the toliet.")
+							Template("broadcasts from the toliet."),
+							Template("sells $name some used web.")
 							]
 							
 	def execute( self, message ):
