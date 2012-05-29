@@ -3,7 +3,7 @@ import time
 from commands import drinkcommand, wetcommand, baconcommand, snackcommand, \
 cheesecommand, cockcommand, smokecommand, chooncommand, tvcommand, \
 birthdaycommand, commandscratch, eurovisioncommand, teacommand, \
-coffeecommand, satancommand, marcuscommand
+coffeecommand, satancommand, marcuscommand, byecommand
 import datetime
 import json
 import Queue
@@ -89,6 +89,8 @@ class BotRunner( object ):
         command_mappings[ "coffee" ] = coffeecommand.CoffeeCommand()
         command_mappings[ "satan" ] = satancommand.SatanCommand()
         command_mappings[ "marcus" ] = marcuscommand.MarcusCommand()
+        command_mappings[ "bye" ] = byecommand.ByeCommand()
+        
 
         if RUN_SKYPE:
             logging.info( "Attaching to Skype..." )
