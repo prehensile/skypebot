@@ -10,6 +10,7 @@ class MarcusCommand(object):
 							Template("ponders the tinyweb."),
 							Template("gets a larger pair of glasses"),
 							Template("puts on a wig."),
+							Template("is dating Pambot."),
 							Template("thinks Marcus has got a little bit carried away using his ego-command."),
 							Template("giggles."),
 							Template("engages Big Hand Mode."),
