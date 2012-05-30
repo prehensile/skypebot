@@ -30,6 +30,7 @@ class MarcusCommand(object):
 							Template("makes a spelling mistake"),
 							Template("says something in German"),
 							Template("clones himself"),
+							Template("buggered The Landlord."),
 							Template("forgets to commit the changes"),
 							Template("eats some sausage"),
 							Template("books a table at the Schwarzer Hahn"),
