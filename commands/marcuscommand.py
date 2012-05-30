@@ -11,6 +11,8 @@ class MarcusCommand(object):
 							Template("thinks that the bald mullet was never a good look."),
 							Template("gets a larger pair of glasses"),
 							Template("puts on a wig."),
+							Template("says poorly nothing."),
+							Template("eulogises The Undertaker."),
 							Template("has come down with a raging case of SMEBS."),
 							Template("asks $name to do him a fucking brand onion."),
 							Template("is enjoying the benefits of an excellent hangover."),
