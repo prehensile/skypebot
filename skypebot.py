@@ -3,7 +3,7 @@ import time
 from commands import drinkcommand, wetcommand, baconcommand, snackcommand, \
 cheesecommand, cockcommand, smokecommand, chooncommand, tvcommand, \
 birthdaycommand, commandscratch, eurovisioncommand, teacommand, \
-coffeecommand, satancommand, marcuscommand, byecommand, haicommand \
+coffeecommand, satancommand, marcuscommand, byecommand, haicommand, \
 poveycommand
 import datetime
 import json
