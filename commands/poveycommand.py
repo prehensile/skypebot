@@ -7,6 +7,7 @@ class PoveyCommand(object):
 	def __init__(self):
 		self.templates = [ 	Template("thinks $name completes him."),
 							Template("nurtures a hangover.")
+							Template("buggers up a branch.")
 							]
 							
 	def execute( self, message ):
