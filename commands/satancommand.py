@@ -13,6 +13,7 @@ class SatanCommand(object):
 							Template("exhales a thick fug."),
 							Template("cooks up a nice batch of wasabi dumplings."),
 							Template("shuffles to some botstep."),
+							Template("commanded during Witching."),
 							Template("is listening to the director's commentary on Blade Runner."),
 							Template("is in Act 2, Stage IV: atonement with the father."),
 							Template("rolls up.") ]
