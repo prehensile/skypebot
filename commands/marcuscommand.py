@@ -8,6 +8,7 @@ class MarcusCommand(object):
 		self.templates = [ 	Template("tells a story."),
 							Template("makes it transmedia."),
 							Template("ponders the tinyweb."),
+							Template("thinks that the bald mullet was never a good look."),
 							Template("gets a larger pair of glasses"),
 							Template("puts on a wig."),
 							Template("is enjoying the benefits of an excellent hangover."),
