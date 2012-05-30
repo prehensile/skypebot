@@ -94,6 +94,7 @@ class BotRunner( object ):
         command_mappings[ "hai" ] = haicommand.HaiCommand()
         command_mappings[ "ohai" ] = haicommand.HaiCommand()
         command_mappings[ "povey" ] = poveycommand.PoveyCommand()
+        command_mappings[ "mullet"] = satancommand.MulletCommand()
 
         if RUN_SKYPE:
             logging.info( "Attaching to Skype..." )

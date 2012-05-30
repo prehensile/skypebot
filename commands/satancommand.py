@@ -23,3 +23,14 @@ class SatanCommand(object):
 		template = random.choice( self.templates )
 		message_out = template.substitute(name=name)
 		return "/me %s" % message_out
+
+class MulletCommand(object):
+
+	def __init__(self):
+		self.templates = [ 	Template("shakes his head.") ]
+							
+	def execute( self, message ):
+		name = message.FromDisplayName
+		template = random.choice( self.templates )
+		message_out = template.substitute(name=name)
+		return "/me %s" % message_out
