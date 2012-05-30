@@ -21,7 +21,7 @@ class MarcusCommand(object):
 							Template("broadcasts from the toliet."),
 							Template("retires a version of himself"),
 							Template("smacks a unicorn"),
-							Template("flies of on a tangent"),
+							Template("flies off on a tangent"),
 							Template("considers the drillability of it all"),
 							Template("uses a nasty hashtag"),
 							Template("makes a spelling mistake"),
