@@ -34,6 +34,7 @@ class MarcusCommand(object):
 							Template("eats some sausage"),
 							Template("books a table at the Schwarzer Hahn"),
 							Template("takes a photograph of !satan"),
+							Template("talks for 17 minutes, poorly."),
 							Template("sells $name some used web.")
 							]
 							
