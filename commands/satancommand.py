@@ -9,6 +9,7 @@ class SatanCommand(object):
 							Template("draws a martini."),
 							Template("thinks the bald mullet is an excellent look."),
 							Template("wears a nice hat."),
+							Template("rolls the 20-sided die for the RPG Wankmaster."),
 							Template("exhales a thick fug."),
 							Template("cooks up a nice batch of wasabi dumplings."),
 							Template("shuffles to some botstep."),
