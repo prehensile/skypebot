@@ -14,6 +14,7 @@ class RumbleCommand(object):
 							Template("botches a $finisher and $name is stretchered out of the ring."),
 							Template("hollers at Miss Elizabeth."),
 							Template("turns heel."),
+							Template("puts $name in a coffin."),
 							Template("catches $name off guard with a low-blow."),
 							Template("interferes as !marcus is trying to pin $name."),
 							Template("smashes a steel-chair across $name's back."),
