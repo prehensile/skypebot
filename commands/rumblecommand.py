@@ -13,6 +13,8 @@ class RumbleCommand(object):
 							Template("is suspended for 30-days due to a violation of the Wellness Program."),
 							Template("botches a $finisher and $name is stretchered out of the ring."),
 							Template("hollers at Miss Elizabeth."),
+							Template("turns heel."),
+							Template("catches $name off guard with a low-blow."),
 							Template("interferes as !marcus is trying to pin $name."),
 							Template("smashes a steel-chair across $name's back."),
 							Template("challenges $name to a Hell In The Philter Cell match."),
