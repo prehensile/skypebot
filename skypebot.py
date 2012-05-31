@@ -4,7 +4,7 @@ from commands import drinkcommand, wetcommand, baconcommand, snackcommand, \
 cheesecommand, cockcommand, smokecommand, chooncommand, tvcommand, \
 birthdaycommand, commandscratch, eurovisioncommand, teacommand, \
 coffeecommand, satancommand, marcuscommand, byecommand, haicommand, \
-poveycommand
+poveycommand, rumblecommand
 import datetime
 import json
 import Queue
@@ -96,6 +96,9 @@ class BotRunner( object ):
         command_mappings[ "povey" ] = poveycommand.PoveyCommand()
         command_mappings[ "mullet"] = satancommand.MulletCommand()
         command_mappings[ "hat"] = commandscratch.HatCommand()
+        command_mappings[ "brawl"] = rumblecommand.RumbleCommand()
+        command_mappings[ "rumble"] = rumblecommand.RumbleCommand()
+
 
         if RUN_SKYPE:
             logging.info( "Attaching to Skype..." )
