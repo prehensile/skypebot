@@ -28,7 +28,7 @@ class EurovisionCommand(object):
                         Template("turns his cap backwards, does a rap."),
                         Template("sings a heart-warming song about the struggles during the civil war. Goes Europop."),
                         Template("is wearing leather."),
-                        Template("stands up of his seat as the key change kicks in."),
+                        Template("stands up off his seat as the key change kicks in."),
                         Template("singed his hair on the stage pyrotechnics."),
                         Template("waves a tiny $country flag."),
                         Template("switches into English for the chorus."),

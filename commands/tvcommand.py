@@ -17,8 +17,8 @@ class TVCommand(object):
 			"highlights from Miami Vice http://www.youtube.com/watch?v=5xwASYK4VFM&list=PL3D2BBB2A043B4D2A&feature=plpp_play_all",
 			"Highlights from Jaws http://www.youtube.com/watch?v=yrEvK-tv5OI&list=PLE495EC5350813544&feature=plpp_play_all",
 			"Brass Eye http://www.youtube.com/watch?v=Z4f4oy2M_Og&list=PL1D81D619D66EB4B4&feature=plpp_play_all",
-			"various cheese adverts http://www.youtube.com/watch?v=Up880afV_qs&list=PL883DD36B0885564D&feature=plpp_play_all"
-			"Inspector Morse http://www.youtube.com/watch?v=qo4HMZiUhNs&list=PLBD381880EF658346&feature=plpp_play_all"
+			"various cheese adverts http://www.youtube.com/watch?v=Up880afV_qs&list=PL883DD36B0885564D&feature=plpp_play_all",
+			"Inspector Morse http://www.youtube.com/watch?v=qo4HMZiUhNs&list=PLBD381880EF658346&feature=plpp_play_all",
 			"Blue Jam http://www.youtube.com/watch?v=krsj2bcnRlM&list=PL1945AC59A3707A38&feature=plpp_play_all"]
 
 	def execute( self, message ):

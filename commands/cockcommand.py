@@ -12,6 +12,9 @@ class CockCommand(object):
 							Template("bends $name over and performs the jon_ronson finishing move on them. Requests a wasabi-based !snack."),
 							Template("tickles $name under the chin before making a rude joke about David Bausola. He then gives everyone in the bar $drink. #time #cock"),
 							Template("weeps."),
+							Template("flips himself off."),
+							Template("axes $name to talk to the hay-and."),
+							Template("rubs one out."),
 							]
 
 		self.pre_modifiers = [ "half a",
@@ -24,6 +27,9 @@ class CockCommand(object):
 		self.drinks = [ "Jon_Ronson",
 			"Jon R0n50n",
 			"j0n r0n5on",
+			"Sacrum",
+			"warmth",
+			"Ron Jonson",
 			"nothing" ]
 
 	def execute( self, message ):

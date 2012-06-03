@@ -2,7 +2,9 @@ import Skype4Py
 import time
 from commands import drinkcommand, wetcommand, baconcommand, snackcommand, \
 cheesecommand, cockcommand, smokecommand, chooncommand, tvcommand, \
-birthdaycommand, commandscratch, eurovisioncommand
+birthdaycommand, commandscratch, eurovisioncommand, teacommand, \
+coffeecommand, satancommand, marcuscommand, byecommand, haicommand, \
+poveycommand, rumblecommand
 import datetime
 import json
 import sys
@@ -60,12 +62,26 @@ class BotThread( queuedthread.QueuedThread ):
         command_mappings[ "bacon" ] = baconcommand.BaconCommand()
         command_mappings[ "snack" ] = snackcommand.SnackCommand()
         command_mappings[ "cheese" ] = cheesecommand.CheeseCommand()
-        command_mappings[ "cock" ] = cockcommand.CockCommand()
+        #command_mappings[ "cock" ] = cockcommand.CockCommand()
         command_mappings[ "choon" ] = chooncommand.ChoonCommand()
         command_mappings[ "smoke" ] = smokecommand.SmokeCommand()
         command_mappings[ "telly" ] = tvcommand.TVCommand()
         command_mappings[ "birthday" ] = birthdaycommand.BirthdayCommand()
         command_mappings[ "eurovision" ] = eurovisioncommand.EurovisionCommand()
+        command_mappings[ "tea" ] = teacommand.TeaCommand()
+        command_mappings[ "tv" ] = tvcommand.TVCommand()
+        command_mappings[ "coffee" ] = coffeecommand.CoffeeCommand()
+        command_mappings[ "satan" ] = satancommand.SatanCommand()
+        command_mappings[ "marcus" ] = marcuscommand.MarcusCommand()
+        command_mappings[ "bye" ] = byecommand.ByeCommand()
+        command_mappings[ "hai" ] = haicommand.HaiCommand()
+        command_mappings[ "ohai" ] = haicommand.HaiCommand()
+        command_mappings[ "povey" ] = poveycommand.PoveyCommand()
+        command_mappings[ "mullet"] = satancommand.MulletCommand()
+        command_mappings[ "hat"] = commandscratch.HatCommand()
+        command_mappings[ "brawl"] = rumblecommand.RumbleCommand()
+        command_mappings[ "rumble"] = rumblecommand.RumbleCommand()
+
 
         if RUN_SKYPE:
             logging.info( "Attaching to Skype..." )

@@ -16,7 +16,7 @@ class DrinkCommand(object):
 							Template("points out that $name has had enough already (drunk)"),
 							Template("does his best Tom Cruise impression and mixes a $drink into a tall glass for $name."),
 							Template("stops watching the sports for a minute. Long enough to top up a $drink for $name."),
-							Template("suggests that $name can go somewhere else if they want a $dirnk. Disgusting drink."),
+							Template("suggests that $name can go somewhere else if they want a $drink. Disgusting drink."),
 							Template("longs for closing time."),
 							Template("calls the law. $name was caught doing lewd acts in the toilets."),
 							Template("shakes a fresh $drink all over $name's nice new face."),
@@ -137,7 +137,11 @@ class DrinkCommand(object):
 			"Grog",
 			"Moonshine",
 			"Cider",
-			"Scrumpy" ]
+			"Scrumpy",
+			"Chartreuse",
+			"Jägermeister",
+			"Obstler",
+			"Peppermint Schnaps" ]
 
 	def execute( self, message ):
 		drink = random.choice( self.drinks )

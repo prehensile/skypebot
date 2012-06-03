@@ -1,4 +1,5 @@
 *.pyc
+.DS_Store
 access_token
 consumer_key
 consumer_token
