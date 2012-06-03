@@ -5,12 +5,12 @@ cheesecommand, cockcommand, smokecommand, chooncommand, tvcommand, \
 birthdaycommand, commandscratch, eurovisioncommand
 import datetime
 import json
-import Queue
-from hookserver import HookServerMessage, HookServerThread
 import sys
 import logging
-from messages import housekeeping
+
 import twitterconnector
+from hookserver import HookServerMessage
+import queuedthread
 
 class ChatHandler(object):
     
@@ -29,7 +29,7 @@ class ChatHandler(object):
         return new_messages
 
 RUN_SKYPE=True
-class BotRunner( object ):
+class BotThread( queuedthread.QueuedThread ):
     
     def message_all( self, message ):
     # send message to all connected chats   
@@ -40,31 +40,14 @@ class BotRunner( object ):
             except Exception, e:
                 logging.info( e )
 
+    def stop( self, message=None ):
+        if message is not None:
+            self.message_all( message_out )
+        super( BotThread, self ).stop()
+
     def run( self ):
-
-        return_code = 0
-
-        # set up http server to listen for github pushes
-        logging.info( "Staring up github HookServer..." )
-        queue = Queue.Queue()
-        retries = 3
-        hook_server = None
-        while retries > 0:  
-            try:
-                hook_server = HookServerThread()
-            except Exception:
-                pass
-            retries -=1
-            if hook_server is None:
-                wait( 10 )
-            else:
-                break
-        if hook_server is None:
-            sys.exit(0)
-
-        hook_server.queue = queue
-        hook_server.start()
-
+        self._abortflag = False
+        
         # twitter connection
         logging.info( "Starting up Twitter connector..." )
         tw = twitterconnector.TwitterConnector( "twitter_creds" )
@@ -90,8 +73,7 @@ class BotRunner( object ):
             skype.Attach()
         
         logging.info( "Entering main run loop..." )
-        _run = True
-        while _run:
+        while not self._abortflag
             try:
                 if RUN_SKYPE:
                     # maintain list of chats
@@ -150,63 +132,4 @@ class BotRunner( object ):
                             except Exception, e:
                                 logging.info( e )
                                 print e
-                
-                # check for updates from the HTTP server thread
-                hook_message = None
-                try:
-                    hook_message = queue.get( False )
-                except Queue.Empty:
-                    pass
-
-                if hook_message is not None:
-                    if hook_message.code == HookServerMessage.RECIEVED_PUSH:
-                        commits = hook_message.payload[ 'commits' ]
-                        commit_author = commits[0]['author']['name']
-                        message_out = housekeeping.update_message_for_name( commit_author )
-                        self.message_all( message_out )
-                        _run = False
-                        return_code = 3
-                        print "MESSAGE: Update recieved"
-                else: 
                     time.sleep( 1 )
-
-            except KeyboardInterrupt:
-                _run = False
-
-            if _run is False:
-                # for chat_name in self.chat_handlers:
-                #   chat_handler = self.chat_handlers[ chat_name ]
-                #   try:
-                #       chat_handler.chat.Leave()
-                #   except Exception, e:
-                #       logging.info( e )
-                break
-
-        hook_server.stop()
-        return return_code
-
-###
-# MAIN RUN
-### 
-
-logging.basicConfig( filename="skypebot.log", level=logging.INFO, filemode='w' )
-#logging.captureWarnings( True )
-
-# define a Handler which writes INFO messages or higher to the sys.stderr
-console = logging.StreamHandler()
-console.setLevel(logging.INFO)
-# add the handler to the root logger
-logging.getLogger('').addHandler(console)
-
-
-runner = BotRunner()
-retcode = 0
-try:
-    retcode = runner.run()
-except Exception, e:
-    logging.info( e )
-
-logging.shutdown()
-
-sys.exit( retcode )
-
