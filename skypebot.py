@@ -114,7 +114,7 @@ class BotThread( queuedthread.QueuedThread ):
                                 print e
 
                     # clear defunct chats
-                    for defunct_chat_name in defunct_chat_names
+                    for defunct_chat_name in defunct_chat_names:
                         logging.info( "Delete handler for chat: %s" % defunct_chat_name )
                         del self.chat_handlers[ defunct_chat_name ]
                     
