@@ -142,8 +142,12 @@ class BotThread( queuedthread.QueuedThread ):
                                             loc = body.find(giftstring) + len(giftstring)
                                             body_remainder = body[ loc : ]
                                             mo = re.search( "\W", body_remainder )
+                                            recicpient = None
                                             if mo:
                                                 recicpient = body_remainder[ : mo.start ]
+                                            else:
+                                                recicpient = body_remainder
+                                            if recicpient:
                                                 print "-> finding recipient '%s'" % recicpient
                                                 members = chat_handler.chat.Members
                                                 print members
