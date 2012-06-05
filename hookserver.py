@@ -43,7 +43,6 @@ class HookHTTPServer( SocketServer.TCPServer ):
     @property
     def payload(self):
         return self._payload
-        self._payload = None
     @payload.setter
     def payload(self, value):
         self._payload = value
@@ -76,7 +75,9 @@ class HookServerThread( queuedthread.QueuedThread ):
                 pass
 
             if self.httpd.payload is not None:
+                logging.info( "HookServer: found an http payload")
                 message = HookServerMessage( HookServerMessage.RECIEVED_PUSH, self.httpd.payload )
                 self.put_message( message )
+                self.httpd.payload = None
         
         self.httpd.socket.close()
