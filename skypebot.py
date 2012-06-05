@@ -45,7 +45,7 @@ class BotThread( queuedthread.QueuedThread ):
 
     def stop( self, message=None ):
         if message is not None:
-            self.message_all( message_out )
+            self.message_all( message )
         super( BotThread, self ).stop()
 
     def run( self ):
@@ -127,9 +127,9 @@ class BotThread( queuedthread.QueuedThread ):
                                     
                                     # if command is giftable
                                     if hasattr( command, 'gift' ):
-                                        print "Command %s is giftable" % commandbang
                                         giftstring = "%s for " % commandbang
                                         if giftstring in bl:
+                                            print "Gift command %s" % commandbang
                                             loc = body.find(giftstring) + len(giftstring)
                                             spc = body.find( " ", loc )
                                             recicpient = body[ loc : spc ]
