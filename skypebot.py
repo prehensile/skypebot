@@ -138,6 +138,7 @@ class BotThread( queuedthread.QueuedThread ):
                                             for member in members:
                                                 dn = member.DisplayName
                                                 if recicpient.lower() in dn.lower():
+                                                    print "-->  gift %s to %s " % (commandbang, recicpient)
                                                     message_out = command.gift( dn )
                                                     break
 
