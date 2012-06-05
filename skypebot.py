@@ -126,11 +126,13 @@ class BotThread( queuedthread.QueuedThread ):
                                     
                                     # if command is giftable
                                     if hasattr( command, 'gift' ):
+                                        print "Command %s is giftable" % commandbang
                                         giftstring = "%s for " % commandbang
                                         if giftstring in bl:
                                             loc = body.find(giftstring) + len(giftstring)
                                             spc = body.find( " ", loc )
                                             recicpient = body[ loc : spc ]
+                                            print "-> finding recipient '%s'" % recicpient
                                             members = chat_handler.chat.Members
                                             for member in members:
                                                 dn = member.DisplayName

@@ -45,6 +45,7 @@ try:
             if hookserver_message is not None:        
                 # recieved a push notification from github
                 if message.code == HookServerMessage.RECIEVED_PUSH:
+                    logging.info( "Recieved push notification..." )
                     # construct quit messge for bot
                     commits = message.payload[ 'commits' ]
                     commit_author = commits[0]['author']['name']
