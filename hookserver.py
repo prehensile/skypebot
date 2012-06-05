@@ -43,6 +43,7 @@ class HookHTTPServer( SocketServer.TCPServer ):
     @property
     def payload(self):
         return self._payload
+        self._payload = None
     @payload.setter
     def payload(self, value):
         self._payload = value
