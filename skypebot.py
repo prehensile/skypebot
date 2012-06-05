@@ -14,6 +14,7 @@ from hookserver import HookServerMessage
 import queuedthread
 import time
 from messages import housekeeping
+import re
 
 class ChatHandler(object):
     
@@ -95,8 +96,13 @@ class BotThread( queuedthread.QueuedThread ):
                 if RUN_SKYPE:
                     # maintain list of chats
                     chats = skype.ActiveChats
+                    defunct_chat_names = set( self.chat_handlers.keys() )
                     for chat in chats:
                         chat_name = chat.Name
+                        try: 
+                            defunct_chat_names.remove( chat_name )
+                        except KeyError:
+                            pass
                         if chat_name not in self.chat_handlers:
                             logging.info( "New handler for chat: %s" % chat.FriendlyName )
                             self.chat_handlers[chat_name] = ChatHandler(chat)
@@ -107,7 +113,10 @@ class BotThread( queuedthread.QueuedThread ):
                                 logging.info( e )
                                 print e
 
-                    # TODO: clear defunct chats
+                    # clear defunct chats
+                    for defunct_chat_name in defunct_chat_names
+                        logging.info( "Delete handler for chat: %s" % defunct_chat_name )
+                        del self.chat_handlers[ defunct_chat_name ]
                     
                     # update chats
                     for chat_name in self.chat_handlers:
@@ -131,18 +140,20 @@ class BotThread( queuedthread.QueuedThread ):
                                         if giftstring in bl:
                                             print "Gift command %s" % commandbang
                                             loc = body.find(giftstring) + len(giftstring)
-                                            spc = body.find( " ", loc )
-                                            recicpient = body[ loc : spc ]
-                                            print "-> finding recipient '%s'" % recicpient
-                                            members = chat_handler.chat.Members
-                                            print members
-                                            for member in members:
-                                                names = [ member.DisplayName, member.FullName, member.Handle ]
-                                                for name in names:
-                                                    if recicpient.lower() in name.lower():
-                                                        print "-->  gift %s to %s " % (commandbang, recicpient)
-                                                        message_out = command.gift( name )
-                                                        break
+                                            body_remainder = body[ loc : ]
+                                            mo = re.search( "\W", body_remainder )
+                                            if mo:
+                                                recicpient = body_remainder[ : mo.start ]
+                                                print "-> finding recipient '%s'" % recicpient
+                                                members = chat_handler.chat.Members
+                                                print members
+                                                for member in members:
+                                                    names = [ member.DisplayName, member.FullName, member.Handle ]
+                                                    for name in names:
+                                                        if recicpient.lower() in name.lower():
+                                                            print "-->  gift %s to %s " % (commandbang, recicpient)
+                                                            message_out = command.gift( name )
+                                                            break
 
                                     if message_out is None and commandbang in bl:
                                         message_out = command.execute( new_message )
