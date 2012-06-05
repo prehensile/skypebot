@@ -137,12 +137,12 @@ class BotThread( queuedthread.QueuedThread ):
                                             members = chat_handler.chat.Members
                                             print members
                                             for member in members:
-                                                dn = member.DisplayName
-                                                print dn
-                                                if recicpient.lower() in dn.lower():
-                                                    print "-->  gift %s to %s " % (commandbang, recicpient)
-                                                    message_out = command.gift( dn )
-                                                    break
+                                                names = [ member.DisplayName, member.FullName, member.Handle ]
+                                                for name in names:
+                                                    if recicpient.lower() in name.lower():
+                                                        print "-->  gift %s to %s " % (commandbang, recicpient)
+                                                        message_out = command.gift( name )
+                                                        break
 
                                     if message_out is None and commandbang in bl:
                                         message_out = command.execute( new_message )
