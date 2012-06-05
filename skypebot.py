@@ -9,10 +9,10 @@ import datetime
 import json
 import sys
 import logging
-
 import twitterconnector
 from hookserver import HookServerMessage
 import queuedthread
+import time
 
 class ChatHandler(object):
     
@@ -89,7 +89,7 @@ class BotThread( queuedthread.QueuedThread ):
             skype.Attach()
         
         logging.info( "Entering main run loop..." )
-        while not self._abortflag
+        while not self._abortflag:
             try:
                 if RUN_SKYPE:
                     # maintain list of chats
@@ -150,4 +150,7 @@ class BotThread( queuedthread.QueuedThread ):
                             except Exception, e:
                                 logging.info( e )
                                 print e
-                    time.sleep( 1 )
+                    time.sleep(1)
+            except Exception, e:
+                logging.info( e )
+                print e

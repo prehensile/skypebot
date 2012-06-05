@@ -6,13 +6,14 @@ class QueuedThread( threading.Thread ):
     def __init__(self):
         self._queue = Queue.Queue()
         self._abortflag = False
+        super( QueuedThread, self ).__init__()
 
     def stop( self ):
         self._abortflag = True
 
     @property
     def is_running( self ):
-        return !self._abortflag
+        return not self._abortflag
 
     @property
     def queue(self):
@@ -24,7 +25,7 @@ class QueuedThread( threading.Thread ):
     def pop_message( self ):
         message = None
         try:
-            message = queue.get( False )
+            message = self._queue.get( False )
         except Queue.Empty:
             pass
         return message

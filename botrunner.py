@@ -3,6 +3,8 @@ from hookserver import HookServerMessage, HookServerThread
 import skypebot
 from messages import housekeeping
 import subprocess
+import logging
+import time
 
 # set up logging
 logging.basicConfig( filename="skypebot.log", level=logging.INFO, filemode='w' )
@@ -36,10 +38,12 @@ try:
     hookserver_message = None
     run_outer = True
     while run_outer:
+        logging.info( "Entering outer runloop, starting bot thread..." )
         # init & start new bot thread
         bot_thread = skypebot.BotThread()
     	bot_thread.start()
         run_inner = True
+        logging.info( "Entering inner runloop..." )
     	while( run_inner ):
             hookserver_message = hook_server.pop_message()
             if hookserver_message is not None:        
@@ -58,13 +62,16 @@ try:
                     subprocess.call( [ "git", "pull" ] )
                     # reload skypebot module
                     skypebot = reload( skypebot )
+            time.sleep( 1 )
 
 except KeyboardInterrupt:
-	pass
+    logging.info( "KeyboardInterrupt!" )
 
 # shut down threads cleanly
 if bot_thread.is_running:
+    logging.info( "Shutdown bot thread..." )
     bot_thread.stop()
+logging.info( "Shutdown hook server..." )
 hook_server.stop()
 
 logging.shutdown()
