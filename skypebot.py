@@ -13,6 +13,7 @@ import twitterconnector
 from hookserver import HookServerMessage
 import queuedthread
 import time
+from messages import housekeeping
 
 class ChatHandler(object):
     
@@ -93,7 +94,7 @@ class BotThread( queuedthread.QueuedThread ):
             try:
                 if RUN_SKYPE:
                     # maintain list of chats
-                    chats = skype.Chats
+                    chats = skype.ActiveChats
                     for chat in chats:
                         chat_name = chat.Name
                         if chat_name not in self.chat_handlers:
