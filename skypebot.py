@@ -30,6 +30,7 @@ class ChatHandler(object):
             if dt > self.last_timestamp:
                 new_messages.append( message )
                 self.last_timestamp = dt
+                print message.Id
         return new_messages
 
 RUN_SKYPE=True
