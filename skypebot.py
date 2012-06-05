@@ -138,7 +138,7 @@ class BotThread( queuedthread.QueuedThread ):
                                             print members
                                             for member in members:
                                                 print "member: %s" % member
-                                                dn = member.DisplayName
+                                                print "member.DisplayName: %s" % member.DisplayName
                                                 print dn
                                                 if recicpient.lower() in dn.lower():
                                                     print "-->  gift %s to %s " % (commandbang, recicpient)
