@@ -150,12 +150,11 @@ class BotThread( queuedthread.QueuedThread ):
                                             if recicpient:
                                                 print "-> finding recipient '%s'" % recicpient
                                                 members = chat_handler.chat.Members
-                                                print members
                                                 for member in members:
                                                     names = [ member.DisplayName, member.FullName, member.Handle ]
                                                     for name in names:
                                                         if recicpient.lower() in name.lower():
-                                                            print "-->  gift %s to %s " % (commandbang, recicpient)
+                                                            print "-->  gift %s to %s " % (commandbang, name)
                                                             message_out = command.gift( name )
                                                             break
 
