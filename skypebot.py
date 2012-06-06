@@ -28,7 +28,7 @@ class ChatHandler(object):
         newest_id = self.last_id
         for message in messages:
             if message.Id > newest_id:
-                if newest_id > 0:
+                if self.last_id > 0:
                     new_messages.append( message )
                 newest_id = message.Id
         self.last_id = newest_id
