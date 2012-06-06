@@ -27,8 +27,9 @@ class ChatHandler(object):
         messages = self.chat.RecentMessages
         for message in messages:
             if message.Id > self.last_id:
-                new_messages.append( message )
                 self.last_id = message.Id
+                if self.last_id > 0:
+                    new_messages.append( message )
         return new_messages
 
 RUN_SKYPE=True
@@ -137,6 +138,7 @@ class BotThread( queuedthread.QueuedThread ):
                                     if hasattr( command, 'gift' ):
                                         # split message up into tokens
                                         tokens = re.split( '\W+', body )
+                                        print tokens
                                         if len( tokens ) > 1:
                                             members = chat_handler.chat.Members
                                             # scan tokens for something that looks like a name
@@ -145,7 +147,7 @@ class BotThread( queuedthread.QueuedThread ):
                                                     names = [ member.DisplayName, member.FullName, member.Handle ]
                                                     for name in names:
                                                         if token.lower() in name.lower():
-                                                            print "-->  gift %s to %s " % (commandbang, name)
+                                                            print "-->  gift %s to %s " % (commandbang, name )
                                                             message_out = command.gift( name )
                                                             break
                                                     if message_out is not None:
