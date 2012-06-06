@@ -33,8 +33,9 @@ class ChatHandler(object):
                 #print message.Id
         return new_messages
 
-RUN_SKYPE=True
+RUN_SKYPE = True
 ENABLE_TWITTER = False
+ENABLE_GIFTS = False
 class BotThread( queuedthread.QueuedThread ):
     
     def message_all( self, message ):
@@ -138,26 +139,27 @@ class BotThread( queuedthread.QueuedThread ):
                                     message_out = None
                                     
                                     # if command is giftable
-                                    if hasattr( command, 'gift' ):
-                                        # split message up into tokens
-                                        tokens = re.split( '\W+', body )
-                                        print tokens
-                                        if len( tokens ) > 1:
-                                            members = chat_handler.chat.Members
-                                            # scan tokens for something that looks like a name
-                                            for token in tokens:
-                                                if len(token) > 3:
-                                                    for member in members:
-                                                        names = [ member.DisplayName, member.FullName, member.Handle ]
-                                                        for name in names:
-                                                            if token.lower() in name.lower():
-                                                                print "-->  gift %s to %s " % (commandbang, name )
-                                                                message_out = command.gift( name )
+                                    if ENABLE_GIFTS:
+                                        if hasattr( command, 'gift' ):
+                                            # split message up into tokens
+                                            tokens = re.split( '\W+', body )
+                                            print tokens
+                                            if len( tokens ) > 1:
+                                                members = chat_handler.chat.Members
+                                                # scan tokens for something that looks like a name
+                                                for token in tokens:
+                                                    if len(token) > 3:
+                                                        for member in members:
+                                                            names = [ member.DisplayName, member.FullName, member.Handle ]
+                                                            for name in names:
+                                                                if token.lower() in name.lower():
+                                                                    print "-->  gift %s to %s " % (commandbang, name )
+                                                                    message_out = command.gift( name )
+                                                                    break
+                                                            if message_out is not None:
                                                                 break
                                                         if message_out is not None:
-                                                            break
-                                                    if message_out is not None:
-                                                            break
+                                                                break
 
                                     if message_out is None and commandbang in bl:
                                         message_out = command.execute( new_message )
