@@ -27,12 +27,13 @@ class ChatHandler(object):
         messages = self.chat.RecentMessages
         for message in messages:
             if message.Id > self.last_id:
-                self.last_id = message.Id
                 if self.last_id > 0:
                     new_messages.append( message )
+                self.last_id = message.Id
         return new_messages
 
 RUN_SKYPE=True
+ENABLE_TWITTER = False
 class BotThread( queuedthread.QueuedThread ):
     
     def message_all( self, message ):
@@ -53,8 +54,9 @@ class BotThread( queuedthread.QueuedThread ):
         self._abortflag = False
         
         # twitter connection
-        logging.info( "Starting up Twitter connector..." )
-        tw = twitterconnector.TwitterConnector( "twitter_creds" )
+        if ENABLE_TWITTER:
+            logging.info( "Starting up Twitter connector..." )
+            tw = twitterconnector.TwitterConnector( "twitter_creds" )
 
         # set up command handlers
         self.chat_handlers = {}
@@ -160,7 +162,8 @@ class BotThread( queuedthread.QueuedThread ):
 
                                     if message_out is not None:
                                         chat_handler.chat.SendMessage( message_out )
-                                        tw.tweet( message_out )
+                                        if ENABLE_TWITTER:
+                                            tw.tweet( message_out )
 
                             except Exception, e:
                                 logging.info( e )
