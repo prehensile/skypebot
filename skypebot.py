@@ -135,27 +135,23 @@ class BotThread( queuedthread.QueuedThread ):
                                     
                                     # if command is giftable
                                     if hasattr( command, 'gift' ):
-                                        giftstring = "%s for " % commandbang
-                                        if giftstring in bl:
-                                            print "Gift command %s" % commandbang
-                                            loc = body.find(giftstring) + len(giftstring)
-                                            body_remainder = body[ loc : ]
-                                            mo = re.search( "\W", body_remainder )
-                                            recicpient = None
-                                            if mo:
-                                                recicpient = body_remainder[ : mo.start ]
-                                            else:
-                                                recicpient = body_remainder
-                                            if recicpient:
-                                                print "-> finding recipient '%s'" % recicpient
-                                                members = chat_handler.chat.Members
+                                        # split message up into tokens
+                                        tokens = re.split( '\W+', body )
+                                        if len( tokens ) > 1:
+                                            members = chat_handler.chat.Members
+                                            # scan tokens for something that looks like a name
+                                            for token in tokens:
                                                 for member in members:
                                                     names = [ member.DisplayName, member.FullName, member.Handle ]
                                                     for name in names:
-                                                        if recicpient.lower() in name.lower():
+                                                        if token.lower() in name.lower():
                                                             print "-->  gift %s to %s " % (commandbang, name)
                                                             message_out = command.gift( name )
                                                             break
+                                                    if message_out is not None:
+                                                        break
+                                                if message_out is not None:
+                                                        break
 
                                     if message_out is None and commandbang in bl:
                                         message_out = command.execute( new_message )
