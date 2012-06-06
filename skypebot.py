@@ -25,11 +25,13 @@ class ChatHandler(object):
     def update( self ):
         new_messages = []
         messages = self.chat.RecentMessages
+        newest_id = self.last_id
         for message in messages:
-            if message.Id > self.last_id:
-                if self.last_id > 0:
+            if message.Id > newest_id:
+                if newest_id > 0:
                     new_messages.append( message )
-                self.last_id = message.Id
+                newest_id = message.Id
+        self.last_id = newest_id
         return new_messages
 
 RUN_SKYPE=True
