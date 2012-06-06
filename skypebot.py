@@ -146,7 +146,7 @@ class BotThread( queuedthread.QueuedThread ):
                                             members = chat_handler.chat.Members
                                             # scan tokens for something that looks like a name
                                             for token in tokens:
-                                                if len(token) > 1:
+                                                if len(token) > 3:
                                                     for member in members:
                                                         names = [ member.DisplayName, member.FullName, member.Handle ]
                                                         for name in names:
