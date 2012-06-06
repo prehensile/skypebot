@@ -1,8 +1,10 @@
 # coding=UTF-8
+
 from string import Template
 import random
+import commandbase
 
-class MarcusCommand(object):
+class MarcusCommand( commandbase.BaseCommand ):
 
 	def __init__(self):
 		self.templates = [ 	Template("tells a story."),
@@ -41,8 +43,7 @@ class MarcusCommand(object):
 							Template("sells $name some used web.")
 							]
 							
-	def execute( self, message ):
-		name = message.FromDisplayName
+	def generate( self, name ):
 		template = random.choice( self.templates )
 		message_out = template.substitute(name=name)
 		return "/me %s" % message_out

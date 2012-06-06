@@ -2,8 +2,9 @@
 
 from string import Template
 import random
+import commandbase
 
-class DrinkCommand(object):
+class DrinkCommand( commandbase.BaseCommand ):
 
     def __init__(self):
         
@@ -152,13 +153,4 @@ class DrinkCommand(object):
         template = random.choice( self.templates )
         message_out = template.substitute(name=name, drink=drink)
         return "/me %s" % message_out
-
-    def execute( self, message ):
-        name = message.FromDisplayName
-        return self.generate( name )
-
-    def gift( self, recipient ):
-        return self.generate( recipient )
         
-
-    
