@@ -20,18 +20,17 @@ class ChatHandler(object):
     
     def __init__( self, Chat ):
         self.chat = Chat
-        self.last_id = -1
+        self.last_timestamp = datetime.datetime.now()
 
     def update( self ):
         new_messages = []
         messages = self.chat.RecentMessages
-        highest_id = self.last_id
         for message in messages:
-            if message.Id > self.last_id:
-                if self.last_id > -1:
-                    new_messages.append( message )
-                highest_id = message.Id
-        self.last_id = highest_id
+            dt = message.Datetime
+            if dt > self.last_timestamp:
+                new_messages.append( message )
+                self.last_timestamp = dt
+                #print message.Id
         return new_messages
 
 RUN_SKYPE = True
