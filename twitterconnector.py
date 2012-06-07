@@ -53,14 +53,12 @@ class TwitterConnector( object ):
             self.api = tweepy.API( auth )
 
             if track_keywords is not None:
-                #listener = TwitterListener()
-                #listener.delegate = self
-                #self.streaming_api = tweepy.Stream( auth, self, timeout=None )
-                #self.streaming_api.filter( track=track_keywords )
+                listener = TwitterListener()
+                listener.delegate = self
+                self.streaming_api = tweepy.Stream( auth, self, timeout=None )
+                self.streaming_api.filter( track=track_keywords )
 
             self.name = self.api.me().screen_name
-
-        super( TwitterConnector, self ).__init__()
 
     def tweet( self, message ):
         if self.api:
