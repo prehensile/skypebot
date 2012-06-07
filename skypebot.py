@@ -20,17 +20,18 @@ class ChatHandler(object):
     
     def __init__( self, Chat ):
         self.chat = Chat
-        self.last_timestamp = datetime.datetime.now()
+        self.last_id = -1
 
     def update( self ):
         new_messages = []
         messages = self.chat.RecentMessages
+        highest_id = self.last_id
         for message in messages:
-            dt = message.Datetime
-            if dt > self.last_timestamp:
-                new_messages.append( message )
-                self.last_timestamp = dt
-                #print message.Id
+            if message.Id > self.last_id:
+                if self.last_id > -1:
+                    new_messages.append( message )
+                highest_id = message.Id
+        self.last_id = highest_id
         return new_messages
 
 RUN_SKYPE = True
@@ -149,7 +150,7 @@ class BotThread( queuedthread.QueuedThread ):
                                                     members = chat_handler.chat.Members
                                                     # scan tokens for something that looks like a name
                                                     for token in tokens:
-                                                        if len(token) > 3 and token != commandbang:
+                                                        if len(token) > 3 and token != commandstring:
                                                             for member in members:
                                                                 names = [ member.DisplayName, member.FullName, member.Handle ]
                                                                 for name in names:
