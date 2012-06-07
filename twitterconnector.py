@@ -88,6 +88,7 @@ class TwitterConnectorThread( threading.Thread ):
 
     def stop( self ):
         if self.streaming_api is not None:
+            self.streaming_api.timeout = 1
             self.streaming_api.disconnect()
 
     def tweet( self, message ):
