@@ -32,7 +32,7 @@ class TwitterConnectorThread( threading.Thread ):
     @property
     def creds_path( self ):
         return self._creds_path
-    @delegate.setter
+    @creds_path.setter
     def creds_path( self, value ):
         self._creds_path = value
 
@@ -49,6 +49,7 @@ class TwitterConnectorThread( threading.Thread ):
         self.stream_buffer = []
         self._creds_path = None
         self._track_keywords = None
+        super( TwitterConnectorThread, self ).__init__()
 
     def run( self ):
         if self._creds_path is None:
@@ -57,14 +58,14 @@ class TwitterConnectorThread( threading.Thread ):
         error = None
 
         try:
-            fh = open( os.path.join( creds_path, 'consumer_token' ), 'r' )
+            fh = open( os.path.join( self.creds_path, 'consumer_token' ), 'r' )
             consumer_key, consumer_secret = fh.read().split(",")
             fh.close()
         except IOError, e:
             error = e
 
         try: 
-            fh = open( os.path.join( creds_path, 'access_token' ), 'r' )
+            fh = open( os.path.join( self.creds_path, 'access_token' ), 'r' )
             key, secret = fh.read().split(",")
             fh.close()
         except IOError, e:

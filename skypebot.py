@@ -38,7 +38,7 @@ ENABLE_TWITTER = True
 ENABLE_GIFTS = True
 class BotThread( queuedthread.QueuedThread ):
     
-    def __init__():
+    def __init__( self ):
         self.twitter_connector = None
         super( BotThread, self ).__init__()
 
@@ -67,7 +67,7 @@ class BotThread( queuedthread.QueuedThread ):
             self.twitter_connector = twitterconnector.TwitterConnectorThread()
             self.twitter_connector.creds_path = "twitter_creds"
             self.twitter_connector.track_keywords = ["@lndlrd"]
-            self.twitter_connector.run()
+            self.twitter_connector.start()
 
         # set up command handlers
         self.chat_handlers = {}
