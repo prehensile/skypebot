@@ -1,5 +1,6 @@
 import tweepy
 import os
+import logging
 
 class TwitterListener( tweepy.StreamListener ):
 
@@ -32,6 +33,7 @@ class TwitterConnector( object ):
         self.streaming_api = None
         self.stream_buffer = []
         error = None
+        print " track_keywords: %s " % track_keywords
 
         try:
             fh = open( os.path.join( creds_path, 'consumer_token' ), 'r' )
