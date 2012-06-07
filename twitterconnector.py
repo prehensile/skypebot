@@ -55,7 +55,7 @@ class TwitterConnector( object ):
             if track_keywords is not None:
                 listener = TwitterListener()
                 listener.delegate = self
-                self.streaming_api = tweepy.Stream( auth, self, timeout=None )
+                self.streaming_api = tweepy.Stream( auth, listener, timeout=None )
                 self.streaming_api.filter( track=track_keywords )
 
             self.name = self.api.me().screen_name
