@@ -49,6 +49,8 @@ class BotThread( queuedthread.QueuedThread ):
                 logging.info( e )
 
     def stop( self, message=None ):
+        if self.tw:
+            self.tw.disconnect()
         if message is not None:
             self.message_all( message )
         super( BotThread, self ).stop()
@@ -59,7 +61,7 @@ class BotThread( queuedthread.QueuedThread ):
         # twitter connection
         if ENABLE_TWITTER:
             logging.info( "Starting up Twitter connector..." )
-            tw = twitterconnector.TwitterConnector( "twitter_creds", track_keywords=["@lndlrd"] )
+            self.tw = twitterconnector.TwitterConnector( "twitter_creds", track_keywords=["@lndlrd"] )
 
         # set up command handlers
         self.chat_handlers = {}
@@ -168,7 +170,7 @@ class BotThread( queuedthread.QueuedThread ):
                                     if message_out is not None:
                                         chat_handler.chat.SendMessage( message_out )
                                         if ENABLE_TWITTER:
-                                            tw.tweet( message_out )
+                                            self.tw.tweet( message_out )
 
                             except Exception, e:
                                 logging.info( e )
@@ -176,7 +178,7 @@ class BotThread( queuedthread.QueuedThread ):
                     
                     # update from twitter
                     if ENABLE_TWITTER:
-                        new_statuses = tw.pop_stream()
+                        new_statuses = self.tw.pop_stream()
                         for status_in in new_statuses:
                             logging.info(  "Twitter stream status: %s" % status_in )
 
