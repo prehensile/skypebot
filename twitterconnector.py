@@ -11,6 +11,7 @@ class TwitterListener( tweepy.StreamListener ):
         self._delegate = value
 
     def on_status(self, status):
+        logging.info( "Status recieved: %s" % status )
         if self._delegate:
             self._delegate.push_status( status )
 
@@ -53,6 +54,7 @@ class TwitterConnector( object ):
             self.api = tweepy.API( auth )
 
             if track_keywords is not None:
+                logging.info( "Connecting Twitter stream for keywords %s" % track_keywords )
                 listener = TwitterListener()
                 listener.delegate = self
                 self.streaming_api = tweepy.Stream( auth, listener, timeout=None )
