@@ -1,11 +1,13 @@
 import tweepy
 import os
 
-class TwitterConnector( object ):
+class TwitterConnector( tweepy.StreamListener ):
     
-    def __init__( self, creds_path ):
+    def __init__( self, creds_path, track_keywords=None ):
 
         self.api = None
+        self.streaming_api = None
+        self.stream_buffer = []
         error = None
 
         try:
@@ -23,9 +25,14 @@ class TwitterConnector( object ):
             error = e
 
         if error is None:
+
             auth = tweepy.OAuthHandler( consumer_key, consumer_secret )
             auth.set_access_token( key, secret )
             self.api = tweepy.API( auth )
+
+            if track_keywords is not None:
+                self.streaming_api = Tweepy.Stream( auth, self, timeout=None )
+                self.streaming_api.filter( track=track_keywords )
 
             self.name = self.api.me().screen_name
 
@@ -35,3 +42,30 @@ class TwitterConnector( object ):
                 message = message[3:]
                 message = message.lstrip()
             self.api.update_status( message )
+
+    ##
+    # Streaming functions
+
+    def pop_stream( self ):
+        out = self.stream_buffer
+        self.stream_buffer = []
+        return out
+
+    def disconnect( self ):
+        if self.streaming_api is not None:
+            self.streaming_api.disconnect()
+    
+    ##
+    # Tweepy stream callbacks
+
+    def on_status(self, status):
+        self.stream_buffer.append( status )
+
+    def on_error(self, status_code):
+        logging.info( "Tweepy stream error, status code = %s" % status_code )
+        return True  # keep stream alive
+
+    def on_timeout(self):
+        logging.info( "Tweepy stream timeout" )
+        pass
+

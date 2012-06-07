@@ -35,7 +35,7 @@ class ChatHandler(object):
 
 RUN_SKYPE = True
 ENABLE_TWITTER = False
-ENABLE_GIFTS = False
+ENABLE_GIFTS = True
 class BotThread( queuedthread.QueuedThread ):
     
     def message_all( self, message ):
@@ -58,7 +58,7 @@ class BotThread( queuedthread.QueuedThread ):
         # twitter connection
         if ENABLE_TWITTER:
             logging.info( "Starting up Twitter connector..." )
-            tw = twitterconnector.TwitterConnector( "twitter_creds" )
+            tw = twitterconnector.TwitterConnector( "twitter_creds", track_keywords=["@lndlrd"] )
 
         # set up command handlers
         self.chat_handlers = {}
@@ -138,31 +138,31 @@ class BotThread( queuedthread.QueuedThread ):
                                     command = command_mappings[ commandstring ]
                                     message_out = None
                                     
-                                    # # if command is giftable
-                                    # if ENABLE_GIFTS:
-                                    #     if hasattr( command, 'gift' ):
-                                    #         # split message up into tokens
-                                    #         tokens = re.split( '\W+', body )
-                                    #         print tokens
-                                    #         if len( tokens ) > 1:
-                                    #             members = chat_handler.chat.Members
-                                    #             # scan tokens for something that looks like a name
-                                    #             for token in tokens:
-                                    #                 if len(token) > 3:
-                                    #                     for member in members:
-                                    #                         names = [ member.DisplayName, member.FullName, member.Handle ]
-                                    #                         for name in names:
-                                    #                             if token.lower() in name.lower():
-                                    #                                 print "-->  gift %s to %s " % (commandbang, name )
-                                    #                                 message_out = command.gift( name )
-                                    #                                 break
-                                    #                         if message_out is not None:
-                                    #                             break
-                                    #                     if message_out is not None:
-                                    #                             break
-
-                                    if message_out is None and commandbang in bl:
-                                        message_out = command.execute( new_message )
+                                    if commandbang in bl:
+                                        # if command is giftable
+                                        if ENABLE_GIFTS:
+                                            if hasattr( command, 'gift' ):
+                                                # split message up into tokens
+                                                tokens = re.split( '\W+', body )
+                                                print tokens
+                                                if len( tokens ) > 1:
+                                                    members = chat_handler.chat.Members
+                                                    # scan tokens for something that looks like a name
+                                                    for token in tokens:
+                                                        if len(token) > 3 and token != commandbang:
+                                                            for member in members:
+                                                                names = [ member.DisplayName, member.FullName, member.Handle ]
+                                                                for name in names:
+                                                                    if token.lower() in name.lower():
+                                                                        print "-->  gift %s to %s " % (commandbang, name )
+                                                                        message_out = command.gift( name )
+                                                                        break
+                                                                if message_out is not None:
+                                                                    break
+                                                        if message_out is not None:
+                                                                break
+                                        if message_out is None:
+                                            message_out = command.execute( new_message )
 
                                     if message_out is not None:
                                         chat_handler.chat.SendMessage( message_out )
@@ -172,6 +172,13 @@ class BotThread( queuedthread.QueuedThread ):
                             except Exception, e:
                                 logging.info( e )
                                 print e
+                    
+                    # update from twitter
+                    if ENABLE_TWITTER:
+                        new_statuses = tw.pop_stream()
+                        for status_in in new_statuses:
+                            logging.info(  "Twitter stream status: %s" % status_in )
+
                     time.sleep(1)
             except Exception, e:
                 logging.info( e )
