@@ -1,5 +1,7 @@
 import tweepy
 import os
+import threading
+import time
 
 class TwitterListener( tweepy.StreamListener ):
 
@@ -24,15 +26,34 @@ class TwitterListener( tweepy.StreamListener ):
         pass
 
 
-class TwitterConnector( object ):
+class TwitterConnectorThread( threading.Thread ):
     
-    def __init__( self, creds_path, track_keywords=None ):
+    @property
+    def creds_path( self ):
+        return self._creds_path
+    @delegate.setter
+    def creds_path( self, value ):
+        self._creds_path = value
 
+    @property
+    def track_keywords( self ):
+        return self._track_keywords
+    @track_keywords.setter
+    def track_keywords( self, value ):
+        self._track_keywords = value
+
+    def __init__(self):
         self.api = None
         self.streaming_api = None
         self.stream_buffer = []
-        error = None
+        self._creds_path = None
+        self._track_keywords = None
 
+    def run( self ):
+        if self._creds_path is None:
+            return
+
+        error = None
         try:
             fh = open( os.path.join( creds_path, 'consumer_token' ), 'r' )
             consumer_key, consumer_secret = fh.read().split(",")
@@ -52,15 +73,19 @@ class TwitterConnector( object ):
             auth = tweepy.OAuthHandler( consumer_key, consumer_secret )
             auth.set_access_token( key, secret )
             self.api = tweepy.API( auth )
+            self.name = self.api.me().screen_name
 
-            if track_keywords is not None:
-                logging.info( "Connecting Twitter stream for keywords %s" % track_keywords )
+            if self.track_keywords is not None:
+                logging.info( "Connecting Twitter stream for keywords %s" % self.track_keywords )
                 listener = TwitterListener()
                 listener.delegate = self
                 self.streaming_api = tweepy.Stream( auth, listener, timeout=None )
-                self.streaming_api.filter( track=track_keywords )
+                self.streaming_api.filter( track=self.track_keywords )
+                logging.info( "Stream ended" )
 
-            self.name = self.api.me().screen_name
+    def stop( self ):
+        if self.streaming_api is not None:
+            self.streaming_api.disconnect()
 
     def tweet( self, message ):
         if self.api:
@@ -79,9 +104,3 @@ class TwitterConnector( object ):
         out = self.stream_buffer
         self.stream_buffer = []
         return out
-
-    def disconnect( self ):
-        if self.streaming_api is not None:
-            self.streaming_api.disconnect()
-    
-    
