@@ -52,7 +52,7 @@ class TwitterConnector( object ):
             auth.set_access_token( key, secret )
             self.api = tweepy.API( auth )
 
-            if track_keywords is not None:
+            #if track_keywords is not None:
                 #listener = TwitterListener()
                 #listener.delegate = self
                 #self.streaming_api = tweepy.Stream( auth, self, timeout=None )

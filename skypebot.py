@@ -60,7 +60,7 @@ class BotThread( queuedthread.QueuedThread ):
         # twitter connection
         if ENABLE_TWITTER:
             logging.info( "Starting up Twitter connector..." )
-            self.tw = twitterconnector.TwitterConnector( "twitter_creds", track_keywords=["@lndlrd"] )
+            self.tw = twitterconnector.TwitterConnector( creds_path="twitter_creds" )
 
         # set up command handlers
         self.chat_handlers = {}
