@@ -2,6 +2,7 @@ import tweepy
 import os
 import threading
 import time
+import logging
 
 class TwitterListener( tweepy.StreamListener ):
 
@@ -54,6 +55,7 @@ class TwitterConnectorThread( threading.Thread ):
             return
 
         error = None
+
         try:
             fh = open( os.path.join( creds_path, 'consumer_token' ), 'r' )
             consumer_key, consumer_secret = fh.read().split(",")
