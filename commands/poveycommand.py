@@ -12,6 +12,7 @@ class PoveyCommand( commandbase.BaseCommand ):
                             Template("organises a conference"),
                             Template("makes some badges"),
                             Template("puts Side B on."),
+                            Template("makes a shit pun."),
                             Template("corrects !marcus' spelling."),
                             Template("instagrams the cat."),
                             Template("automagically grows a beard"),
