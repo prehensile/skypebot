@@ -14,6 +14,7 @@ class PoveyCommand( commandbase.BaseCommand ):
                             Template("puts Side B on."),
                             Template("congratulates $name."),
                             Template("makes a shit pun."),
+                            Template("as uttered forth in the public works of Puncher and Wattmann of a personal God quaquaquaqua with white beard."),
                             Template("corrects !marcus' spelling."),
                             Template("instagrams the cat."),
                             Template("automagically grows a beard"),
