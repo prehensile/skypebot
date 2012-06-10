@@ -13,7 +13,7 @@ import twitterconnector
 from hookserver import HookServerMessage
 import queuedthread
 import time
-from messages import housekeeping
+from messages import housekeeping, streetnoise
 import re
 
 class ChatHandler(object):
@@ -186,7 +186,9 @@ class BotThread( queuedthread.QueuedThread ):
                     if ENABLE_TWITTER:
                         new_statuses = self.twitter_connector.pop_stream()
                         for status_in in new_statuses:
-                            logging.info(  "Twitter stream status: %s" % status_in )
+                            #logging.info(  "Twitter stream status: %s" % status_in )
+                            message_out = streetnoise.message_for_incoming_status( status_in )
+                            logging.info( message_out )
 
                     time.sleep(1)
             except Exception, e:
