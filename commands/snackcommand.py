@@ -2,8 +2,9 @@
 
 from string import Template
 import random
+import commandbase
 
-class SnackCommand(object):
+class SnackCommand( commandbase.BaseCommand ):
 
 	def __init__(self):
 
@@ -32,11 +33,10 @@ class SnackCommand(object):
 			"Bowl of Wasabi Nuts",
 			"Curly Wurly"]
 
-	def execute( self, message ):
+	def generate( self, name ):
 		snack = random.choice( self.snacks )
 		pre_modifier = random.choice( self.pre_modifiers )
 		snack = "%s %s" % (pre_modifier, snack)
-		name = message.FromDisplayName
 		template = random.choice( self.templates )
 		message_out = template.substitute(name=name, snack=snack)
 		return "/me %s" % message_out

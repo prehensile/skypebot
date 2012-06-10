@@ -2,8 +2,9 @@
 
 from string import Template
 import random
+import commandbase
 
-class TVCommand(object):
+class TVCommand( commandbase.BaseCommand ):
 
 	def __init__(self):
 
@@ -21,9 +22,8 @@ class TVCommand(object):
 			"Inspector Morse http://www.youtube.com/watch?v=qo4HMZiUhNs&list=PLBD381880EF658346&feature=plpp_play_all",
 			"Blue Jam http://www.youtube.com/watch?v=krsj2bcnRlM&list=PL1945AC59A3707A38&feature=plpp_play_all"]
 
-	def execute( self, message ):
+	def generate( self, name ):
 		tvshow = random.choice( self.tvshows )
-		name = message.FromDisplayName
 		template = random.choice( self.templates )
 		message_out = template.substitute(name=name, tvshow=tvshow)
 		return "/me %s" % message_out
