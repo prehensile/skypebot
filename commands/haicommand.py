@@ -2,8 +2,9 @@
 
 from string import Template
 import random
+import commandbase
 
-class HaiCommand(object):
+class HaiCommand( commandbase.BaseCommand ):
 
 	def __init__(self):
 		
@@ -19,8 +20,7 @@ class HaiCommand(object):
 							Template("calls the law. This $name character looks like he’s up to no good.")
 							]
 							
-	def execute( self, message ):
-		name = message.FromDisplayName
+	def generate( self, name ):
 		template = random.choice( self.templates )
 		message_out = template.substitute(name=name)
 		return "/me %s" % message_out

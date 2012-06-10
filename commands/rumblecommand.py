@@ -2,8 +2,9 @@
 
 from string import Template
 import random
+import commandbase
 
-class RumbleCommand(object):
+class RumbleCommand( commandbase.BaseCommand ):
 
 	def __init__(self):
 
@@ -104,11 +105,10 @@ class RumbleCommand(object):
 			"Mjays Eye Poke",
 			"Steele Trap"]
 
-	def execute( self, message ):
+	def generate( self, name ):
 		finisher = random.choice( self.finishers )
 		pre_modifier = random.choice( self.pre_modifiers )
 		finisher = "%s %s" % (pre_modifier, finisher)
-		name = message.FromDisplayName
 		template = random.choice( self.templates )
 		message_out = template.substitute(name=name, finisher=finisher)
 		return "/me %s" % message_out

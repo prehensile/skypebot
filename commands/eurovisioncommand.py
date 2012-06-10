@@ -2,8 +2,9 @@
 
 from string import Template
 import random
+import commandbase
 
-class EurovisionCommand(object):
+class EurovisionCommand( commandbase.BaseCommand ):
 
     def __init__(self):
 
@@ -87,8 +88,7 @@ class EurovisionCommand(object):
             "Ukraine",  
             "United Kingdom"]
         
-    def execute( self, message ):
-        name = message.FromDisplayName
+    def generate( self, name ):
         points = "%d" % random.randint( 0, 12 )
         country = random.choice( self.country )
         template = random.choice( self.templates )

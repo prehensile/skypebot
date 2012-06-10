@@ -2,8 +2,9 @@
 
 from string import Template
 import random
+import commandbase
 
-class SmokeCommand(object):
+class SmokeCommand( commandbase.BaseCommand ):
 
 	def __init__(self):
 
@@ -51,11 +52,10 @@ class SmokeCommand(object):
 			"Gordo",
 			"Hookah with Apple tobacco to share with everyone"]
 
-	def execute( self, message ):
+	def generate( self, name ):
 		smoke = random.choice( self.smokes )
 		pre_modifier = random.choice( self.pre_modifiers )
 		smoke = "%s %s" % (pre_modifier, smoke)
-		name = message.FromDisplayName
 		template = random.choice( self.templates )
 		message_out = template.substitute(name=name, smoke=smoke)
 		return "/me %s" % message_out
