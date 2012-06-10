@@ -20,10 +20,10 @@ def message_for_incoming_status( status ):
     # get a list of references to status words
     indexes = range( 0, num_words-1 )
     # randomise list of references
-    indexes = random.shuffle( indexes )
+    random.shuffle( indexes )
     # replace words from the input text referred to by the 
     # first muffle_amount percentage of references
-    for i in range( 0, num_words * muffle_amount ):
+    for i in range( 0, int(num_words * muffle_amount) ):
         index = indexes[ i ]
         words[ index ] = random.choice( muffle_words )
     message = " ".join( words )

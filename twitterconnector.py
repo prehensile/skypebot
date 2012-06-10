@@ -14,7 +14,7 @@ class TwitterListener( tweepy.StreamListener ):
         self._delegate = value
 
     def on_status(self, status):
-        logging.info( "Status recieved: %s" % status )
+        logging.info( "Status recieved: %s" % status.text )
         if self._delegate:
             self._delegate.push_status( status )
 
@@ -84,7 +84,7 @@ class TwitterConnectorThread( threading.Thread ):
                 listener.delegate = self
                 self.streaming_api = tweepy.Stream( auth, listener, timeout=None )
                 self.streaming_api.filter( track=self.track_keywords )
-                logging.info( "Stream ended" )
+                logging.info( "Twitter stream ended" )
 
     def stop( self ):
         if self.streaming_api is not None:
