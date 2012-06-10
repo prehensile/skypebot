@@ -186,7 +186,7 @@ class BotThread( queuedthread.QueuedThread ):
                     if ENABLE_TWITTER:
                         new_statuses = self.twitter_connector.pop_stream()
                         for status_in in new_statuses:
-                            #logging.info(  "Twitter stream status: %s" % status_in )
+
                             try:
                                 message_out = streetnoise.message_for_incoming_status( status_in )
                                 logging.info( message_out )
