@@ -4,10 +4,10 @@ from string import Template
 import random
 
 incoming_status_templates = [
-    "/me stiffens as $name thumps on the wall and yells something about $message.",
-    "/me digs out the phone from under a pile of empties, listens for a second then yells out something about $name and $message.",
-    "/me chases $name away from the windows with a broom. They yell something about $message over their shoulder in parting.",
-    "/me finds $name hiding in the bogs, mumbling something about $message."
+    Template( "/me stiffens as $name thumps on the wall and yells something about $message." ),
+    Template( "/me digs out the phone from under a pile of empties, listens for a second then yells out something about $name and $message." ),
+    Template( "/me chases $name away from the windows with a broom. They yell something about $message over their shoulder in parting." ),
+    Template( "/me finds $name hiding in the bogs, mumbling something about $message." )
 ]
 
 muffle_words = [ "something", "worple", "blah" ]
