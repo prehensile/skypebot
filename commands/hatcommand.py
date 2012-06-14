@@ -1,3 +1,8 @@
+# coding=UTF-8
+from string import Template
+import random
+import commandbase
+
 class HatCommand( commandbase.BaseCommand ):
 
     def __init__(self):
