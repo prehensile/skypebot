@@ -16,4 +16,13 @@ class ExampleCommand( commandbase.BaseCommand ):
 		return "/me %s" % message_out
 		
 
+class KnockKnockCommand( commandbase.BaseCommand ):
+
+	def __init__(self):
+		self.templates = [ 	Template("asks who's there.") ]
+
+	def generate( self, name ):
+		template = random.choice( self.templates )
+		message_out = template.substitute(name=name)
+		return "/me %s" % message_out
 		
