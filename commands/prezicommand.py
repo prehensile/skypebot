@@ -7,7 +7,7 @@ class PreziCommand( commandbase.BaseCommand ):
 
     def __init__(self):
         self.templates = [  Template("zooms in on a hoover."),
-                            Template("zooms in on a $name.")]
+                            Template("zooms in on $name.")]
 
     def generate( self, name ):
         template = random.choice( self.templates )
