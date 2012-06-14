@@ -97,7 +97,7 @@ class BotThread( queuedthread.QueuedThread ):
         command_mappings[ "brawl"] = rumblecommand.RumbleCommand()
         command_mappings[ "rumble"] = rumblecommand.RumbleCommand()
         command_mappings[ "prezi"] = prezicommand.PreziCommand()
-        command_mappings[ "fractal"] = PreziCommand.FractalCommand()
+        command_mappings[ "fractal"] = prezicommand.FractalCommand()
 
 
         if RUN_SKYPE:
