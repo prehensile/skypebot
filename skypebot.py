@@ -4,7 +4,7 @@ from commands import drinkcommand, wetcommand, baconcommand, snackcommand, \
 cheesecommand, cockcommand, smokecommand, chooncommand, tvcommand, \
 birthdaycommand, commandscratch, eurovisioncommand, teacommand, \
 coffeecommand, satancommand, marcuscommand, byecommand, haicommand, \
-poveycommand, rumblecommand
+poveycommand, rumblecommand, prezicommand, hatcommand
 import datetime
 import json
 import sys
@@ -93,9 +93,11 @@ class BotThread( queuedthread.QueuedThread ):
         command_mappings[ "ohai" ] = haicommand.HaiCommand()
         command_mappings[ "povey" ] = poveycommand.PoveyCommand()
         command_mappings[ "mullet"] = satancommand.MulletCommand()
-        command_mappings[ "hat"] = commandscratch.HatCommand()
+        command_mappings[ "hat"] = hatcommand.HatCommand()
         command_mappings[ "brawl"] = rumblecommand.RumbleCommand()
         command_mappings[ "rumble"] = rumblecommand.RumbleCommand()
+        command_mappings[ "prezi"] = prezicommand.PreziCommand()
+        command_mappings[ "fractal"] = PreziCommand.FractalCommand()
 
 
         if RUN_SKYPE:
