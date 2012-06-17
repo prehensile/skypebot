@@ -4,17 +4,24 @@ from string import Template
 import random
 
 incoming_status_templates = [
-    Template( "/me stiffens as $name thumps on the wall and yells something about $message." ),
-    Template( "/me digs out the phone from under a pile of empties, listens for a second then yells out something about $name and $message." ),
-    Template( "/me chases $name away from the windows with a broom. They yell something about $message over their shoulder in parting." ),
-    Template( "/me finds $name hiding in the bogs, mumbling something about $message." )
+    Template( "/me stiffens as $name thumps on the wall and yells something \
+about $message." ),
+    Template( "/me digs out the phone from under a pile of empties, listens for \
+a second then yells out something about $name and $message." ),
+    Template( "/me chases $name away from the windows with a broom. They yell \
+something about $message over their shoulder in parting." ),
+    Template( "/me finds $name hiding in the bogs, mumbling something about \
+$message." ),
+    Template( "/me catches a brick as it flies in through a front window. \
+There's a note wrapped around it from $name. The crayon is badly \
+smudged, but it's possible to make out something about $message." )
 ]
 
-muffle_words = [ "something", "worple", "blah" ]
+muffle_words = [ "something", "blah" ]
 
 def message_for_incoming_status( status ):
     # muffle text
-    muffle_amount = 0.3 # muffle a third of input words
+    muffle_amount = 0.4 # muffle a 40% of input words
     words = status.text.split(" ")
     num_words = len(words)
     # get a list of references to status words
@@ -28,7 +35,7 @@ def message_for_incoming_status( status ):
         words[ index ] = random.choice( muffle_words )
     message = " ".join( words )
     # remove trailing punctuation from message
-    message.rstrip(".?!")
+    message = message.rstrip(".?!")
     # get author name
     name = "@%s" % status.author.screen_name
     # choose a template

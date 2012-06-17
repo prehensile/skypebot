@@ -53,6 +53,7 @@ class TwitterConnectorThread( threading.Thread ):
 
     def run( self ):
         if self._creds_path is None:
+            raise Exception( 'No creds_path set' )
             return
 
         error = None
@@ -71,8 +72,9 @@ class TwitterConnectorThread( threading.Thread ):
         except IOError, e:
             error = e
 
-        if error is None:
-
+        if error:
+            raise error
+        else:
             auth = tweepy.OAuthHandler( consumer_key, consumer_secret )
             auth.set_access_token( key, secret )
             self.api = tweepy.API( auth )
