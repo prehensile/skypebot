@@ -20,26 +20,32 @@ smudged, but it's possible to make out something about $message." )
 muffle_words = [ "something", "blah" ]
 
 def message_for_incoming_status( status ):
-    # muffle text
-    muffle_amount = 0.4 # muffle a 40% of input words
-    words = status.text.split(" ")
-    num_words = len(words)
-    # get a list of references to status words
-    indexes = range( 0, num_words-1 )
-    # randomise list of references
-    random.shuffle( indexes )
-    # replace words from the input text referred to by the 
-    # first muffle_amount percentage of references
-    for i in range( 0, int(num_words * muffle_amount) ):
-        index = indexes[ i ]
-        words[ index ] = random.choice( muffle_words )
-    message = " ".join( words )
-    # remove trailing punctuation from message
-    message = message.rstrip(".?!")
-    # get author name
-    name = "@%s" % status.author.screen_name
-    # choose a template
-    template = random.choice( incoming_status_templates )
-    return template.substitute( name=name, message=message )
+    text = status.text
+    words = text.split(" ")
+    if len( words ) > 1 :
+        # strip leading @replies
+        if words[0].startswith( "@" ):
+            words = words[1:]
+        # muffle text
+        muffle_amount = 0.4 # muffle a 40% of input words
+        num_words = len(words)
+        # get a list of references to status words
+        indexes = range( 0, num_words-1 )
+        # randomise list of references
+        random.shuffle( indexes )
+        # replace words from the input text referred to by the 
+        # first muffle_amount percentage of references
+        for i in range( 0, int(num_words * muffle_amount) ):
+            index = indexes[ i ]
+            words[ index ] = random.choice( muffle_words )
+        message = " ".join( words )
+        # remove trailing punctuation from message
+        message = message.rstrip(".?!")
+        # get author name
+        name = "@%s" % status.author.screen_name
+        # choose a template
+        template = random.choice( incoming_status_templates )
+        return template.substitute( name=name, message=message )
+    return None
 
 
