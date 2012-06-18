@@ -9,6 +9,8 @@ class MarcusCommand( commandbase.BaseCommand ):
 	def __init__(self):
 		self.templates = [ 	Template("tells a story."),
 							Template("makes it transmedia."),
+							Template("is attacked by a turkey."),
+							Template("pisses about on the internet."),
 							Template("ponders the tinyweb."),
 							Template("thinks that the bald mullet was never a good look."),
 							Template("gets a larger pair of glasses"),
@@ -37,7 +39,7 @@ class MarcusCommand( commandbase.BaseCommand ):
 							Template("makes a spelling mistake"),
 							Template("says something in German"),
 							Template("clones himself"),
-							Template("buggered The Landlord."),
+							Template("iPod sings."),
 							Template("forgets to commit the changes"),
 							Template("eats some sausage"),
 							Template("books a table at the Schwarzer Hahn"),
