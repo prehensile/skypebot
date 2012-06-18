@@ -87,6 +87,7 @@ class BotThread( queuedthread.QueuedThread ):
         command_mappings[ "tv" ] = tvcommand.TVCommand()
         command_mappings[ "coffee" ] = coffeecommand.CoffeeCommand()
         command_mappings[ "satan" ] = satancommand.SatanCommand()
+        command_mappings[ "dave" ] = satancommand.SatanCommand()
         command_mappings[ "marcus" ] = marcuscommand.MarcusCommand()
         command_mappings[ "bye" ] = byecommand.ByeCommand()
         command_mappings[ "hai" ] = haicommand.HaiCommand()
