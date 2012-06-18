@@ -26,7 +26,7 @@ class DrinkCommand( commandbase.BaseCommand ):
                             Template("challenges $name to a shot-drinking content. First up: $drink."),
                             Template("drops everything just for $name, ungraciously prepares $drink."),
                             Template("calls the law. $name was caught doing lewd acts in the toilets."),
-                            Template("shakes a fresh $drink all over $name's nice new face."),
+                            Template("shakes $drink all over $name's nice new face."),
                             Template("calmly explains to $name that $drink was always there, and vanishes.")
                             ]
         
