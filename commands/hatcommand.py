@@ -7,6 +7,9 @@ class HatCommand( commandbase.BaseCommand ):
 
     def __init__(self):
         self.templates = [ Template("chucks $name a $hat"),
+                   Template("wonders where !dave got that nice $hat."),
+                   Template("rolls a $hat down his arm, like what Michael Jackson did before he died."),
+                   Template("gives $name a fusty, moth-bitten $hat from lost property."),
                    Template("rummages around in the dressing-up box and produces a battered $hat for $name"),
                    Template("knocks up a quick $hat for $name using his mad millinery skills.") ]
         
