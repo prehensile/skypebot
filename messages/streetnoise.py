@@ -15,9 +15,11 @@ $message." ),
     Template( "/me catches a brick as it flies in through a front window. \
 There's a note wrapped around it from $name. The crayon is badly \
 smudged, but it's possible to make out something about $message." )
+    Template( "/me gets pocket-dialled by $name. In the background, he can work out \
+bits of a broken $message." )
 ]
 
-muffle_words = [ "something", "blah" ]
+muffle_words = [ "something", "blah", "yadda" ]
 
 def message_for_incoming_status( status ):
     text = status.text
