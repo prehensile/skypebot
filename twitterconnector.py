@@ -78,7 +78,7 @@ class TwitterConnectorThread( threading.Thread ):
             auth = tweepy.OAuthHandler( consumer_key, consumer_secret )
             auth.set_access_token( key, secret )
             self.api = tweepy.API( auth )
-            self.name = self.api.me().screen_name
+            self.twitter_user = self.api.me()
 
             if self.track_keywords is not None:
                 logging.info( "Connecting Twitter stream for keywords %s" % self.track_keywords )
@@ -104,7 +104,8 @@ class TwitterConnectorThread( threading.Thread ):
     # Streaming functions
 
     def push_status( self, status ):
-        self.stream_buffer.append( status )
+        if status.author.id != self.twitter_user.id:
+            self.stream_buffer.append( status )
 
     def pop_stream( self ):
         out = self.stream_buffer
