@@ -39,7 +39,10 @@ class AdmanCommand( commandbase.BaseCommand ):
 					Template("is a T-shaped person."),
 					Template("strategises."),
 					Template("thinks this is the year of the mobile."),
-					Template("considers what $name's metrics are.") ]
+					Template("considers what $name's metrics are."),
+					Template("nicks an idea off of Youtube."),
+					Template("organises a flashmob."),
+					Template("fucks about with a pencil.")]
 
 	def generate( self, name ):
 		template = random.choice( self.templates )
