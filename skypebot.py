@@ -107,6 +107,7 @@ class BotThread( queuedthread.QueuedThread ):
         command_mappings[ "prezi"] = prezicommand.PreziCommand()
         command_mappings[ "fractal"] = prezicommand.FractalCommand()
         command_mappings[ "knockknock"] = commandscratch.KnockKnockCommand()
+        command_mappings[ "adman"] = commandscratch.KnockKnockCommand()
 
         if RUN_SKYPE:
             logging.info( "Attaching to Skype..." )
