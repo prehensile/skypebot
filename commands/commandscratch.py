@@ -38,6 +38,7 @@ class AdmanCommand( commandbase.BaseCommand ):
 					Template("is making a deck."),
 					Template("is a T-shaped person."),
 					Template("strategises."),
+					Template("thinks this is the year of the mobile."),
 					Template("considers what $name's metrics are.") ]
 
 	def generate( self, name ):
