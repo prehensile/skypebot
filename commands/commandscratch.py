@@ -43,14 +43,16 @@ class AdmanCommand( commandbase.BaseCommand ):
 					Template("nicks an idea off of Youtube."),
 					Template("organises a flashmob."),
 					Template("instagrams a cup of coffee."),
-					Template("pitches a pinterest strategy to $name"),
+					Template("pitches a pinterest strategy to $name."),
 					Template("dabbles with Flash."),
 					Template("makes a mood film."),
-					Template("says he's going to Cannes"),
+					Template("says he's going to Cannes."),
 					Template("is on a conference call."),
-					Template("makes the logo bigger"),
-					Template("astroturfs"),
-					Template("thinks he's Donald Fucking Draper"),
+					Template("makes the logo bigger."),
+					Template("astroturfs."),
+					Template("thinks he's Donald Fucking Draper."),
+					Template("bitches about spec work."),
+					Template("adds QR codes."),
 					Template("fucks about with a pencil.")]
 
 	def generate( self, name ):
