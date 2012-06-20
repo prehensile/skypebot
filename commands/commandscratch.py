@@ -42,6 +42,13 @@ class AdmanCommand( commandbase.BaseCommand ):
 					Template("considers what $name's metrics are."),
 					Template("nicks an idea off of Youtube."),
 					Template("organises a flashmob."),
+					Template("instagrams a cup of coffee."),
+					Template("pitches a pinterest strategy to $name"),
+					Template("dabbles with Flash."),
+					Template("makes a mood film."),
+					Template("says he's going to Cannes"),
+					Template("is on a conference call."),
+					Template("makes the logo bigger"),
 					Template("fucks about with a pencil.")]
 
 	def generate( self, name ):
