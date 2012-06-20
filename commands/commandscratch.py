@@ -49,6 +49,8 @@ class AdmanCommand( commandbase.BaseCommand ):
 					Template("says he's going to Cannes"),
 					Template("is on a conference call."),
 					Template("makes the logo bigger"),
+					Template("astroturfs"),
+					Template("thinks he's Donald Fucking Draper"),
 					Template("fucks about with a pencil.")]
 
 	def generate( self, name ):
