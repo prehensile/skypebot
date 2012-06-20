@@ -50,6 +50,7 @@ class AdmanCommand( commandbase.BaseCommand ):
 					Template("is on a conference call."),
 					Template("makes the logo bigger."),
 					Template("astroturfs."),
+					Template("gives $name a plastic product."),
 					Template("thinks he's Donald Fucking Draper."),
 					Template("bitches about spec work."),
 					Template("adds QR codes."),
