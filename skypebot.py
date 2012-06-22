@@ -125,8 +125,8 @@ class BotThread( queuedthread.QueuedThread ):
                             body = new_message.Body
                             print body
                             bl = body.lower()
-                            try:
-                                for command in all_commands:
+                            for command in all_commands:
+                                try:
                                     if command.enabled:
                                         message_out = None
                                         for commandstring in command.command_mappings:
@@ -162,9 +162,9 @@ class BotThread( queuedthread.QueuedThread ):
                                         if ENABLE_TWITTER and command.tweets:
                                             self.twitter_connector.tweet( message_out )
 
-                            except Exception, e:
-                                logging.info( e )
-                                print e
+                                except Exception, e:
+                                    logging.info( e )
+                                    print e
                     
                     # update from twitter
                     if ENABLE_TWITTER:

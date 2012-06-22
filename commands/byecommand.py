@@ -7,6 +7,8 @@ import commandbase
 class ByeCommand( commandbase.BaseCommand ):
 
     def __init__(self):
+
+        BaseCommand.__init__( self )
         
         self.command_mappings = [ "bye" ]
 

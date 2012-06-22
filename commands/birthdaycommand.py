@@ -8,6 +8,8 @@ class BirthdayCommand( commandbase.BaseCommand ):
 
     def __init__(self):
         
+        BaseCommand.__init__( self )
+
         self.command_mappings = [ "birthday" ]
 
         self.templates = [  Template("strings up the bunting and launches a party popper into $name's drink"),

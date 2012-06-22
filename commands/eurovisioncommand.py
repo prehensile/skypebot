@@ -7,6 +7,7 @@ import commandbase
 class EurovisionCommand( commandbase.BaseCommand ):
 
     def __init__(self):
+        BaseCommand.__init__( self )
         self.command_mappings = [ "eurovision" ]
         self.templates = [  Template("gives $name $points points."),
                         Template("sides with $name's rival. Everyone agrees it's bloc politics."),

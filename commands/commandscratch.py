@@ -8,6 +8,7 @@ import commandbase
 class ExampleCommand( commandbase.BaseCommand ):
 
 	def __init__(self):
+		BaseCommand.__init__( self )
 		self.templates = [ 	Template("lobs a dolphin at $name.") ]
 		self.command_mappings = [ "w3t", "splashy" ]
 		self.enabled = False # change to True (or just delete this line) to enable a command

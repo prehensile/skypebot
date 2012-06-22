@@ -7,6 +7,7 @@ import commandbase
 class HaiCommand( commandbase.BaseCommand ):
 
 	def __init__(self):
+		BaseCommand.__init__( self )
 		self.command_mappings = [ "hai", "ohai", "hallo", "morning", "afternoon", "evenin" ]
 		self.templates = [ 	Template("hides behind the bar as $name enters."), #OK
 							Template("runs away, screaming 'not again!'. He remembers $name from his ancient personal history."),

@@ -7,6 +7,7 @@ import commandbase
 class PoveyCommand( commandbase.BaseCommand ):
 
     def __init__(self):
+        BaseCommand.__init__( self )
         self.command_mappings = [ "povey" ]
         self.templates = [  Template("thinks $name completes him."),
                             Template("nurtures a hangover."),

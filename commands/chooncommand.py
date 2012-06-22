@@ -8,6 +8,8 @@ class ChoonCommand( commandbase.BaseCommand ):
 
     def __init__(self):
 
+        BaseCommand.__init__( self )
+
         self.command_mappings = [ "choon" ]
 
         self.templates = [  Template("does a rubbish swan-dive and puts on some $choon for $name"),

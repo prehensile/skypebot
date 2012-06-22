@@ -6,6 +6,7 @@ import commandbase
 class HangoverCommand( commandbase.BaseCommand ):
 
     def __init__(self):
+      BaseCommand.__init__( self )
       self.command_mappings = [ "hangover" ]
       self.templates = [ Template("is still wearing yesterday's clothes."),
                            Template("doesn't smell so good."),

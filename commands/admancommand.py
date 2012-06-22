@@ -7,7 +7,7 @@ class AdmanCommand( commandbase.BaseCommand ):
 
     def __init__(self):
           
-          self.command_mappings = [ "adman" ]     
+          BaseCommand.__init__( self )
 
           self.templates = [  Template("does a brand onion for $name."),
                     Template("leverages key influencers."),

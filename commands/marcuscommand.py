@@ -7,6 +7,7 @@ import commandbase
 class MarcusCommand( commandbase.BaseCommand ):
 
 	def __init__(self):
+		BaseCommand.__init__( self )
 		self.command_mappings = [ "marcus", "kaiser" ]
 		self.templates = [ 	Template("tells a story."),
 							Template("makes it transmedia."),

@@ -6,6 +6,7 @@ import commandbase
 class HatCommand( commandbase.BaseCommand ):
 
     def __init__(self):
+        BaseCommand.__init__( self )
         self.command_mappings = [ "hat" ]
         self.templates = [ Template("chucks $name a $hat"),
                    Template("wonders where !dave got that nice $hat."),
