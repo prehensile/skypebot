@@ -25,3 +25,18 @@ class KnockKnockCommand( commandbase.BaseCommand ):
 		template = random.choice( self.templates )
 		message_out = template.substitute(name=name)
 		return "/me %s" % message_out
+		
+class BashfordCommand( commandbase.BaseCommand ):
+
+	def __init__(self):
+		self.templates = [ 	Template("is algoraving."),
+					Template("shares a genrememe track."),
+					Template("is commuting to Hamburg."),
+					Template("seapunked all over the shop."),
+					Template("seapunked all over the shop."),
+					Template("is a Thing now."),]
+
+	def generate( self, name ):
+		template = random.choice( self.templates )
+		message_out = template.substitute(name=name)
+		return "/me %s" % message_out
