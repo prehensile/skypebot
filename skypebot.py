@@ -108,6 +108,7 @@ class BotThread( queuedthread.QueuedThread ):
         command_mappings[ "prezi" ] = prezicommand.PreziCommand()
         command_mappings[ "fractal" ] = prezicommand.FractalCommand()
         command_mappings[ "knockknock" ] = commandscratch.KnockKnockCommand()
+        command_mappings[ "bashford" ] = commandscratch.BashfordCommand()
         command_mappings[ "adman" ] = admancommand.AdmanCommand()
         command_mappings[ "hangover" ] = hangovercommand.HangoverCommand()
 
