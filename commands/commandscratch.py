@@ -36,6 +36,7 @@ class BashfordCommand( commandbase.BaseCommand ):
 					Template("is listening to EMF"),
 					Template("is searching YouTube for YetiCore videos."),
 					Template("is eating a steak."),
+					Template("is sharing the wrong YouTube track."),
 					Template("seapunked all over the shop."),
 					Template("seapunked all over the shop."),
 					Template("is a Thing now."),]
