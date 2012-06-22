@@ -41,7 +41,13 @@ class BashfordCommand( commandbase.BaseCommand ):
 					Template("is sharing the wrong YouTube track."),
 					Template("seapunked all over the shop."),
 					Template("seapunked all over the shop."),
-					Template("is a Thing now."),]
+					Template("is a Thing now."),
+					Template("is still hungover."),
+					Template("is in bed mashing keys on his computer."),
+					Template("needs the splashy afro back."),
+					Template("puts a 303 in a !drink for !name."),
+					Template("is making a microsite for an !adman."),
+					Template("loves peeps.") ]
 
 	def generate( self, name ):
 		template = random.choice( self.templates )
