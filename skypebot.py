@@ -4,7 +4,8 @@ from commands import drinkcommand, wetcommand, baconcommand, snackcommand, \
 cheesecommand, cockcommand, smokecommand, chooncommand, tvcommand, \
 birthdaycommand, commandscratch, eurovisioncommand, teacommand, \
 coffeecommand, satancommand, marcuscommand, byecommand, haicommand, \
-poveycommand, rumblecommand, prezicommand, hatcommand
+poveycommand, rumblecommand, prezicommand, hatcommand, admancommand, \
+hangovercommand
 import datetime
 import json
 import sys
@@ -100,14 +101,15 @@ class BotThread( queuedthread.QueuedThread ):
         command_mappings[ "afternoon" ] = haicommand.HaiCommand()
         command_mappings[ "evenin" ] = haicommand.HaiCommand()
         command_mappings[ "povey" ] = poveycommand.PoveyCommand()
-        command_mappings[ "mullet"] = satancommand.MulletCommand()
-        command_mappings[ "hat"] = hatcommand.HatCommand()
-        command_mappings[ "brawl"] = rumblecommand.RumbleCommand()
-        command_mappings[ "rumble"] = rumblecommand.RumbleCommand()
-        command_mappings[ "prezi"] = prezicommand.PreziCommand()
-        command_mappings[ "fractal"] = prezicommand.FractalCommand()
-        command_mappings[ "knockknock"] = commandscratch.KnockKnockCommand()
-        command_mappings[ "adman"] = commandscratch.AdmanCommand()
+        command_mappings[ "mullet" ] = satancommand.MulletCommand()
+        command_mappings[ "hat" ] = hatcommand.HatCommand()
+        command_mappings[ "brawl" ] = rumblecommand.RumbleCommand()
+        command_mappings[ "rumble" ] = rumblecommand.RumbleCommand()
+        command_mappings[ "prezi" ] = prezicommand.PreziCommand()
+        command_mappings[ "fractal" ] = prezicommand.FractalCommand()
+        command_mappings[ "knockknock" ] = commandscratch.KnockKnockCommand()
+        command_mappings[ "adman" ] = admancommand.AdmanCommand()
+        command_mappings[ "hangover" ] = hangovercommand.HangoverCommand()
 
         if RUN_SKYPE:
             logging.info( "Attaching to Skype..." )
