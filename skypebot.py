@@ -86,7 +86,7 @@ class BotThread( queuedthread.QueuedThread ):
             skype = Skype4Py.Skype(Transport='x11')
             skype.Attach()
         
-        self.chat_handlers = []
+        self.chat_handlers = {}
         logging.info( "Entering main run loop..." )
         while not self._abortflag:
             try:
