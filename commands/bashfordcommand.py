@@ -23,7 +23,7 @@ class BashfordCommand( BaseCommand ):
                     Template("is still hungover."),
                     Template("is in bed mashing keys on his computer."),
                     Template("needs the splashy afro back."),
-                    Template("puts a 303 in a !drink for !name."),
+                    Template("puts a 303 in a !drink for $name."),
                     Template("is making a microsite for an !adman."),
                     Template("loves peeps.") ]
 
