@@ -8,6 +8,8 @@ class SmokeCommand( commandbase.BaseCommand ):
 
 	def __init__(self):
 
+		self.command_mappings = [ "smoke" ]
+
 		self.templates = [ 	Template("hapily slides $name $smoke."),
 							Template("produces a $smoke for $name and asks if a light is required"),
 							Template("flips his Zippo and slides it along the bar to $name"),

@@ -1,5 +1,10 @@
 class BaseCommand(object):
     
+    def __init__( self ):
+        self.tweets = True
+        self.command_mappings = []
+        self.enabled = True
+
     def generate( self, name ):
         return None
 

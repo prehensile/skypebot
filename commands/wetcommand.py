@@ -7,7 +7,7 @@ import commandbase
 class WetCommand( commandbase.BaseCommand ):
 
     def __init__(self):
-        
+        self.command_mappings = [ "w3t", "splashy" ]
         self.templates = [  Template("lobs a dolphin at $name.") ]
         
     def generate( self, name ):

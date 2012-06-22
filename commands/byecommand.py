@@ -8,6 +8,8 @@ class ByeCommand( commandbase.BaseCommand ):
 
     def __init__(self):
         
+        self.command_mappings = [ "bye" ]
+
         self.templates = [  Template("waves goodbye to $name."),
                             Template("throws his hands up as $name finally leaves the bar."),
                             Template("hardly notices that $name leaves."),

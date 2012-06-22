@@ -6,6 +6,9 @@ import commandbase
 class PreziCommand( commandbase.BaseCommand ):
 
     def __init__(self):
+
+        self.command_mappings = [ "prezi" ]
+
         self.templates = [  Template("zooms in on a hoover."),
                             Template("zooms in on $name.")]
 
@@ -17,6 +20,7 @@ class PreziCommand( commandbase.BaseCommand ):
 class FractalCommand( commandbase.BaseCommand ):
 
     def __init__(self):
+        self.command_mappings = [ "fractal" ]
         self.templates = [  Template("zooms in on The Landlord.") ]
 
     def generate( self, name ):

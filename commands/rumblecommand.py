@@ -8,6 +8,8 @@ class RumbleCommand( commandbase.BaseCommand ):
 
 	def __init__(self):
 
+		self.command_mappings = [ "brawl", "rumble" ]
+
 		self.templates = [ 	Template("pounces $name with a $finisher."),
 							Template("performs a $finisher on $name and watches as they tap out."),
 							Template("wears a flashy dressing grown and shouts 'WOOOOOOO'."),

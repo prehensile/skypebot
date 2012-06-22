@@ -8,6 +8,8 @@ class DrinkCommand( commandbase.BaseCommand ):
 
     def __init__(self):
         
+        self.command_mappings = [ "drink" ] 
+
         self.templates = [  Template("begrudgingly serves $name $drink."),
                             Template("ostentatiously prepares $name $drink and pockets the change."),
                             Template("eyeballs $name for a moment, then shoves $drink across the bar."),

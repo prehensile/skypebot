@@ -7,6 +7,9 @@ import commandbase
 class SatanCommand( commandbase.BaseCommand ):
 
     def __init__(self):
+
+        self.command_mappings = [ "satan", "dave" ]
+
         self.templates = [  Template("considers the infomorph aesthetic."),
                             Template("draws a martini."),
                             Template("thinks the bald mullet is an excellent look."),

@@ -8,6 +8,8 @@ class TVCommand( commandbase.BaseCommand ):
 
 	def __init__(self):
 
+		self.command_mappings = [ "tv" ]
+
 		self.templates = [ 	Template("reaches for the remote and switches over to $tvshow"),
 							Template("looks up at $name and mumbles before switching over to $tvshow"),
 							Template("reminds everyone that it's his brithday and turns over to $tvshow") ]

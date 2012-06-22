@@ -1,11 +1,6 @@
 import Skype4Py
 import time
-from commands import drinkcommand, wetcommand, baconcommand, snackcommand, \
-cheesecommand, cockcommand, smokecommand, chooncommand, tvcommand, \
-birthdaycommand, commandscratch, eurovisioncommand, teacommand, \
-coffeecommand, satancommand, marcuscommand, byecommand, haicommand, \
-poveycommand, rumblecommand, prezicommand, hatcommand, admancommand, \
-hangovercommand
+import pkgutil
 import datetime
 import json
 import sys
@@ -16,6 +11,8 @@ import queuedthread
 import time
 from messages import housekeeping, streetnoise
 import re
+import os
+import commands
 
 class ChatHandler(object):
     
@@ -34,8 +31,8 @@ class ChatHandler(object):
                 #print message.Id
         return new_messages
 
-RUN_SKYPE = True
-ENABLE_TWITTER = True
+RUN_SKYPE = False
+ENABLE_TWITTER = False
 ENABLE_GIFTS = True
 class BotThread( queuedthread.QueuedThread ):
     
@@ -70,53 +67,26 @@ class BotThread( queuedthread.QueuedThread ):
             self.twitter_connector.track_keywords = ["lndlrd"]
             self.twitter_connector.start()
 
-        # set up command handlers
-        self.chat_handlers = {}
-        command_mappings = {}
-        command_mappings[ "drink" ] = drinkcommand.DrinkCommand()
-        command_mappings[ "w3t" ] = wetcommand.WetCommand()
-        command_mappings[ "splashy" ] = wetcommand.WetCommand()
-        command_mappings[ "bacon" ] = baconcommand.BaconCommand()
-        command_mappings[ "snack" ] = snackcommand.SnackCommand()
-        command_mappings[ "cheese" ] = cheesecommand.CheeseCommand()
-        #command_mappings[ "cock" ] = cockcommand.CockCommand()
-        command_mappings[ "choon" ] = chooncommand.ChoonCommand()
-        command_mappings[ "smoke" ] = smokecommand.SmokeCommand()
-        command_mappings[ "telly" ] = tvcommand.TVCommand()
-        command_mappings[ "birthday" ] = birthdaycommand.BirthdayCommand()
-        command_mappings[ "eurovision" ] = eurovisioncommand.EurovisionCommand()
-        command_mappings[ "tea" ] = teacommand.TeaCommand()
-        command_mappings[ "tv" ] = tvcommand.TVCommand()
-        command_mappings[ "coffee" ] = coffeecommand.CoffeeCommand()
-        command_mappings[ "satan" ] = satancommand.SatanCommand()
-        command_mappings[ "dave" ] = satancommand.SatanCommand()
-        command_mappings[ "marcus" ] = marcuscommand.MarcusCommand()
-        command_mappings[ "kaiser" ] = marcuscommand.MarcusCommand()
-        command_mappings[ "bye" ] = byecommand.ByeCommand()
-        command_mappings[ "hai" ] = haicommand.HaiCommand()
-        command_mappings[ "afternoon" ] = haicommand.HaiCommand()
-        command_mappings[ "hallo" ] = haicommand.HaiCommand()
-        command_mappings[ "ohai" ] = haicommand.HaiCommand()
-        command_mappings[ "morning" ] = haicommand.HaiCommand()
-        command_mappings[ "afternoon" ] = haicommand.HaiCommand()
-        command_mappings[ "evenin" ] = haicommand.HaiCommand()
-        command_mappings[ "povey" ] = poveycommand.PoveyCommand()
-        command_mappings[ "mullet" ] = satancommand.MulletCommand()
-        command_mappings[ "hat" ] = hatcommand.HatCommand()
-        command_mappings[ "brawl" ] = rumblecommand.RumbleCommand()
-        command_mappings[ "rumble" ] = rumblecommand.RumbleCommand()
-        command_mappings[ "prezi" ] = prezicommand.PreziCommand()
-        command_mappings[ "fractal" ] = prezicommand.FractalCommand()
-        command_mappings[ "knockknock" ] = commandscratch.KnockKnockCommand()
-        command_mappings[ "bashford" ] = commandscratch.BashfordCommand()
-        command_mappings[ "adman" ] = admancommand.AdmanCommand()
-        command_mappings[ "hangover" ] = hangovercommand.HangoverCommand()
+        # import commands
+        all_commands = []
+        logging.info( "Loading commands..." )
+        for loader, modname, ispkg in pkgutil.iter_modules( commands.__path__, prefix="commands." ):
+            try:
+                module = __import__( modname, fromlist="dummy" )
+                for klassname in dir( module ):
+                    if "Command" in klassname:
+                        logging.info( "Instantiate command: %s" % klassname )
+                        kommandklass = getattr( module, klassname )
+                        all_commands.append( kommandklass() )
+            except Exception, e:
+                logging.info( e )
 
         if RUN_SKYPE:
             logging.info( "Attaching to Skype..." )
             skype = Skype4Py.Skype(Transport='x11')
             skype.Attach()
         
+        self.chat_handlers = []
         logging.info( "Entering main run loop..." )
         while not self._abortflag:
             try:
@@ -154,42 +124,42 @@ class BotThread( queuedthread.QueuedThread ):
                         for new_message in new_messages:
                             body = new_message.Body
                             print body
+                            bl = body.lower()
                             try:
-                                for commandstring in command_mappings:
-                                    commandbang = "!" + commandstring
-                                    bl = body.lower()
-                                    command = command_mappings[ commandstring ]
-                                    message_out = None
-                                    
-                                    if commandbang in bl:
-                                        # if command is giftable
-                                        if ENABLE_GIFTS:
-                                            if hasattr( command, 'gift' ):
-                                                # split message up into tokens
-                                                tokens = re.split( '\W+', body )
-                                                print tokens
-                                                if len( tokens ) > 1:
-                                                    members = chat_handler.chat.Members
-                                                    # scan tokens for something that looks like a name
-                                                    for token in tokens:
-                                                        if len(token) > 3 and token != commandstring:
-                                                            for member in members:
-                                                                names = [ member.DisplayName, member.FullName, member.Handle ]
-                                                                for name in names:
-                                                                    if token.lower() in name.lower():
-                                                                        print "-->  gift %s to %s " % (commandbang, name )
-                                                                        message_out = command.gift( name )
-                                                                        break
+                                for command in all_commands:
+                                    if command.enabled:
+                                        message_out = None
+                                        for commandstring in command.command_mappings:
+                                            commandbang = "!" + commandstring
+                                            if commandbang in bl:
+                                                # if command is giftable
+                                                if ENABLE_GIFTS:
+                                                    if hasattr( command, 'gift' ):
+                                                        # split message up into tokens
+                                                        tokens = re.split( '\W+', body )
+                                                        print tokens
+                                                        if len( tokens ) > 1:
+                                                            members = chat_handler.chat.Members
+                                                            # scan tokens for something that looks like a name
+                                                            for token in tokens:
+                                                                if len(token) > 3 and token != commandstring:
+                                                                    for member in members:
+                                                                        names = [ member.DisplayName, member.FullName, member.Handle ]
+                                                                        for name in names:
+                                                                            if token.lower() in name.lower():
+                                                                                print "-->  gift %s to %s " % (commandbang, name )
+                                                                                message_out = command.gift( name )
+                                                                                break
+                                                                        if message_out is not None:
+                                                                            break
                                                                 if message_out is not None:
-                                                                    break
-                                                        if message_out is not None:
-                                                                break
-                                        if message_out is None:
-                                            message_out = command.execute( new_message )
+                                                                        break
+                                                if message_out is None:
+                                                    message_out = command.execute( new_message )
 
                                     if message_out is not None:
                                         chat_handler.chat.SendMessage( message_out )
-                                        if ENABLE_TWITTER:
+                                        if ENABLE_TWITTER and command.tweets:
                                             self.twitter_connector.tweet( message_out )
 
                             except Exception, e:

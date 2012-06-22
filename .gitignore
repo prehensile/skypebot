@@ -6,3 +6,6 @@ consumer_token
 request_token
 
 tokengetter.py
+skypebot.log
+tmp/
+twitter_tester.log

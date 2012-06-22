@@ -8,6 +8,8 @@ class BaconCommand( commandbase.BaseCommand ):
 
     def __init__(self):
         
+        self.command_mappings = [ "bacon" ]
+
         self.templates = [  Template("begrudgingly serves $name $bacon."),
                             Template("wangs a load of $bacon on the grill for $name."),
                             Template("trims the fat off some $bacon for $name."),

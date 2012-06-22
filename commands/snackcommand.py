@@ -8,6 +8,8 @@ class SnackCommand( commandbase.BaseCommand ):
 
 	def __init__(self):
 
+		self.command_mappings = [ "snack" ]
+
 		self.templates = [ 	Template("begrudgingly serves $name $snack."),
 							Template("ostentatiously prepares $name $snack and pockets the change."),
 							Template("surprises everyone again with (cake)"),

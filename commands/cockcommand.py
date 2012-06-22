@@ -8,6 +8,9 @@ class CockCommand( commandbase.BaseCommand ):
 
     def __init__(self):
 
+        self.command_mappings = [ "cock" ]
+        self.tweets = False
+
         self.templates = [  Template("magnificently glitches $name $drink all over Gregory Povey who now looks peeved. #time #cock"),
                             Template("admirably reminds $name that Jon Ronson has passed away and tips $drink over Marcus Brown's head. #time #cock"),
                             Template("bends $name over and performs the jon_ronson finishing move on them. Requests a wasabi-based !snack."),

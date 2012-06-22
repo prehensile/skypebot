@@ -6,7 +6,10 @@ import commandbase
 class AdmanCommand( commandbase.BaseCommand ):
 
     def __init__(self):
-        self.templates = [  Template("does a brand onion for $name."),
+          
+          self.command_mappings = [ "adman" ]     
+
+          self.templates = [  Template("does a brand onion for $name."),
                     Template("leverages key influencers."),
                     Template("makes it count."),
                     Template("is in Cannes."),
