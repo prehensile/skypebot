@@ -32,6 +32,10 @@ class BashfordCommand( commandbase.BaseCommand ):
 		self.templates = [ 	Template("is algoraving."),
 					Template("shares a genrememe track."),
 					Template("is commuting to Hamburg."),
+					Template("is buying a hugely overpriced jacket for Arctic Marathon Swimmers."),
+					Template("is listening to EMF"),
+					Template("is searching YouTube for YetiCore videos."),
+					Template("is eating a steak."),
 					Template("seapunked all over the shop."),
 					Template("seapunked all over the shop."),
 					Template("is a Thing now."),]
