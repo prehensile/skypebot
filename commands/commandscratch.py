@@ -22,6 +22,7 @@ class ExampleCommand( BaseCommand ):
 class KnockKnockCommand( BaseCommand ):
 
 	def __init__(self):
+		BaseCommand.__init__( self )
 		self.command_mappings = [ "knock" ]
 		self.templates = [ 	Template("asks who's there.") ]
 
