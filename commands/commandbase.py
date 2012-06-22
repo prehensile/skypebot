@@ -1,7 +1,6 @@
 class BaseCommand(object):
     
     def __init__( self ):
-        print "BaseCommand.init(%s)" % self
         self.tweets = True
         self.command_mappings = []
         self.enabled = True
