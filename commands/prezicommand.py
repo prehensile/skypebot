@@ -1,9 +1,9 @@
 # coding=UTF-8
 from string import Template
 import random
-import commandbase
+from commandbase import BaseCommand
 
-class PreziCommand( commandbase.BaseCommand ):
+class PreziCommand( BaseCommand ):
 
     def __init__(self):
         BaseCommand.__init__( self )
@@ -16,7 +16,7 @@ class PreziCommand( commandbase.BaseCommand ):
         message_out = template.substitute(name=name)
         return "/me %s" % message_out
 
-class FractalCommand( commandbase.BaseCommand ):
+class FractalCommand( BaseCommand ):
 
     def __init__(self):
         BaseCommand.__init__( self )

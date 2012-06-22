@@ -1,11 +1,11 @@
 # coding=UTF-8
 from string import Template
 import random
-import commandbase
+from commandbase import BaseCommand
 
 ## Copypaste this example command to create new scratch commands
 ## Leave this one alone so new commands can be made from it.
-class ExampleCommand( commandbase.BaseCommand ):
+class ExampleCommand( BaseCommand ):
 
 	def __init__(self):
 		BaseCommand.__init__( self )
@@ -19,7 +19,7 @@ class ExampleCommand( commandbase.BaseCommand ):
 		return "/me %s" % message_out
 		
 
-class KnockKnockCommand( commandbase.BaseCommand ):
+class KnockKnockCommand( BaseCommand ):
 
 	def __init__(self):
 		self.command_mappings = [ "knock" ]

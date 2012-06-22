@@ -2,9 +2,9 @@
 
 from string import Template
 import random
-import commandbase
+from commandbase import BaseCommand
 
-class HaiCommand( commandbase.BaseCommand ):
+class HaiCommand( BaseCommand ):
 
 	def __init__(self):
 		BaseCommand.__init__( self )

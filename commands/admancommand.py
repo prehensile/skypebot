@@ -1,9 +1,9 @@
 # coding=UTF-8
 from string import Template
 import random
-import commandbase
+from commandbase import BaseCommand
 
-class AdmanCommand( commandbase.BaseCommand ):
+class AdmanCommand( BaseCommand ):
 
     def __init__(self):
           

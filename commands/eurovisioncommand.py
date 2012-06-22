@@ -2,9 +2,9 @@
 
 from string import Template
 import random
-import commandbase
+from commandbase import BaseCommand
 
-class EurovisionCommand( commandbase.BaseCommand ):
+class EurovisionCommand( BaseCommand ):
 
     def __init__(self):
         BaseCommand.__init__( self )

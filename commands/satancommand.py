@@ -2,9 +2,9 @@
 
 from string import Template
 import random
-import commandbase
+from commandbase import BaseCommand
 
-class SatanCommand( commandbase.BaseCommand ):
+class SatanCommand( BaseCommand ):
 
     def __init__(self):
 
@@ -29,7 +29,7 @@ class SatanCommand( commandbase.BaseCommand ):
         message_out = template.substitute(name=name)
         return "/me %s" % message_out
 
-class MulletCommand( commandbase.BaseCommand ):
+class MulletCommand( BaseCommand ):
 
     def __init__(self):
         BaseCommand.__init__( self )

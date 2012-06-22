@@ -2,9 +2,9 @@
 
 from string import Template
 import random
-import commandbase
+from commandbase import BaseCommand
 
-class ByeCommand( commandbase.BaseCommand ):
+class ByeCommand( BaseCommand ):
 
     def __init__(self):
 
