@@ -16,6 +16,13 @@ class HaiCommand( BaseCommand ):
 							Template("gives $name a devastatingly warm bearhug. Lingers a little too long."), #OK
 							Template("cracks open the sparkling wine to celebrate $name arriving."),
 							Template("rues the day he let $name become a member."), #OK
+							Template("is pleased to see $name. It's been a while."), #OK
+							Template("cheers $name as they enter the bar."), #OK
+							Template("puts on Eye Of The Tiger as $name arrives."), #OK
+							Template("does a magic trick for $name."), #OK
+							Template("mournfully welcomes $name back to the bar."), #OK
+							Template("thought he'd locked the door, bit surprised to see $name here."), #OK
+							Template("slow claps $name."), #OK
 							Template("welcomes $name, and opens the hidden door to the gambling room."), #OK
 							Template("forcibly ejects another patron as they sit in $name's usual spot."),
 							Template("calls the law. This $name character looks like they're up to no good."),
