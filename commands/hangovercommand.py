@@ -7,10 +7,10 @@ class HangoverCommand( BaseCommand ):
 
     def __init__(self):
       BaseCommand.__init__( self )
-      self.command_mappings = [ "hangover" ]
+      self.command_mappings = [ "hangover", "hungover" ]
       self.templates = [ Template("is still wearing yesterday's clothes."),
                            Template("doesn't smell so good."),
-                           Template("has bags on the bags under his 'eyes'."),
+                           Template("has bags on the bags under his eyes."),
                            Template("gazes off into space."),
                            Template("forgets what he was saying."),
                            Template("sneaks off for a nap."),
@@ -24,7 +24,12 @@ class HangoverCommand( BaseCommand ):
                            Template("is running on !coffee & painkillers."),
                            Template("bangs on about Irn Bru."),
                            Template("!bacon !bacon !bacon"),
-                           Template("would rather not talk about it.") ]
+                           Template("would rather not talk about it."),
+                           Template("wants to go home."),
+                           Template("is sweating booze."),
+                           Template("can barely speak."),
+                           Template("is still drunk."),
+                           Template("has his head in his hands.")]
 
     def generate( self, name ):
         template = random.choice( self.templates )
