@@ -9,6 +9,8 @@ class AdmanCommand( BaseCommand ):
           
           BaseCommand.__init__( self )
 
+          self.command_mappings = [ "adman" ]
+
           self.templates = [  Template("does a brand onion for $name."),
                     Template("leverages key influencers."),
                     Template("makes it count."),
