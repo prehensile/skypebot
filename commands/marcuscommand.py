@@ -17,6 +17,8 @@ class MarcusCommand( BaseCommand ):
 							Template("thinks that the bald mullet was never a good look."),
 							Template("gets a larger pair of glasses."),
 							Template("puts on a wig."),
+							Template("fucking hates camping."),
+							Template("is hanging out with Sacha."),
 							Template("says poorly nothing."),
 							Template("eulogises The Undertaker."),
 							Template("has come down with a raging case of SMEBS."),
