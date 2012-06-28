@@ -9,7 +9,7 @@ class DovehandCommand( BaseCommand ):
           
           BaseCommand.__init__( self )
 
-          self.command_mappings = [ "dovehand", "hands" ]
+          self.command_mappings = [ "dovehand", "hand", "hands" ]
 
           self.templates = [  Template("performs $hand."),
                               Template("shows off $hand.")
