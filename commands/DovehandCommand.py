@@ -13,18 +13,18 @@ class DovehandCommand( BaseCommand ):
 
           self.templates = [  Template("performs $hand."),
                               Template("shows off $hand.")
-                            ]
+                           ]
         
-        self.pre_modifiers = [ "sloppy",
-                  "uninspired",
-                  "surprising"
-                   ]                
+          self.pre_modifiers = [ "sloppy",
+                                 "uninspired",
+                                 "surprising"
+                               ]                
         
-        self.hands = [ "dovehands",
-            "rubber hands",
-            "globe hands",
-            "tiny hands"
- ]
+          self.hands = [ "dovehands",
+                         "rubber hands",
+                         "globe hands",
+                         "tiny hands"
+                       ]
 
     def generate( self, name ):
         hand = random.choice( self.hands )
