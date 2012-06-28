@@ -15,17 +15,19 @@ class DovehandCommand( BaseCommand ):
                               Template("shows off $hand.")
                            ]
         
-          self.pre_modifiers = [ "sloppy",
-                                 "uninspired",
-                                 "surprising",
-                                 "enormous",
-                                 "papier-mache",
-                                 "textbook",
-                                 "glitchy",
-                                 "withering",
-                                 "tingly",
-                                 "uninspired"
-                               ]                
+          self.pre_modifiers = [ "a sloppy",
+                                 "an uninspired",
+                                 "a surprising",
+                                 "an enormous",
+                                 "a papier-mache",
+                                 "a textbook",
+                                 "a glitchy",
+                                 "a withering",
+                                 "a tingly",
+                                 "a romantic",
+                                 "an amateur",
+                                 "a pro",
+                                 ]                
         
           self.hands = [ "dovehands",
                          "rubber hands",
@@ -34,6 +36,8 @@ class DovehandCommand( BaseCommand ):
                          "shelf stacking",
                          "big fish little fish",
                          "tiny hands",
+                         "T-Rex",
+                         "cupping",
                          "futureclaw",
                        ]
 
