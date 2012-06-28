@@ -29,7 +29,7 @@ class DovehandCommand( BaseCommand ):
     def generate( self, name ):
         hand = random.choice( self.hands )
         pre_modifier = random.choice( self.pre_modifiers )
-        if(pre_modifier[-1].lower() == 'a') and (drink[:1].lower()=='a'):
+        if(pre_modifier[-1].lower() == 'a') and (hand[:1].lower()=='a'):
             pre_modifier += "n"
         hand = "%s %s" % (pre_modifier, hand)
         template = random.choice( self.templates )
