@@ -28,7 +28,7 @@ class TwocentsCommand( BaseCommand ):
                     Template("pulls out a Go board, challenges $name, says, on disagreement start the game. find along the way urgency to decide thoughts."),
                     Template("points $name to the loo. Calls after them, Explore entrances to points of no return for phases upgrading."),
                     Template("makes a mobius strip. hands it to $name. written on it is - Anytime has no boundaries as the loop is indistinguishable."),
-                    Template("confers with !satan. Does $name really think it’s good to reduce that to something?")
+                    Template("confers with !satan. Does $name really think it’s good to reduce that to something?"),
                     Template("chortles at $name's naievety. It's funny how people don't realise that 'now' is the best time.")]
 
     def generate( self, name ):
