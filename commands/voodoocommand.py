@@ -20,7 +20,7 @@ class VoodooCommand( BaseCommand ):
 						Template("is pinstruck."),
 						Template("mutters an incantation in $name's general direction."),
 						Template("shakes a rattle and dances in a circle around $name."),
-						Template("explains to $name that Hollywood has ruined voodoo's reputation. Chucks a chicken head at the tv."),
+						Template("explains to $name that Hollywood has ruined voodoo's reputation. Chucks a bot head at the tv."),
 						Template("sticks a pin in a bot with the likeness of $name. $name falls over in pain."),
 						Template("casts a love spell on $name, who promptly falls head over heels for a Weavr"),
 						Template("sells $name a shrunken bot head, which vaguely resembles !povey.."),
