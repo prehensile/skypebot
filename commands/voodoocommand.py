@@ -12,7 +12,7 @@ class VoodooCommand( BaseCommand ):
 		
 		self.command_mappings = [ "voodoo", "witchdoctor", "spell" ]
 		
-			self.templates = [ 	Template("plucks out a couple of $name's hairs and runs off."),
+			self.templates = [ Template("plucks out a couple of $name's hairs and runs off."),
 						Template("explains voodoo economics to $name. $name still doesn't get it." ),
 						Template("shows off his voodoo globe. He spins it real fast and everybody freaks out.”"),
 						Template("serves his specialty voodoo donut to $name, who takes a bite. somewhere, millions scream out in pain."),
@@ -24,7 +24,7 @@ class VoodooCommand( BaseCommand ):
 						Template("sticks a pin in a doll with the likeness of $name. $name falls over in pain."),
 						Template("casts a love spell on $name, who promptly falls in love with !satan"),
 						Template("sells $name a shrunken head, which vaguely resembles !povey.."),
-						Template("holds $name's doll over a candle. something smells of !bacon."),
+						Template("holds $name's doll over a candle. something smells of !bacon.")
 							]
 
 	def generate( self, name ):
