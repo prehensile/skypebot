@@ -21,12 +21,18 @@ class DovehandCommand( BaseCommand ):
                                  "enormous",
                                  "papier-mache",
                                  "textbook",
+                                 "glitchy",
+                                 "withering",
+                                 "tingly",
                                  "uninspired"
                                ]                
         
           self.hands = [ "dovehands",
                          "rubber hands",
                          "globe hands",
+                         "melon weighing",
+                         "shelf stacking",
+                         "big fish little fish",
                          "tiny hands",
                          "futureclaw",
                        ]
