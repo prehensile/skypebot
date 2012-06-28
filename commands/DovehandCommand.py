@@ -9,7 +9,7 @@ class DovehandCommand( BaseCommand ):
           
           BaseCommand.__init__( self )
 
-          self.command_mappings = [ "dovehand" ]
+          self.command_mappings = [ "dovehand", "hands" ]
 
           self.templates = [  Template("performs $hand."),
                               Template("shows off $hand.")
@@ -17,13 +17,18 @@ class DovehandCommand( BaseCommand ):
         
           self.pre_modifiers = [ "sloppy",
                                  "uninspired",
-                                 "surprising"
+                                 "surprising",
+                                 "enormous",
+                                 "papier-mache",
+                                 "textbook",
+                                 "uninspired"
                                ]                
         
           self.hands = [ "dovehands",
                          "rubber hands",
                          "globe hands",
-                         "tiny hands"
+                         "tiny hands",
+                         "futureclaw",
                        ]
 
     def generate( self, name ):
