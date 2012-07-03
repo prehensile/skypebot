@@ -7,7 +7,10 @@ import logging
 import time
 
 # set up logging
-logging.basicConfig( filename="skypebot.log", level=logging.INFO, filemode='w' )
+logging.basicConfig( filename="skypebot.log",
+                        level=logging.INFO,
+                        filemode='w',
+                        format="%(asctime)-15s %(levelname)s %(message)s" )
 #logging.captureWarnings( True )
 # define a Handler which writes INFO messages or higher to the sys.stderr
 console = logging.StreamHandler()

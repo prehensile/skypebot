@@ -18,21 +18,26 @@ class ChatHandler(object):
     
     def __init__( self, Chat ):
         self.chat = Chat
-        self.last_timestamp = datetime.datetime.now()
+        #self.last_timestamp = datetime.datetime.now()
+        self.last_id = 0;
 
     def update( self ):
         new_messages = []
         messages = self.chat.RecentMessages
+        newest_id = self.last_id
         for message in messages:
-            dt = message.Datetime
-            if dt > self.last_timestamp:
-                new_messages.append( message )
-                self.last_timestamp = dt
+            #dt = message.Datetime
+            if message.Id > self.last_id:
+                if self.last_id > 0:
+                    new_messages.append( message )
+                # self.last_timestamp = dt
+                newest_id = message.Id
                 #print message.Id
+        self.last_id = newest_id
         return new_messages
 
 RUN_SKYPE = True
-ENABLE_TWITTER = True
+ENABLE_TWITTER = False
 ENABLE_GIFTS = True
 class BotThread( queuedthread.QueuedThread ):
     
@@ -70,15 +75,23 @@ class BotThread( queuedthread.QueuedThread ):
         # import commands
         all_commands = []
         logging.info( "Loading commands..." )
+        ## delete all .pyc files, force recompile
+        commands_path = "commands"
+        for fn in os.listdir( commands_path ):
+            if "pyc" in fn:
+                os.remove( os.path.join( commands_path, fn ) )
+        ## load all commands
         for loader, modname, ispkg in pkgutil.iter_modules( commands.__path__, prefix="commands." ):
             try:
+                logging.info( "Scan module: %s" % modname)
                 module = __import__( modname, fromlist="dummy" )
-                logging.info( "Load module: %s" % module )
                 for klassname in dir( module ):
-                    if "Command" in klassname and klassname is not "BaseCommand":
+                    if "Command" in klassname and "BaseCommand" not in klassname:
                         logging.info( "...instantiate command: %s" % klassname )
                         kommandklass = getattr( module, klassname )
-                        all_commands.append( kommandklass() )
+                        kommand = kommandklass()
+                        all_commands.append( kommand )
+                        logging.info( "......instantiated. Triggers are %s" % kommand.command_mappings )
             except Exception, e:
                 logging.info( e )
 
