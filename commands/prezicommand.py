@@ -9,6 +9,7 @@ class PreziCommand( BaseCommand ):
         BaseCommand.__init__( self )
         self.command_mappings = [ "prezi" ]
         self.templates = [  Template("zooms in on a hoover."),
+                            Template("zooms out."),
                             Template("zooms in on $name.")]
 
     def generate( self, name ):
