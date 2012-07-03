@@ -88,10 +88,13 @@ class BotThread( queuedthread.QueuedThread ):
                 for klassname in dir( module ):
                     if "Command" in klassname and "BaseCommand" not in klassname:
                         logging.info( "...instantiate command: %s" % klassname )
-                        kommandklass = getattr( module, klassname )
-                        kommand = kommandklass()
-                        all_commands.append( kommand )
-                        logging.info( "......instantiated. Triggers are %s" % kommand.command_mappings )
+                        try:
+                            kommandklass = getattr( module, klassname )
+                            kommand = kommandklass()
+                            all_commands.append( kommand )
+                            logging.info( "......instantiated. Triggers are %s" % kommand.command_mappings )
+                        except Exception, e:
+                            logging.info( e )    
             except Exception, e:
                 logging.info( e )
 
