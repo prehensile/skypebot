@@ -73,9 +73,10 @@ class BotThread( queuedthread.QueuedThread ):
         for loader, modname, ispkg in pkgutil.iter_modules( commands.__path__, prefix="commands." ):
             try:
                 module = __import__( modname, fromlist="dummy" )
+                logging.info( "Load module: %s" module )
                 for klassname in dir( module ):
-                    if "Command" in klassname:
-                        logging.info( "Instantiate command: %s" % klassname )
+                    if "Command" in klassname and klassname is not "BaseCommand":
+                        logging.info( "...instantiate command: %s" % klassname )
                         kommandklass = getattr( module, klassname )
                         all_commands.append( kommandklass() )
             except Exception, e:
