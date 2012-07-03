@@ -24,7 +24,7 @@ class TestCommand( BaseCommand ):
     def __init__(self):
         BaseCommand.__init__( self )
         self.command_mappings = [ "test" ]
-        self.templates = [  Template("test4") ]
+        self.templates = [  Template("test5") ]
 
     def generate( self, name ):
         template = random.choice( self.templates )
