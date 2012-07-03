@@ -43,6 +43,7 @@ try:
     while run_outer:
         logging.info( "Entering outer runloop, starting bot thread..." )
         # init & start new bot thread
+        reload( skypebot )
         bot_thread = skypebot.BotThread()
     	bot_thread.start()
         run_inner = True
