@@ -75,12 +75,8 @@ class BotThread( queuedthread.QueuedThread ):
         # import commands
         all_commands = []
         logging.info( "Loading commands..." )
-        ## delete all .pyc files, force recompile
-        commands_path = "commands"
-        for fn in os.listdir( commands_path ):
-            if "pyc" in fn:
-                os.remove( os.path.join( commands_path, fn ) )
         ## load all commands
+        reload( commands )
         for loader, modname, ispkg in pkgutil.iter_modules( commands.__path__, prefix="commands." ):
             try:
                 logging.info( "Scan module: %s" % modname)
