@@ -7,7 +7,7 @@ class PreziCommand( BaseCommand ):
 
     def __init__(self):
         BaseCommand.__init__( self )
-        self.command_mappings = [ "prezi" ]
+        self.command_mappings = [ "prezi", "preyi" ]
         self.templates = [  Template("zooms in on a hoover."),
                             Template("zooms out."),
                             Template("zooms in on $name.")]
