@@ -19,7 +19,9 @@ class CockCommand( BaseCommand ):
                             Template("tickles $name under the chin before making a rude joke about David Bausola. He then gives everyone in the bar $drink. #time #cock"),
                             Template("weeps."),
                             Template("flips himself off."),
-                            Template("axes $name to talk to the hay-and."),
+                            Template("whips it out."),
+                            Template("flashes $name."),
+                            Template("dips it in $name's !drink."),
                             Template("rubs one out."),
                             ]
 
