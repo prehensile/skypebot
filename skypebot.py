@@ -81,6 +81,7 @@ class BotThread( queuedthread.QueuedThread ):
             try:
                 logging.info( "Scan module: %s" % modname)
                 module = __import__( modname, fromlist="dummy" )
+                reload( module )
                 for klassname in dir( module ):
                     if "Command" in klassname and "BaseCommand" not in klassname:
                         logging.info( "...instantiate command: %s" % klassname )
