@@ -772,9 +772,5 @@ Template("It is not easy to stop thinking ill of others. Usually one must enter 
     def generate( self, name ):
         template = random.choice( self.templates )
         message_out = template.substitute(name=name)
-<<<<<<< HEAD
         return "/me scratches his beard and says '%s'" % message_out
-=======
-        return "scratches his beard and says \"%s\"" % message_out
->>>>>>> thanks henry!
 
