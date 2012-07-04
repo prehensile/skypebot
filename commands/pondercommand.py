@@ -769,8 +769,39 @@ Template("be still and know god"),
 Template("It is not easy to stop thinking ill of others. Usually one must enter into a friendship with a person, who has accomplished that great feat herself. Then, something might start to rub off on you.")
 ]
 
+          self.mod1=["scratches",
+                     "strokes",
+                     "pats down",
+                     "twiddles with",
+                     "plucks",
+                     "picks at",
+                     "fondles",
+                     "taps",
+                     "ruffles",
+                     "rummages in"]
+
+          self.mod2=["beard",
+                     "hair",
+                     "hat",
+                     "nose",
+                     "moustache",
+                     "nasal hair",
+                     "trousers",
+                     "dirty optics"]
+
+          self.mod3=["looks",
+                     "peers",
+                     "squints",
+                     "stares",
+                     "throws a drink"];
+
+
     def generate( self, name ):
         template = random.choice( self.templates )
+        mod1 = random.choice(self.mod1)
+        mod2 = random.choice(self.mod2)
+        mod3 = random.choice(self.mod3)
+        
         message_out = template.substitute(name=name)
-        return "/me scratches his beard and says \'%s\'" % message_out
+        return "/me "+mod3+" at "+name+", "+mod1+" his "+mod2+" and says \'%s\'" % message_out
 
