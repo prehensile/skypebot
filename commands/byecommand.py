@@ -10,7 +10,7 @@ class ByeCommand( BaseCommand ):
 
         BaseCommand.__init__( self )
         
-        self.command_mappings = [ "bye" ]
+        self.command_mappings = [ "bye", "night" ]
 
         self.templates = [  Template("waves goodbye to $name."),
                             Template("throws his hands up as $name finally leaves the bar."),
