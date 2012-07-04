@@ -23,15 +23,12 @@ class ChatHandler(object):
     def update( self ):
         new_messages = []
         messages = self.chat.RecentMessages
-        newest_dt = None
         for message in messages:
             dt = message.Datetime
-            if dt >= self.last_timestamp:
+            if dt > self.last_timestamp:
                 new_messages.append( message )
-                if newest_dt is None or dt > newest_dt:
-                    newest_dt = dt
-        if newest_dt is not None:
-            self.last_timestamp = newest_dt
+                self.last_timestamp = dt
+                #print message.Id
         return new_messages
 
 RUN_SKYPE = True
