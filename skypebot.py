@@ -139,7 +139,8 @@ class BotThread( queuedthread.QueuedThread ):
                                         message_out = None
                                         for commandstring in command.command_mappings:
                                             commandbang = "!" + commandstring
-                                            if commandbang in bl:
+                                            commandhash = "#" + commandstring
+                                            if commandbang in bl or commandhash in bl:
                                                 # if command is giftable
                                                 if ENABLE_GIFTS:
                                                     if hasattr( command, 'gift' ):
