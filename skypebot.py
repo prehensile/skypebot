@@ -27,7 +27,7 @@ class ChatHandler(object):
             dt = message.Datetime
             if dt >= self.last_timestamp:
                 new_messages.append( message )
-         self.last_timestamp = datetime.datetime.now()
+        self.last_timestamp = datetime.datetime.now()
         return new_messages
 
 RUN_SKYPE = True
