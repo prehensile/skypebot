@@ -142,6 +142,7 @@ class BotThread( queuedthread.QueuedThread ):
                                             commandbang = "!" + commandstring
                                             commandhash = "#" + commandstring
                                             if commandbang in bl or commandhash in bl:
+                                                print "Excute command %s" % commandstring
                                                 # if command is giftable
                                                 if ENABLE_GIFTS:
                                                     if hasattr( command, 'gift' ):
@@ -167,10 +168,10 @@ class BotThread( queuedthread.QueuedThread ):
                                                 if message_out is None:
                                                     message_out = command.execute( new_message )
 
-                                    if message_out is not None:
-                                        chat_handler.chat.SendMessage( message_out )
-                                        if ENABLE_TWITTER and command.tweets:
-                                            self.twitter_connector.tweet( message_out )
+                                        if message_out is not None:
+                                            chat_handler.chat.SendMessage( message_out )
+                                            if ENABLE_TWITTER and command.tweets:
+                                                self.twitter_connector.tweet( message_out )
 
                                 except Exception, e:
                                     logging.info( e )
