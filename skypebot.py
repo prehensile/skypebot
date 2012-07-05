@@ -14,6 +14,7 @@ import re
 import os
 import commands
 import urllib2
+import urllib
 
 class ChatHandler(object):
     
