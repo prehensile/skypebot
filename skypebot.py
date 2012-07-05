@@ -61,8 +61,9 @@ class BotThread( queuedthread.QueuedThread ):
     def send_radio( self, message, id ):
         if self.radio_url is not None:
             data = dict( id=id, line=message )
+            logging.info( "send_radio: %s" % data )
             response = urllib2.Request( self.radio_url, data=urllib.urlencode(data) )
-            logging.info( response )
+            logging.info( response.data )
 
     def stop( self, message=None ):
         if self.twitter_connector:
