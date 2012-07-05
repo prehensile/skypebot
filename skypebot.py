@@ -62,7 +62,7 @@ class BotThread( queuedthread.QueuedThread ):
         if self.radio_url is not None:
             data = dict( id=id, line=message )
             logging.info( "send_radio: %s" % data )
-            f = urllib.urlopen( self.radio_url, urllib.urlencode(params) )
+            f = urllib.urlopen( self.radio_url, urllib.urlencode(data) )
             logging.info( f.read() )
 
     def stop( self, message=None ):
