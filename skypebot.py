@@ -32,7 +32,7 @@ class ChatHandler(object):
         return new_messages
 
 RUN_SKYPE = True
-ENABLE_TWITTER = True
+ENABLE_TWITTER = False
 ENABLE_GIFTS = True
 class BotThread( queuedthread.QueuedThread ):
     
