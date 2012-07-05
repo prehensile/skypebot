@@ -60,10 +60,12 @@ class BotThread( queuedthread.QueuedThread ):
 
     def send_radio( self, message, id ):
         if self.radio_url is not None:
+            if message.startswith( "/me" ):
+                message = message[3:]
+                message = message.lstrip()
             data = dict( id=id, line=message )
-            logging.info( "send_radio: %s" % data )
             f = urllib.urlopen( self.radio_url, urllib.urlencode(data) )
-            logging.info( f.read() )
+            resp = f.read() # force read
 
     def stop( self, message=None ):
         if self.twitter_connector:
