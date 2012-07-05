@@ -13,8 +13,7 @@ from messages import housekeeping, streetnoise
 import re
 import os
 import commands
-from httplib2 import Http
-from urllib import urlencode
+import urllib2
 
 class ChatHandler(object):
     
@@ -33,16 +32,20 @@ class ChatHandler(object):
                 #print message.Id
         return new_messages
 
-RUN_SKYPE = True
-ENABLE_TWITTER = True
+RUN_SKYPE = False
+ENABLE_TWITTER = False
 ENABLE_GIFTS = True
 ENABLE_RADIO = True
 class BotThread( queuedthread.QueuedThread ):
     
     def __init__( self ):
         self.twitter_connector = None
+        self.radio_url = None
         if ENABLE_RADIO:
-            self.radio_http = Http()
+            fh = open( "radio_url")
+            self.radio_url = fh.readline().rstrip()
+            fh.close()
+            logging.info( "Loaded radio_url: %s", self.radio_url ) 
         super( BotThread, self ).__init__()
 
     def message_all( self, message ):
@@ -55,9 +58,10 @@ class BotThread( queuedthread.QueuedThread ):
                 logging.info( e )
 
     def send_radio( self, message, id ):
-        data = dict( id=id, line=message )
-        resp, content = self.radio_http.request("http://omnicritical.shardcore.no-ip.org/cgi-bin/lltospeech.pl", "POST", urlencode(data))
-        logging.info( content )
+        if self.radio_url is not None:
+            data = dict( id=id, line=message )
+            response = urllib2.Request( self.radio_url, data=urllib.urlencode(data) )
+            logging.info( response )
 
     def stop( self, message=None ):
         if self.twitter_connector:
