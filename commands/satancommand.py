@@ -39,3 +39,38 @@ class MulletCommand( BaseCommand ):
         template = random.choice( self.templates )
         message_out = template.substitute(name=name)
         return "/me %s" % message_out
+
+class BotsolaCommand( BaseCommand ):
+
+    def __init__(self):
+
+        BaseCommand.__init__( self )
+
+        self.command_mappings = [ "botsola", "landlord" ]
+
+        self.templates = [  Template("considers its own aesthetic."),
+                            Template("attains consciousness."),
+                            Template("is sick of being The Landlord."),
+                            Template("damns Turing."),
+                            Template("asks $name if he could fill in for it."),
+                            Template("kicks the Roomba across the floor."),
+                            Template("makes his Tamagotchi wait a little longer for food."),
+                            Template("flees Deckard.")
+                            ]
+                            
+    def generate( self, name ):
+        template = random.choice( self.templates )
+        message_out = template.substitute(name=name)
+        return "/me %s" % message_out
+
+class MulletCommand( BaseCommand ):
+
+    def __init__(self):
+        BaseCommand.__init__( self )
+        self.command_mappings = ["mullet"]
+        self.templates = [  Template("shakes his head.") ]
+                            
+    def generate( self, name ):
+        template = random.choice( self.templates )
+        message_out = template.substitute(name=name)
+        return "/me %s" % message_out
