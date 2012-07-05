@@ -53,6 +53,8 @@ class BotsolaCommand( BaseCommand ):
                             Template("is sick of being The Landlord."),
                             Template("damns Turing."),
                             Template("asks $name if he could fill in for it."),
+                            Template("kicks the Roomba across the floor."),
+                            Template("makes his Tamagotchi wait a little longer for food."),
                             Template("flees Deckard.")
                             ]
                             
