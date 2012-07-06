@@ -24,7 +24,7 @@ retries = 3
 hook_server = None
 while retries > 0:  
     try:
-        hook_server = HookServerThread( portnumber=31337 )
+        hook_server = HookServerThread()
     except Exception:
         pass
     retries -=1
@@ -34,7 +34,7 @@ while retries > 0:
         break
 if hook_server is None:
     sys.exit()
-hook_server.start()
+hook_server.start( portnumber=31337 )
 
 # run bot
 try:
