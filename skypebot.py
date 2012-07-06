@@ -215,7 +215,7 @@ class BotThread( queuedthread.QueuedThread ):
 
                     # update from api
                     if ENABLE_API:
-                        api_message = hook_server.pop_message()
+                        api_message = self.api_server.pop_message()
                         if api_message is not None:
                             logging.info( api_message.payload["message"] )
                             
