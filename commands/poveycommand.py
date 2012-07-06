@@ -27,6 +27,7 @@ class PoveyCommand( BaseCommand ):
                             Template("buggers off to Denmark for a bit."),
                             Template("nips out the back to catch up with the wrestling"),
                             Template("was on the best seat in the bus this morning"),
+                            Template("asks if people do karaoke in Sheffield"),
                             Template("calls $name a divvy")
                             ]
                             
