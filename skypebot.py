@@ -6,7 +6,7 @@ import json
 import sys
 import logging
 import twitterconnector
-from hookserver import HookServerMessage
+from hookserver import HookServerMessage, HookServerThread
 import queuedthread
 import time
 from messages import housekeeping, streetnoise
@@ -37,6 +37,7 @@ RUN_SKYPE = True
 ENABLE_TWITTER = True
 ENABLE_GIFTS = True
 ENABLE_RADIO = True
+ENABLE_API = True
 class BotThread( queuedthread.QueuedThread ):
     
     def __init__( self ):
@@ -47,6 +48,8 @@ class BotThread( queuedthread.QueuedThread ):
             self.radio_url = fh.readline().rstrip()
             fh.close()
             logging.info( "Loaded radio_url: %s", self.radio_url ) 
+        if ENABLE_API:
+            self.api_server = HookServerThread( portnumber=666 )
         super( BotThread, self ).__init__()
 
     def message_all( self, message ):
@@ -207,6 +210,12 @@ class BotThread( queuedthread.QueuedThread ):
                                     self.message_all( message_out )
                             except Exception, e:
                                 logging.info( e )
+
+                    # update from api
+                    if ENABLE_API:
+                        api_message = hook_server.pop_message()
+                        if api_message is not None:
+                            logging.info( api_message.payload["message"] )
                             
                     time.sleep(1)
             except Exception, e:

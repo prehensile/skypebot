@@ -24,7 +24,7 @@ retries = 3
 hook_server = None
 while retries > 0:  
     try:
-        hook_server = HookServerThread()
+        hook_server = HookServerThread( portnumber=31337 )
     except Exception:
         pass
     retries -=1

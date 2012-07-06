@@ -47,8 +47,8 @@ class HookHTTPServer( SocketServer.TCPServer ):
     def payload(self, value):
         self._payload = value
 
-    def __init__( self ):
-        SocketServer.TCPServer.__init__( self, ("", 31337), HookRequestHandler )
+    def __init__( self, portnumber ):
+        SocketServer.TCPServer.__init__( self, ("", portnumber), HookRequestHandler )
 
     def handle_request( self ):
         self._payload = None
@@ -62,9 +62,9 @@ class HookServerThread( queuedthread.QueuedThread ):
             self.httpd.timeout = 1
         super(HookServerThread,self).stop()
 
-    def run( self ):
+    def run( self, portnumber ):
         self._abortflag = False
-        self.httpd = HookHTTPServer()
+        self.httpd = HookHTTPServer( portnumber=portnumber )
         self.httpd.timeout = 5
         
         while not self._abortflag:
