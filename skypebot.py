@@ -220,6 +220,7 @@ class BotThread( queuedthread.QueuedThread ):
                             message_out = None
                             try:
                                 message_out = api_message.payload["message"]
+                                logging.info( message_out )
                             except Exception, e:
                                 logging.info( e )
                             if message_out is not None:
