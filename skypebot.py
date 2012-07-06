@@ -217,6 +217,8 @@ class BotThread( queuedthread.QueuedThread ):
                     if ENABLE_API:
                         api_message = self.api_server.pop_message()
                         if api_message is not None:
+                            print api_message
+                            print api_message.payload
                             message_out = None
                             try:
                                 message_out = api_message.payload["message"]
