@@ -20,6 +20,7 @@ class ShoutoutCommand( BaseCommand ):
           return "/me %s" % message_out
 
      def execute( self, message ):
+          body = message.Body
           bl = body.lower()
           for commandstring in self.command_mappings:
                if commandstring in bl:
