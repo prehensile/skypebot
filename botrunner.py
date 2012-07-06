@@ -34,7 +34,8 @@ while retries > 0:
         break
 if hook_server is None:
     sys.exit()
-hook_server.start( portnumber=31337 )
+hook_server.portnumber = 31337
+hook_server.start()
 
 # run bot
 try:

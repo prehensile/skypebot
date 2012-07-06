@@ -50,7 +50,8 @@ class BotThread( queuedthread.QueuedThread ):
             logging.info( "Loaded radio_url: %s", self.radio_url ) 
         if ENABLE_API:
             self.api_server = HookServerThread()
-            self.api_server.start( portnumber=666 )
+            self.api_server.portnumber = 9666
+            self.api_server.start()
         super( BotThread, self ).__init__()
 
     def message_all( self, message ):

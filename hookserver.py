@@ -57,14 +57,21 @@ class HookHTTPServer( SocketServer.TCPServer ):
 
 class HookServerThread( queuedthread.QueuedThread ):
 
+    @property
+    def portnumber(self):
+        return self._portnumber
+    @portnumber.setter
+    def portnumber(self, value):
+        self._portnumber = value
+
     def stop( self ):
         if self.httpd:
             self.httpd.timeout = 1
         super(HookServerThread,self).stop()
 
-    def run( self, portnumber ):
+    def run( self ):
         self._abortflag = False
-        self.httpd = HookHTTPServer( portnumber=portnumber )
+        self.httpd = HookHTTPServer( portnumber=self._portnumber )
         self.httpd.timeout = 5
         
         while not self._abortflag:
