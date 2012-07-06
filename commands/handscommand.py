@@ -13,7 +13,7 @@ class DovehandCommand( BaseCommand ):
 
           self.templates = [  Template("performs $hand."),
                               Template("shows off $hand."),
-                              Template("delivers $hand.")
+                              Template("delivers $hand."),
                               Template("lingers over the !prezi with $hand.")
                            ]
         
