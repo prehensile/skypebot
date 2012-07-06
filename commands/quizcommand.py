@@ -152,7 +152,7 @@ class QuizCommand( BaseCommand ):
             "mate, what are you on about?",
             "does talking about this bother you?" ]
 
-        self.templates = [  Template("asks $name $question"),
+        self.templates = [  Template("asks $name: $question"),
                             ]
                             
     def generate( self, name ):
