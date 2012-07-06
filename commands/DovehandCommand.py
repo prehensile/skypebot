@@ -12,7 +12,9 @@ class DovehandCommand( BaseCommand ):
           self.command_mappings = [ "dovehand", "hand", "hands" ]
 
           self.templates = [  Template("performs $hand."),
-                              Template("shows off $hand.")
+                              Template("shows off $hand."),
+                              Template("delivers $hand.")
+                              Template("lingers over the !prezi with $hand.")
                            ]
         
           self.pre_modifiers = [ "a sloppy",
@@ -27,6 +29,18 @@ class DovehandCommand( BaseCommand ):
                                  "a romantic",
                                  "an amateur",
                                  "a pro",
+                                 "an intimate",
+                                 "an unorthodox",
+                                 "a distinguished",
+                                 "a noble",
+                                 "a justified",
+                                 "a minced",
+                                 "a relaxed",
+                                 "an obtuse",
+                                 "an erect",
+                                 "an atrocious",
+                                 "an endless",
+                                 "a forgiving",
                                  ]                
         
           self.hands = [ "dovehands",
@@ -38,6 +52,15 @@ class DovehandCommand( BaseCommand ):
                          "tiny hands",
                          "T-Rex",
                          "cupping",
+                         "chop",
+                         "pyramid",
+                         "YMCA",
+                         "winding of the gears",
+                         "one-armed boxer",
+                         "wave of change",
+                         "chicken wing",
+                         "layer cake",
+                         "globe fist",
                          "futureclaw",
                        ]
 
