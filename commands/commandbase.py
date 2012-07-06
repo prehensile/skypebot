@@ -4,6 +4,7 @@ class BaseCommand(object):
         self.tweets = True
         self.command_mappings = []
         self.enabled = True
+        self.gifting_enabled = True
 
     def generate( self, name ):
         return None

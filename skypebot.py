@@ -162,7 +162,7 @@ class BotThread( queuedthread.QueuedThread ):
                                             if commandbang in bl or commandhash in bl:
                                                 print "Excute command %s" % commandstring
                                                 # if command is giftable
-                                                if ENABLE_GIFTS:
+                                                if command.gifting_enabled and ENABLE_GIFTS:
                                                     if hasattr( command, 'gift' ):
                                                         # split message up into tokens
                                                         tokens = re.split( '\W+', body )

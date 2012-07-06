@@ -13,6 +13,7 @@ class ShoutoutCommand( BaseCommand ):
                               Template("big ups $name."),
                               Template("drops the beat on $name.")
                             ]
+          self.gifting_enabled = False
 
      def generate( self, name ):
           template = random.choice( self.templates )
