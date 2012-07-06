@@ -55,11 +55,13 @@ class BotThread( queuedthread.QueuedThread ):
         super( BotThread, self ).__init__()
 
     def message_all( self, message ):
+        lines = message.split("\n")
     # send message to all connected chats   
         for chat_name in self.chat_handlers:
             chat_handler = self.chat_handlers[ chat_name ]
             try:
-                chat_handler.chat.SendMessage( message )
+                for line in lines:
+                    chat_handler.chat.SendMessage( message )
             except Exception, e:
                 logging.info( e )
 
@@ -217,17 +219,11 @@ class BotThread( queuedthread.QueuedThread ):
                     if ENABLE_API:
                         api_message = self.api_server.pop_message()
                         if api_message is not None:
-                            print api_message
-                            print api_message.payload
-                            message_out = None
                             try:
                                 message_out = api_message.payload["message"]
-                                logging.info( message_out )
+                                self.message_all( message_out )
                             except Exception, e:
                                 logging.info( e )
-                            if message_out is not None:
-                                self.message_all( message_out )
-                            
                     time.sleep(1)
             except Exception, e:
                 logging.info( e )
@@ -235,3 +231,5 @@ class BotThread( queuedthread.QueuedThread ):
 
         if ENABLE_TWITTER:
             self.twitter_connector.stop()
+        if ENABLE_API:
+            self.api_server.stop()    
