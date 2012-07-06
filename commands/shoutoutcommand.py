@@ -17,7 +17,9 @@ class ShoutoutCommand( BaseCommand ):
 
      def generate( self, name ):
           template = random.choice( self.templates )
-          message_out = template.substitute(name=name)
+          message_out = template.substitute( name=name )
+          if name.endswith( (".","!","?") ) and message_out.endswith("."):
+               message_out = message_out[:-1] # lose the fullstop if name is already punctuated
           return "/me %s" % message_out
 
      def execute( self, message ):
