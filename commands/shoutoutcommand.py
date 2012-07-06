@@ -10,8 +10,8 @@ class ShoutoutCommand( BaseCommand ):
           self.command_mappings = [ "shoutout", "bigup", "holdtight" ]
           self.templates = [  Template("shouts out to $name."),
                               Template("goes brap brap brap at $name."),
-                              Template("bigups $name."),
-                              Template("drops the mic on $name.")
+                              Template("big ups $name."),
+                              Template("drops the beat on $name.")
                             ]
 
      def generate( self, name ):
