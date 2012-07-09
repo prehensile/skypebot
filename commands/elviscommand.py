@@ -10,7 +10,6 @@ class ElvisCommand( BaseCommand ):
         BaseCommand.__init__( self )
 
         self.command_mappings = [ "elvis" ]
-        self.tweets = False
 
         self.templates = [
             Template("announces that $honorific $rooming the building"),
