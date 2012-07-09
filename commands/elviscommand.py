@@ -18,29 +18,33 @@ class ElvisCommand( BaseCommand ):
             Template("$reaction as $honorific $action #$ejaculation"),
             Template("$ejaculation"),
             Template("observes that Elvis was a hero to most..."),
-            Template("-El-El-El-El-Elvis!"),
+            Template("El-El-El-El-Elvis!"),
         ]         
 
-        self.honorific = [ "The King",
-                           "The King of Rock and Roll",
-                           "The Legend",
-                           "The Leather-Clad Crooner",
-                           "The White Suited Cabaret Act",
-                           "The Bequiffed Artiste" ]
+        self.honorifics = [ "The King",
+                            "The King of Rock and Roll",
+                            "The Legend",
+                            "The Leather-Clad Crooner",
+                            "The White Suited Cabaret Act",
+                            "The Bequiffed Artiste" ]
+        
+        self.roomings = [ "is entering",
+                          "has entered",
+                          "is in",
+                          "is leaving",
+                          "has left" ]
 
-        self.rooming = [ "is entering",
-                         "has entered"
-                         "is in",
-                         "is leaving",
-                         "has left" ]
-
-        self.action = [ "hands out garishly hued silk scarves",
-                        "croons",
-                        "belts out a classic",
-                        "wipes the sweat from his brow with a towel",
-                        "shops the Beatles to J. Edgar Hoover",
-                        "eats a second pizza",
-                        "gyrates his hips" ]
+        self.actions = [ "hands out garishly hued silk scarves",
+                         "croons",
+                         "belts out a classic",
+                         "wipes the sweat from his brow with a towel",
+                         "shops the Beatles to J. Edgar Hoover",
+                         "eats a second pizza",
+                         "sings his heart out",
+                         "grins back",
+                         "scowls back",
+                         "curls his lip",
+                         "gyrates his hips" ]
 
         self.ejaculations = [ "uhuhuh",
                               "thankyouverymuch",
