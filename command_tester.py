@@ -1,5 +1,10 @@
 from commands import pondercommand
 from commands import shoutoutcommand
+from commands import bullshitcommand
+
+# bullshit
+test_command = bullshitcommand.BullshitCommand()
+print test_command.generate( "prehensile" )
 
 # ponder
 test_command = pondercommand.PonderCommand()
