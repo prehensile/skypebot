@@ -11,6 +11,12 @@ class ShoutoutCommand( BaseCommand ):
           self.templates = [  Template("shouts out to $name."),
                               Template("goes brap brap brap at $name."),
                               Template("big ups $name."),
+                              Template("puts his hands up for $name."),
+                              Template("praises $name."),
+                              Template("scratches the shit out of $name."),
+                              Template("turns the LFO for $name."),
+                              Template("drops a piano break on $name."),
+                              Template("spins the record back for $name."),
                               Template("drops the beat on $name.")
                             ]
           self.gifting_enabled = False
