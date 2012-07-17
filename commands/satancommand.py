@@ -46,7 +46,7 @@ class BotsolaCommand( BaseCommand ):
 
         BaseCommand.__init__( self )
 
-        self.command_mappings = [ "botsola", "landlord" ]
+        self.command_mappings = [ "botsola", "landlord", "lndlrd" ]
 
         self.templates = [  Template("considers its own aesthetic."),
                             Template("attains consciousness."),
