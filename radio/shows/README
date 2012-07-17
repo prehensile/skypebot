@@ -1,0 +1,33 @@
+landlord radio shows
+
+a radio show consist of:
+
+- templates
+- substitution parts
+- audio intro file (called intro.aiff 22.2k sample rate, mono)
+- audio fill file (called fill.aiff 22.2k sample rate, mono)
+- list of voices
+
+these are all held in plain text files in subdirectories of /radio/shows
+
+e.g. /adverts looks like this:
+
+fill.aiff      intro.aiff     price.txt      product.txt    templates.txt  voices.txt
+
+a template file contains lines like this:
+
+  The finest, leather-scented, brandy-based #product# - only #price#.
+
+strings surrounded by '#' signs are keywords, the script looks for files of these names with .txt extension (in this case price.txt and product.txt)
+
+a show consists of:
+
+intro
+sentence 1
+fill
+sentence 2
+fill
+sentence 3
+fill
+
+if multiple voices are specified in voices.txt, one is selected at random for each sentence.
