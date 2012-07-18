@@ -1,0 +1,14 @@
+texts for algochat
+
+in /texts you'll find source texts for algo-chat, one is selected at random for each show.
+
+the files need to be plain text with a .txt extension
+
+the first line of the file should state the title of the text (as read out by the landlord) preceded by a '#' sign.
+
+e.g.
+
+#The Lyrics of Mark E Smith
+
+
+shardcore 18/07/12
