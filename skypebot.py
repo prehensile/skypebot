@@ -212,6 +212,8 @@ class BotThread( queuedthread.QueuedThread ):
                                 message_out = streetnoise.message_for_incoming_status( status_in )
                                 if message_out:
                                     self.message_all( message_out )
+                                    if ENABLE_RADIO:
+                                        self.send_radio( message_out, status.id_str )
                             except Exception, e:
                                 logging.info( e )
 
