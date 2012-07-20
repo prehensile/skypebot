@@ -213,7 +213,7 @@ class BotThread( queuedthread.QueuedThread ):
                                 if message_out:
                                     self.message_all( message_out )
                                     if ENABLE_RADIO:
-                                        self.send_radio( message_out, status.id_str )
+                                        self.send_radio( message_out, status_in.id_str )
                             except Exception, e:
                                 logging.info( e )
 
