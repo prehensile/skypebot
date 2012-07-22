@@ -10,7 +10,7 @@ class VoodooCommand( BaseCommand ):
     
         BaseCommand.__init__( self )
         
-        self.command_mappings = [ "voodoo", "witch", "spell", "magic", "trick" ]
+        self.command_mappings = [ "voodoo", "witch", "spell" ]
         
         self.templates = [  Template("plucks out a couple of $name's hairs and runs off."),
                     Template("explains voodoo economics to $name. $name still doesn't get it." ),
