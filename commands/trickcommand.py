@@ -47,7 +47,21 @@ class CoffeeCommand( BaseCommand ):
                     "David Copperfield\'s private photo collection"]              
 
         self.locations = [ "left ear",
-                    "right ear"]
+                    "right ear",
+                    "left nostril",
+                    "right nostril",
+                    "hat",
+                    "left trouser pocket",
+                    "right trouser pocket",
+                    "trendy turn-ups",
+                    "!drink",
+                    "coffee",
+                    "tea",
+                    "notebook",
+                    "left shoe",
+                    "right shoe",
+                    "mouth",
+                    "top pocket"]
 
         self.finishes = ["and gets his coat.",
                     "and takes a bow.",
