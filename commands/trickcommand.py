@@ -12,8 +12,7 @@ class CoffeeCommand( BaseCommand ):
         
         self.command_mappings = [ "Copperfield", "McGee", "maagik", "magikk" ]
 
-        self.templates = [  Template("$action $thing from $name\'s $location and $finish."),
-                            ]
+        self.templates = [  Template("$action $thing from $name\'s $location and $finish.")]
         
 
         self.actions = ["reveals",
@@ -68,11 +67,11 @@ class CoffeeCommand( BaseCommand ):
                     "and !ponders."]
         
     def generate( self, name ):
+        template = random.choice( self.templates )
         action = random.choice( self.actions )
         thing = random.choice( self.things )
         location = random.choice( self.locations )
         finish = random.choice( self.finishes )
-        template = random.choice( self.templates )
         message_out = template.substitute( name=name, action=action, thing=thing, location=location, finish=finish)
         return "/me %s" % message_out
 
