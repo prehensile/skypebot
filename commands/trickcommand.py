@@ -10,7 +10,7 @@ class CoffeeCommand( BaseCommand ):
 
         BaseCommand.__init__( self )
         
-        self.command_mappings = [ "Copperfield", "McGee", "maagik", "magikk" ]
+        self.command_mappings = [ "Copperfield", "McGee", "maagik", "magikk", "trick", "magic" ]
 
         self.templates = [  Template("$action $thing from $name\'s $location and $finish.")]
         
