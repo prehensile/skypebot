@@ -10,7 +10,7 @@ class CoffeeCommand( BaseCommand ):
 
         BaseCommand.__init__( self )
         
-        self.command_mappings = [ "magic", "trick" ]
+        self.command_mappings = [ "Copperfield", "McGee", "maagik", "magikk" ]
 
         self.templates = [  Template("pulls out $thing from $name's $location and $finish."),
                             ]
