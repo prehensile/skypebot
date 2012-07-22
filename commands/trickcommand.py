@@ -48,7 +48,7 @@ class CoffeeCommand( BaseCommand ):
                     "David Copperfield\'s private photo collection"]              
 
         self.locations = [ "left ear",
-                    "right ear",]
+                    "right ear"]
 
         self.finishes = ["and gets his coat.",
                     "and takes a bow.",
@@ -73,7 +73,7 @@ class CoffeeCommand( BaseCommand ):
         location = random.choice( self.locations )
         finish = random.choice( self.finishes )
         template = random.choice( self.templates )
-        message_out = template.substitute(name=name, action=action, thing=thing,location=location,finish=finish)
+        message_out = template.substitute( name=name, action=action, thing=thing, location=location, finish=finish)
         return "/me %s" % message_out
 
 
