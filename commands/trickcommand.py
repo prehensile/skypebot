@@ -76,7 +76,6 @@ class CoffeeCommand( BaseCommand ):
         finish = random.choice( self.finishes )
         template = random.choice( self.templates )
         pre_modifier = random.choice( self.pre_modifiers )
-        coffee = "%s %s" % (pre_modifier, coffee)
         template = random.choice( self.templates )
         message_out = template.substitute(  name=name, 
                                             thing=thing,
