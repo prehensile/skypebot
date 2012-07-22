@@ -12,9 +12,15 @@ class CoffeeCommand( BaseCommand ):
         
         self.command_mappings = [ "Copperfield", "McGee", "maagik", "magikk" ]
 
-        self.templates = [  Template("pulls out $thing from $name's $location and $finish."),
+        self.templates = [  Template("$action $thing from $name\'s $location and $finish."),
                             ]
         
+
+        self.actions = ["reveals",
+                    "pulls out",
+                    "teases out"]
+
+
         self.things = [ "a rabbit",
                     "a teapot",
                     "a donkey",
@@ -38,12 +44,11 @@ class CoffeeCommand( BaseCommand ):
                     "a Solero",
                     "a TARDIS",
                     "David Copperfield",
-                    "David Copperfield's mother",
-                    "David Copperfield's private photo collection"]              
+                    "David Copperfield\'s mother",
+                    "David Copperfield\'s private photo collection"]              
 
         self.locations = [ "left ear",
-                    "right ear",
-                    ]
+                    "right ear",]
 
         self.finishes = ["and gets his coat.",
                     "and takes a bow.",
@@ -61,27 +66,14 @@ class CoffeeCommand( BaseCommand ):
                     "and mumbles something about Debbie McGee in '89.",
                     "and pours himself a !drink",
                     "and !ponders."]
-
-
-
-
-
-
-
         
     def generate( self, name ):
-
+        action = random.choice( self.actions )
         thing = random.choice( self.things )
         location = random.choice( self.locations )
         finish = random.choice( self.finishes )
         template = random.choice( self.templates )
-        pre_modifier = random.choice( self.pre_modifiers )
-        template = random.choice( self.templates )
-        message_out = template.substitute(  name=name, 
-                                            thing=thing,
-                                            location=location,
-                                            finish=finish)
-
+        message_out = template.substitute(name=name, action=action, thing=thing,location=location,finish=finish)
         return "/me %s" % message_out
 
 
