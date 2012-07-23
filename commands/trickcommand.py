@@ -27,7 +27,6 @@ class CoffeeCommand( BaseCommand ):
                     "a small bus",
                     "a dead dove",
                     "a glitchy sherry",
-                    "$name\'s passport",
                     "a photo of !marcus from last Friday",
                     "Greg's wallet",
                     "a €20 coin",
