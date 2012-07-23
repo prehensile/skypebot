@@ -17,7 +17,8 @@ class CoffeeCommand( BaseCommand ):
 
         self.actions = ["reveals",
                     "pulls out",
-                    "teases out"]
+                    "teases out",
+                    "produces"]
 
 
         self.things = [ "a rabbit",
@@ -37,14 +38,12 @@ class CoffeeCommand( BaseCommand ):
                     "South Africa",
                     "a cold bag of chips",
                     "a massive currywurst",
-                    "a pair of Snow Lepoards",
+                    "a pair of Snow Leopards",
                     "the Olympic Torch",
                     "a BMX",
                     "a Solero",
                     "a TARDIS",
-                    "David Copperfield",
-                    "David Copperfield\'s mother",
-                    "David Copperfield\'s private photo collection"]              
+                    "David Copperfield"]              
 
         self.locations = [ "left ear",
                     "right ear",
@@ -55,6 +54,10 @@ class CoffeeCommand( BaseCommand ):
                     "right trouser pocket",
                     "trendy turn-ups",
                     "!drink",
+                    "!cheese",
+                    "!bacon",
+                    "!hangover",
+                    "!bullshit",
                     "coffee",
                     "tea",
                     "notebook",
@@ -63,22 +66,23 @@ class CoffeeCommand( BaseCommand ):
                     "mouth",
                     "top pocket"]
 
-        self.finishes = ["and gets his coat.",
-                    "and takes a bow.",
-                    "and winks at Pambot.",
-                    "and winks at David.",
-                    "and leaves.",
-                    "and vanishes in a puff of smoke.",
-                    "and leaves through the trapdoor.",
-                    "and evaporates.",
-                    "and teleports to Swindon.",
-                    "and claps the tune of Blankety Blank.",
-                    "and pedals off on the tiny tricycle.",
-                    "and sniffs.",
-                    "and asks for honest feedback.",
-                    "and mumbles something about Debbie McGee in '89.",
+        self.finishes = ["and gets his coat",
+                    "and takes a bow",
+                    "and winks at Pambot",
+                    "and winks at David",
+                    "and leaves",
+                    "and vanishes in a puff of smoke",
+                    "and leaves through the trapdoor",
+                    "and evaporates",
+                    "and teleports to Swindon",
+                    "and claps the tune of Blankety Blank",
+                    "and pedals off on the tiny tricycle",
+                    "and sniffs",
+                    "and asks for honest feedback",
+                    "and mumbles something about Debbie McGee in '89",
                     "and pours himself a !drink",
-                    "and !ponders."]
+                    "and !ponders",
+                    "and documents the process in a !prezi"]
         
     def generate( self, name ):
         template = random.choice( self.templates )
