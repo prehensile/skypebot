@@ -1,0 +1,3 @@
+[submodule "Skype4Py"]
+	path = Skype4Py
+	url = https://github.com/stigkj/Skype4Py.git
