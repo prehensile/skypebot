@@ -1,10 +1,10 @@
 from commands import pondercommand
 from commands import shoutoutcommand
-from commands import bullshitcommand
+from commands import lspcommand
 
 # bullshit
-test_command = bullshitcommand.BullshitCommand()
-print test_command.generate( "prehensile" )
+test_command = lspcommand.LspCommand()
+print test_command.generate( "shardcore" )
 
 # ponder
 test_command = pondercommand.PonderCommand()
