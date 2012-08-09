@@ -30,7 +30,8 @@ class TinyCommand( BaseCommand ):
                             Template("throws $name out of the bar for being too big."),
                             Template("chuckles as $name disappears through the cracks in the floorboards."),
                             Template("appears to have been in some very cold water."),
-                            Template("is all tilt-shifted and that.."),
+                            Template("is all tilt-shifted and that."),
+                            Template("is all tilt-shifted and that."),
                             Template("declares that size doesn’t matter as long as it’s !tiny"),
                             Template("shrinks $name and injects them into the blood stream of !satan."),
                             Template("dances to Ant Music.") ]
@@ -80,6 +81,27 @@ class BenchmarkCommand( BaseCommand ):
                             Template("puts on a super massive tiny suit."),
                             Template("tells $name to make a fucking appointment, just like $name did."), 
                             Template("whips out his calculator.") ]
+
+    def generate( self, name ):
+        template = random.choice( self.templates )
+        message_out = template.substitute(name=name)
+        return "/me %s" % message_out
+ 
+ 
+ class ArtCommand( BaseCommand ):
+
+    def __init__(self):
+        BaseCommand.__init__( self )
+        self.command_mappings = [ "art" ]
+        self.templates = [  Template("paints a picture of Morrissey."),
+                            Template("something something algorithmic portraits."),
+                            Template("daubs $name in paint."), 
+                            Template("gets naked and rolls around."),
+                            Template("screams into $name's face, calls it an intervention."),
+                            Template("paints his fingernails."),
+                            Template("makes a plaster cast of $name's arse."),
+                            Template("sells some old shit to a posh twat."),
+                            Template("invites you to his PV.") ]
 
     def generate( self, name ):
         template = random.choice( self.templates )
