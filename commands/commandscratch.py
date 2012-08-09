@@ -30,6 +30,7 @@ class TinyCommand( BaseCommand ):
                             Template("throws $name out of the bar for being too big."),
                             Template("chuckles as $name disappears throw the cracks in the floorboards."),
                             Template("appears to have been in some very cold water."),
+                            Template("is all tilt-shifted and that.."),
                             Template("declares that size doesn’t matter as long as it’s !tiny"),
                             Template("shrinks $name and injects them into the blood stream of !satan."),
                             Template("dances to Ant Music.") ]
