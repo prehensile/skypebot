@@ -18,20 +18,110 @@ class ExampleCommand( BaseCommand ):
         template = random.choice( self.templates )
         message_out = template.substitute(name=name)
         return "/me %s" % message_out
-
-class KnockKnockCommand( BaseCommand ):
+        
+class TinyCommand( BaseCommand ):
 
     def __init__(self):
         BaseCommand.__init__( self )
-        self.command_mappings = [ "knock" ]
-        self.templates = [  Template("asks who's there.") ]
+        self.command_mappings = [ "tiny" ]
+        self.templates = [  Template("shrinks the kids."),
+                            Template("looks at $name through some binoculars."),
+                            Template("squeezes the web into a size zero."), 
+                            Template("throws $name out of the bar for being too big."),
+                            Template("chuckles as $name disappears through the cracks in the floorboards."),
+                            Template("appears to have been in some very cold water."),
+                            Template("is all tilt-shifted and that."),
+                            Template("is wearing a size 4 shoe."),
+                            Template("declares that size doesn\'t matter as long as it s tiny"),
+                            Template("shrinks $name and injects them into the blood stream of !satan."),
+                            Template("dances to Ant Music.") ]
 
     def generate( self, name ):
         template = random.choice( self.templates )
         message_out = template.substitute(name=name)
         return "/me %s" % message_out
         
+
+class LoveCommand( BaseCommand ):
+
+    def __init__(self):
+        BaseCommand.__init__( self )
+        self.command_mappings = [ "love" ]
+        self.templates = [  Template("nuzzles $name."),
+                            Template("slaps $name on the behind, winks."), 
+                            Template("clumsily flirts with $name."), 
+                            Template("invites $name for a threeway with Pambot."), 
+                            Template("puts all his cards on the table. $name: I love you."), 
+                            Template("sends $name a Valentine's ecard."), 
+                            Template("gives $name a single red rose."), 
+                            Template("drunk dials $name."), 
+                            Template("ties a cherry stem with his tongue."), 
+                            Template("gives $name a sensual massage."), 
+                            Template("puts some Barry White on for $name."), 
+                            Template("takes $name out for dinner and a movie."), 
+                            Template("puts on a pair of suspenders for $name."), 
+                            Template("breaks into $name's house and leaves a box of Milk Tray."), 
+                            Template("hits up $name for a booty call."), 
+                            Template("asks $name out for a !drink.") ]
+
+    def generate( self, name ):
+        template = random.choice( self.templates )
+        message_out = template.substitute(name=name)
+        return "/me %s" % message_out
         
+class BenchmarkCommand( BaseCommand ):
+
+    def __init__(self):
+        BaseCommand.__init__( self )
+        self.command_mappings = [ "benchmark" ]
+        self.templates = [  Template("compares $name to $name and declares a no contest."),
+                            Template("compares $name to $name and declares a breakeven."), 
+                            Template("is disappointed with $name s fiscal performance."), 
+                            Template("grabs his copy of Six Sigma for Dummies."), 
+                            Template("presents $name with a tiny financial breakdown."), 
+                            Template("audits his suppliers."),
+                            Template("does something in Excel."), 
+                            Template("blames Marketing."), 
+                            Template("thinks $name would perform better if $name outsourced $name s drinking."), 
+                            Template("puts on a super massive tiny suit."),
+                            Template("tells $name to make a fucking appointment, just like $name did."), 
+                            Template("whips out his calculator.") ]
+
+    def generate( self, name ):
+        template = random.choice( self.templates )
+        message_out = template.substitute(name=name)
+        return "/me %s" % message_out
+ 
+ 
+class ArtCommand( BaseCommand ):
+
+    def __init__(self):
+        BaseCommand.__init__( self )
+        self.command_mappings = [ "art" ]
+        self.templates = [  Template("paints a picture of Morrissey."),
+                            Template("something something algorithmic portraits."),
+                            Template("daubs $name in paint."), 
+                            Template("applies for some funding."), 
+                            Template("gets naked and rolls around."),
+                            Template("screams into $name's face, calls it an intervention."),
+                            Template("paints his fingernails."),
+                            Template("is playing with time-based media."),
+                            Template("has a site-specific work commission."),
+                            Template("is sticking out of Teddy's arse."),
+                            Template("disappoints his parents."),
+                            Template("has daddy issues."),
+                            Template("works part-time in a bar to pay his rent."),
+                            Template("makes a plaster cast of $name's arse."),
+                            Template("sells some old shit to a posh twat."),
+                            Template("invites you to his PV.") ]
+
+    def generate( self, name ):
+        template = random.choice( self.templates )
+        message_out = template.substitute(name=name)
+        return "/me %s" % message_out
+ 
+ 
+ 
 class StrategyCommand( BaseCommand ):
 
     def __init__(self):
