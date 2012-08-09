@@ -18,6 +18,27 @@ class ExampleCommand( BaseCommand ):
         template = random.choice( self.templates )
         message_out = template.substitute(name=name)
         return "/me %s" % message_out
+        
+class TinyCommand( BaseCommand ):
+
+    def __init__(self):
+        BaseCommand.__init__( self )
+        self.command_mappings = [ "tiny" ]
+        self.templates = [  Template("shrinks the kids."),
+                            Template("looks at $name through some binoculars."),
+                            Template("squeezes the web into a size zero."), 
+                            Template("throws $name out of the bar for being too big."),
+                            Template("chuckles as $name disappears throw the cracks in the floorboards."),
+                            Template("appears to have been in some very cold water."),
+                            Template("declares that size doesn’t matter as long as it’s !tiny"),
+                            Template("shrinks $name and injects them into the blood stream of !satan."),
+                            Template("dances to Ant Music.") ]
+
+    def generate( self, name ):
+        template = random.choice( self.templates )
+        message_out = template.substitute(name=name)
+        return "/me %s" % message_out
+        
 
 class LoveCommand( BaseCommand ):
 
