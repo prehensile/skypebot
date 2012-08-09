@@ -30,6 +30,10 @@ class LoveCommand( BaseCommand ):
                             Template("invites $name for a threeway with Pambot."), 
                             Template("puts all his cards on the table. $name: I love you."), 
                             Template("sends $name a Valentine's ecard."), 
+                            Template("gives $name a single red rose."), 
+                            Template("drunk dials $name."), 
+                            Template("breaks into $name's house and leaves a box of Milk Tray."), 
+                            Template("hits up $name for a booty call."), 
                             Template("asks $name out for a !drink.") ]
 
     def generate( self, name ):
