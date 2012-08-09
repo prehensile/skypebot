@@ -96,6 +96,7 @@ class BenchmarkCommand( BaseCommand ):
         self.templates = [  Template("paints a picture of Morrissey."),
                             Template("something something algorithmic portraits."),
                             Template("daubs $name in paint."), 
+                            Template("applies for some funding."), 
                             Template("gets naked and rolls around."),
                             Template("screams into $name's face, calls it an intervention."),
                             Template("paints his fingernails."),
