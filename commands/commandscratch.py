@@ -28,7 +28,7 @@ class TinyCommand( BaseCommand ):
                             Template("looks at $name through some binoculars."),
                             Template("squeezes the web into a size zero."), 
                             Template("throws $name out of the bar for being too big."),
-                            Template("chuckles as $name disappears throw the cracks in the floorboards."),
+                            Template("chuckles as $name disappears through the cracks in the floorboards."),
                             Template("appears to have been in some very cold water."),
                             Template("is all tilt-shifted and that.."),
                             Template("declares that size doesn’t matter as long as it’s !tiny"),
@@ -71,7 +71,7 @@ class BenchmarkCommand( BaseCommand ):
         self.templates = [  Template("compares $name to $name and declares a no contest."),
                             Template("compares $name to $name and declares a breakeven."), 
                             Template("is disappointed with $name’s fiscal performance."), 
-                            Template("grabs his copy of “Six Sigma for Dummies."), 
+                            Template("grabs his copy of Six Sigma for Dummies."), 
                             Template("presents $name with a tiny financial breakdown."), 
                             Template("audits his suppliers."),
                             Template("does something in Excel."), 
@@ -79,7 +79,6 @@ class BenchmarkCommand( BaseCommand ):
                             Template("thinks $name would perform better if $name outsourced $name’s drinking."), 
                             Template("puts on a super massive tiny suit."),
                             Template("tells $name to make a fucking appointment, just like $name did."), 
- 
                             Template("whips out his calculator.") ]
 
     def generate( self, name ):
