@@ -19,12 +19,18 @@ class ExampleCommand( BaseCommand ):
         message_out = template.substitute(name=name)
         return "/me %s" % message_out
 
-class KnockKnockCommand( BaseCommand ):
+class LoveCommand( BaseCommand ):
 
     def __init__(self):
         BaseCommand.__init__( self )
-        self.command_mappings = [ "knock" ]
-        self.templates = [  Template("asks who's there.") ]
+        self.command_mappings = [ "love" ]
+        self.templates = [  Template("nuzzles $name.")
+                            Template("slaps $name on the behind, winks.") 
+                            Template("clumsily flirts with $name.") 
+                            Template("invites $name for a threeway with Pambot.") 
+                            Template("puts all his cards on the table. $name: I love you.") 
+                            Template("sends $name a Valentine's ecard.") 
+                            Template("asks $name out for a !drink.") ]
 
     def generate( self, name ):
         template = random.choice( self.templates )
