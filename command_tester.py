@@ -1,6 +1,13 @@
 from commands import pondercommand
 from commands import shoutoutcommand
 from commands import lspcommand
+from commands import commandscratch
+
+# love
+
+test_command = commandscratch.love()
+print test_command.generate("shardcore")
+
 
 # bullshit
 test_command = lspcommand.LspCommand()

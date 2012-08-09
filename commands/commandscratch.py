@@ -88,7 +88,7 @@ class BenchmarkCommand( BaseCommand ):
         return "/me %s" % message_out
  
  
- class ArtCommand( BaseCommand ):
+class ArtCommand( BaseCommand ):
 
     def __init__(self):
         BaseCommand.__init__( self )
