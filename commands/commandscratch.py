@@ -31,7 +31,7 @@ class TinyCommand( BaseCommand ):
                             Template("chuckles as $name disappears through the cracks in the floorboards."),
                             Template("appears to have been in some very cold water."),
                             Template("is all tilt-shifted and that."),
-                            Template("is all tilt-shifted and that."),
+                            Template("is wearing a size 4 shoe."),
                             Template("declares that size doesn’t matter as long as it’s !tiny"),
                             Template("shrinks $name and injects them into the blood stream of !satan."),
                             Template("dances to Ant Music.") ]
