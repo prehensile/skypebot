@@ -65,8 +65,8 @@ class ShardcoreCommand( BaseCommand ):
                             Template("misses the real world."),
                             Template("doesn't have a face."),
                             Template("draws a face on his cock-tip."),
-                            Template("has declared world domination of techno sleaze has his ultimate goal."),
-                            Template("has a seriously chat with the cleaning lady.") ]
+                            Template("has declared world domination of techno sleaze has is ultimate goal."),
+                            Template("has a serious chat with the cleaning lady.") ]
 
     def generate( self, name ):
         template = random.choice( self.templates )
