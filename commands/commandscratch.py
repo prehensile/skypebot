@@ -62,6 +62,9 @@ class ShardcoreCommand( BaseCommand ):
                             Template("is disappointed by all the swearing."),
                             Template("just wants to finger paint."),
                             Template("sacks his cleaner."),
+                            Template("misses the real world."),
+                            Template("doesn't have a face."),
+                            Template("draws a face on his cock-tip."),
                             Template("has declared world domination of techno sleaze has his ultimate goal."),
                             Template("has a seriously chat with the cleaning lady.") ]
 
