@@ -180,6 +180,7 @@ class BotThread( queuedthread.QueuedThread ):
                             except Exception, e:
                                 logging.info( e )
                     time.sleep(1)
+            
             except Exception, e:
                 logging.info( e )
                 print e
