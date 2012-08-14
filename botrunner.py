@@ -59,7 +59,7 @@ try:
                 if hookserver_message.code == HookServerMessage.RECIEVED_PUSH:
                     ref = hookserver_message.payload[ 'ref' ]
                     # github refs are in the form "refs/heads/<branchname>"
-                    ref = ref.split( "/" )[2:].join("/")
+                    ref = "/".join( ref.split( "/" )[2:] )
                     logging.info( "Recieved push notification on branch %s..." % ref )
                     if GIT_BRANCH and (GIT_BRANCH==ref):
                         # construct quit messge for bot
